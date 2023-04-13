@@ -4,27 +4,26 @@
     </div>
     <div class="card-body">
 
-        <form>
+        <form [formGroup]="formUser" (ngSubmit)="sendData()">
 
             <div class="mb-3">
                 <label for="" class="form-label">Nombre</label>
-                <input type="text" class="form-control" name="" id="" aria-describedby="helpId"
-                    placeholder="Escribe un nombre">
+
+                <input type="text" class="form-control" name="" formControlName="nombre" id="" 
+                aria-describedby="helpId" placeholder="Escribe un nombre">
             </div>
 
             <div class="mb-3">
                 <label for="" class="form-label">Correo</label>
-                <input type="email" class="form-control" name="" id="" aria-describedby="helpId"
-                    placeholder="Escribe tu Correo">
+                <input type="email" class="form-control" name="" formControlName="correo" id="" 
+                aria-describedby="helpId" placeholder="Escribe tu Correo">
             </div>
 
             <div class="btn-group" role="group" aria-label="">
-                <button type="button" class="btn btn-success">Agregar</button>
+                <button type="submit" class="btn btn-success">Agregar</button>
                 <button type="button" class="btn btn-warning">Cancelar</button>
             </div>
-
         </form>
-
     </div>
 
 </div>
