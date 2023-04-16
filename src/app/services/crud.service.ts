@@ -12,9 +12,6 @@ export class CrudService {
   API01: string = 'http://localhost/empleados/'
 
   constructor(private clientHttp: HttpClient) {
-
-    Add_User(datosEmpleado:Empleado):Observable<any>{
-      return this.clientHttp.post('this.API + ')
-    }
+    
   }
 }
