@@ -1,19 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms'; 
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',
-  styleUrls: ['./add-user.component.css']
+  styleUrls: ['./add-user.component.css'],
 })
-export class AddUserComponent  implements OnInit{
+export class AddUserComponent implements OnInit {
+  formUser: FormGroup;
 
-  formUser:FormGroup; 
-
-  constructor( public form:FormBuilder ){
+  constructor(public form: FormBuilder) {
     this.formUser = this.form.group({
-      nombre:[''],
-      correo:[''],
+      nombre: [''],
+      correo: [''],
     });
   }
 
@@ -21,7 +20,6 @@ export class AddUserComponent  implements OnInit{
 
   sendData(): any {
     console.log(`presionando button`);
-    console.log(this.formUser.value);    
+    console.log(this.formUser.value);
   }
-
 }
