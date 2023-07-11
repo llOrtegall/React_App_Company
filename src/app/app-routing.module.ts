@@ -6,20 +6,20 @@ import { ListUserComponent } from './components/list-user/list-user.component';
 
 const routes: Routes = [
   {
-    path:'',
-    pathMatch:'full',
-    redirectTo:'add-user'
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'add-user'
   },
   {
-    path:'add-user',
+    path: 'add-user',
     component: AddUserComponent,
   },
   {
-    path:'list-user',
+    path: 'list-user',
     component: ListUserComponent,
   },
   {
-    path:'edit-user/:id',
+    path: 'edit-user/:id',
     component: EditUserComponent,
   },
 ];
