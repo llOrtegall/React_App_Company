@@ -1,48 +1,49 @@
-import { useState } from 'react'
+import { useEffect } from 'react'
+import { useAuth } from './auth/AuthContext'
+import { CreateUser } from './pages/CreateUser'
+import { Login } from './pages/Login'
 
-export function App() {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-  const [error, setError] = useState(null)
+function getCookie (name) {
+  const cookies = document.cookie.split(';')
+  const cookie = cookies.find(cookie => cookie.startsWith(name))
+  if (cookie) {
+    const [, token] = cookie.split('=')
+    return token
+  }
+  return null
+}
 
-  const handleSubmit = ev => {
-    ev.preventDefault()
-    fetch('http://172.20.1.160:3000/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username, password })
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data)
-      })
+export function App () {
+  const { loggedIn, login } = useAuth()
+
+  useEffect(() => {
+    const getLoggedIn = async () => {
+      try {
+        const token = getCookie('token')
+        const result = await fetch('http://172.20.1.160:3000/profile', {
+          headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' }
+        })
+        if (result.status === 200) {
+          const { auth } = await result.json()
+          login(auth)
+        }
+        if (result.status === 401) {
+          login(false)
+        }
+      } catch (error) {
+        if (error) throw new Error(error)
+        console.log(error)
+      }
+    }
+
+    getLoggedIn()
+  }, [])
+
+  if (loggedIn) {
+    return <CreateUser />
   }
 
   return (
-    <section className="h-screen w-full bg-blue-800 flex items-center justify-center">
-      <form className="flex flex-col relative" onSubmit={handleSubmit}>
-        <input
-          className="bg-white rounded-lg p-2 my-2 shadow-lg"
-          onChange={ev => setUsername(ev.target.value)}
-          value={username}
-          placeholder="Usuario"
-          type="text"
-        />
-        <input
-          className="bg-white rounded-lg p-2 my-2 shadow-lg"
-          onChange={ev => setPassword(ev.target.value)}
-          value={password}
-          placeholder="Contraseña"
-          type="password"
-        />
-        <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-2"
-          type="submit"
-        >
-          Sign In
-        </button>
-        {error && <p className="text-red-500 absolute">{error}</p>}
-      </form>
-    </section>
+    <Login />
   )
 }
