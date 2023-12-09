@@ -1,7 +1,11 @@
+import { Route, Routes, Navigate, useNavigate } from 'react-router-dom'
 import { CreateUser } from './pages/CreateUser'
+import { Layout } from './components/Layout'
 import { useAuth } from './auth/AuthContext'
 import { Login } from './pages/Login'
 import { useEffect } from 'react'
+import { Dashboard } from './pages/Dashboard'
+import { Usuarios } from './pages/Usuarios'
 
 function getCookie (name) {
   const cookies = document.cookie.split(';')
@@ -13,8 +17,19 @@ function getCookie (name) {
   return null
 }
 
+// eslint-disable-next-line react/prop-types
+const ProtectedRoute = ({ children }) => {
+  const { loggedIn } = useAuth()
+  if (!loggedIn) {
+    return <Navigate to='/login' />
+  }
+  return children
+}
+
 export function App () {
-  const { loggedIn, login } = useAuth()
+  const { login } = useAuth()
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     const getLoggedIn = async () => {
@@ -26,6 +41,7 @@ export function App () {
         if (result.status === 200) {
           const { auth } = await result.json()
           login(auth)
+          navigate('/dashboard')
         }
         if (result.status === 401) {
           login(false)
@@ -38,11 +54,15 @@ export function App () {
     getLoggedIn()
   }, [])
 
-  if (loggedIn) {
-    return <CreateUser />
-  }
-
   return (
-    <Login />
+    <Routes>
+      <Route path='/login' element={<Login />} />
+      <Route path='/' element={<ProtectedRoute><Layout /></ProtectedRoute>} >
+        <Route path='dashboard' element={<Dashboard />} />
+        <Route path='crearUser' element={<CreateUser />} />
+        <Route path='usuarios' element={<Usuarios />} />
+      </Route>
+      <Route path='*' element={<h1>Not Found</h1>} />
+    </Routes>
   )
 }

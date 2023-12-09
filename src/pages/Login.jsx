@@ -1,11 +1,14 @@
 import { useState } from 'react'
 import { useAuth } from '../auth/AuthContext'
+import { useNavigate } from 'react-router-dom'
 
 export function Login () {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState(null)
   const { login } = useAuth()
+
+  const navigate = useNavigate()
 
   const handleSubmit = async (ev) => {
     ev.preventDefault()
@@ -20,6 +23,7 @@ export function Login () {
         const { auth, token } = await response.json()
         login(auth)
         document.cookie = `token=${token}`
+        navigate('/dashboard')
       }
 
       if (response.status === 400 || response.status === 401) {
