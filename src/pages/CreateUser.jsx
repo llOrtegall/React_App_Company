@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export function CreateUser() {
+export function CreateUser () {
   const [nombres, setNombres] = useState('')
   const [apellidos, setApellidos] = useState('')
   const [documento, setDocumento] = useState('')
