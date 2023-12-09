@@ -7,7 +7,11 @@ export function AuthProvider ({ children }) {
   const [loggedIn, setLoggedIn] = useState(false)
 
   const login = (auth) => setLoggedIn(auth)
-  const logout = () => setLoggedIn(false)
+  const logout = () => {
+    setLoggedIn(false)
+    // borrar cookies del navegador
+    document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
+  }
 
   return (
     <AuthContext.Provider value={{ loggedIn, login, logout }}>
