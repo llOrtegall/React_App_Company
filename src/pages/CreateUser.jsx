@@ -9,18 +9,52 @@ export function CreateUser() {
   const [empresa, setEmpresa] = useState('')
   const [proceso, setProceso] = useState('')
   const [cargo, setCargo] = useState('')
-  const [error, setError] = useState(null)
 
-  console.log(empresa)
-  console.log(proceso)
+  const [message, setMessage] = useState('')
+  const [error, setError] = useState(null)
 
   const handleSubmit = async (ev) => {
     ev.preventDefault()
+
+    const tel = parseInt(telefono)
+    const doc = parseInt(documento)
+    const pro = parseInt(proceso)
+    const emp = parseInt(empresa)
+
+    const result = await fetch('http://172.20.1.160:3000/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        nombres,
+        apellidos,
+        documento: doc,
+        telefono: tel,
+        correo,
+        empresa: emp,
+        proceso: pro,
+        rol: cargo
+      })
+    })
+
+    if (result.status === 201) {
+      const { message } = await result.json()
+      setMessage(message)
+    }
+
+    if (result.status === 401) {
+      const { error } = await result.json()
+      setError(error)
+      setTimeout(() => setError(null), 3000)
+    }
+
+    console.log(result)
   }
 
   return (
-    <main className="bg-blue-400 w-full h-screen flex items-center justify-center">
-      <form onSubmit={handleSubmit}>
+    <main className="bg-blue-400 w-full h-screen flex items-center justify-center relative">
+      <form onSubmit={handleSubmit} className=''>
         <h1 className="text-3xl text-white font-bold text-center">Crear Usuarios </h1>
         <div className="bg-white rounded-lg shadow-lg w-96 p-6 mt-10">
           <div className="flex flex-col space-y-4">
@@ -58,6 +92,8 @@ export function CreateUser() {
           </div>
         </div>
       </form>
+      {message && <div className="text-green-500 font-semibold justify-center text-center mt-2 absolute bottom-20">{message}</div>}
+      {error && <div className="text-red-500 font-semibold justify-center text-center mt-2 absolute bottom-20">{error}</div>}
     </main>
   )
 }
