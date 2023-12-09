@@ -32,6 +32,7 @@ export function Usuarios () {
           <tr className='bg-blue-200 text-base'>
             <th>Nombres</th>
             <th>Apellidos</th>
+            <th>Documento</th>
             <th>Correo</th>
             <th>Usuario</th>
             <th>Estado</th>
@@ -47,6 +48,7 @@ export function Usuarios () {
             <tr key={user.documento} className='border bg-slate-600 text-white'>
               <td>{user.nombres}</td>
               <td>{user.apellidos}</td>
+              <td>{user.documento}</td>
               <td>{user.correo}</td>
               <td>{user.username}</td>
               <td>{user.estado}</td>
