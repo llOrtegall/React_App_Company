@@ -1,22 +1,46 @@
-export function CreateUser () {
+import { useState } from 'react'
+
+export function CreateUser() {
+  const [nombres, setNombres] = useState('')
+  const [apellidos, setApellidos] = useState('')
+  const [documento, setDocumento] = useState('')
+  const [telefono, setTelefono] = useState('')
+  const [correo, setCorreo] = useState('')
+  const [empresa, setEmpresa] = useState('')
+  const [proceso, setProceso] = useState('')
+  const [cargo, setCargo] = useState('')
+  const [error, setError] = useState(null)
+
+  console.log(empresa)
+  console.log(proceso)
+
+  const handleSubmit = async (ev) => {
+    ev.preventDefault()
+  }
+
   return (
     <main className="bg-blue-400 w-full h-screen flex items-center justify-center">
-      <form>
+      <form onSubmit={handleSubmit}>
         <h1 className="text-3xl text-white font-bold text-center">Crear Usuarios </h1>
         <div className="bg-white rounded-lg shadow-lg w-96 p-6 mt-10">
           <div className="flex flex-col space-y-4">
-            <input type="text" placeholder="Nombres" className="border-2 rounded-lg p-3" />
-            <input type="text" placeholder="Apellidos" className="border-2 rounded-lg p-3" />
-            <input type="text" placeholder="N° Documento" className="border-2 rounded-lg p-3" />
-            <input type="text" placeholder="N° Telefono" className="border-2 rounded-lg p-3" />
-            <input type="email" placeholder="Correo" className="border-2 rounded-lg p-3" />
-            <select name="" id="" className="border-2 rounded-lg p-3">
+            <input type="text" placeholder="Nombres"
+              className="border-2 rounded-lg p-3" onChange={ev => setNombres(ev.target.value)} />
+            <input type="text" placeholder="Apellidos"
+              className="border-2 rounded-lg p-3" onChange={ev => setApellidos(ev.target.value)} />
+            <input type="text" placeholder="N° Documento"
+              className="border-2 rounded-lg p-3" onChange={ev => setDocumento(ev.target.value)} />
+            <input type="text" placeholder="N° Telefono"
+              className="border-2 rounded-lg p-3" onChange={ev => setTelefono(ev.target.value)} />
+            <input type="email" placeholder="Correo"
+              className="border-2 rounded-lg p-3" onChange={ev => setCorreo(ev.target.value)} />
+            <select className="border-2 rounded-lg p-3" onChange={ev => setEmpresa(ev.target.value)}>
               <option>Selecione Empresa</option>
-              <option value="">Multired / Servired</option>
-              <option value="">- Multired -</option>
-              <option value="">- Servired -</option>
+              <option value={0}>Multired / Servired</option>
+              <option value={1}>- Multired -</option>
+              <option value={2}>- Servired -</option>
             </select>
-            <select name="proceso" id="" className="border-2 rounded-lg p-3">
+            <select className="border-2 rounded-lg p-3" onChange={ev => setProceso(ev.target.value)}>
               <option>Seleccione Proceso</option>
               <option value={1}>Técnología</option>
               <option value={2}>Contabilidad</option>
@@ -28,7 +52,8 @@ export function CreateUser () {
               <option value={8}>Auditoria</option>
               <option value={9}>Cumplimiento</option>
             </select>
-            <input type="text" placeholder="Rol / Cargo" className="border-2 rounded-lg p-3" />
+            <input type="text" placeholder="Rol / Cargo"
+              className="border-2 rounded-lg p-3" onChange={ev => setCargo(ev.target.value)} />
             <button className="bg-blue-400 text-white rounded-lg p-3 font-bold">Crear Usuario</button>
           </div>
         </div>
