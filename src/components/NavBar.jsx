@@ -21,10 +21,10 @@ export function NavBar () {
             <Link to='/dashboard'>Home</Link>
           </li>
           <li className='text-white text-xl font-semibold hover:text-yellow-600'>
-            <Link to='/crearUser'>Registrar</Link>
+            <Link to='/usuarios'>Usuarios</Link>
           </li>
           <li className='text-white text-xl font-semibold hover:text-yellow-600'>
-            <Link to='/usuarios'>Usuarios</Link>
+            <Link to='/crearUser'>Registrar</Link>
           </li>
         </ul>
         <ul>
