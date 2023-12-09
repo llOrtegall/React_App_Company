@@ -1,7 +1,7 @@
-import { useEffect } from 'react'
-import { useAuth } from './auth/AuthContext'
 import { CreateUser } from './pages/CreateUser'
+import { useAuth } from './auth/AuthContext'
 import { Login } from './pages/Login'
+import { useEffect } from 'react'
 
 function getCookie (name) {
   const cookies = document.cookie.split(';')
@@ -35,7 +35,6 @@ export function App () {
         console.log(error)
       }
     }
-
     getLoggedIn()
   }, [])
 
