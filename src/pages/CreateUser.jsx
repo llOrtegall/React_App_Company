@@ -73,7 +73,7 @@ export function CreateUser () {
   }
 
   return (
-    <main className="bg-blue-400 w-full h-screen flex items-center justify-center relative">
+    <main className="bg-blue-400 w-full h-screen flex items-center justify-center">
       <form onSubmit={handleSubmit} className='' ref={formRef}>
         <h1 className="text-3xl text-white font-bold text-center">Crear Usuarios </h1>
         <div className="bg-white rounded-lg shadow-lg w-96 p-6 mt-10">
@@ -120,8 +120,8 @@ export function CreateUser () {
           </div>
         </div>
       </form>
-      {message && <div className="text-green-800 font-semibold justify-center text-center mt-2 absolute bottom-20">{message}</div>}
-      {error && <div className="text-red-500 font-semibold justify-center text-center mt-2 absolute bottom-20">{error}</div>}
+      {message && <div className="text-green-800 font-semibold justify-center text-center mt-2 absolute bottom-4">{message}</div>}
+      {error && <div className="text-red-500 font-semibold justify-center text-center mt-2 absolute bottom-4">{error}</div>}
     </main>
   )
 }

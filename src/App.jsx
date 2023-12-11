@@ -1,4 +1,5 @@
 import { Route, Routes, Navigate, useNavigate } from 'react-router-dom'
+import { getCookie } from './utils/getToken.js'
 import { CreateUser } from './pages/CreateUser'
 import { Layout } from './components/Layout'
 import { useAuth } from './auth/AuthContext'
@@ -6,16 +7,7 @@ import { Login } from './pages/Login'
 import { useEffect } from 'react'
 import { Dashboard } from './pages/Dashboard'
 import { Usuarios } from './pages/Usuarios'
-
-function getCookie (name) {
-  const cookies = document.cookie.split(';')
-  const cookie = cookies.find(cookie => cookie.startsWith(name))
-  if (cookie) {
-    const [, token] = cookie.split('=')
-    return token
-  }
-  return null
-}
+import { UserConfig } from './pages/UserConfig'
 
 // eslint-disable-next-line react/prop-types
 const ProtectedRoute = ({ children }) => {
@@ -61,6 +53,7 @@ export function App () {
         <Route path='dashboard' element={<Dashboard />} />
         <Route path='crearUser' element={<CreateUser />} />
         <Route path='usuarios' element={<Usuarios />} />
+        <Route path='userConfig' element={<UserConfig />} />
       </Route>
       <Route path='*' element={<h1>Not Found</h1>} />
     </Routes>

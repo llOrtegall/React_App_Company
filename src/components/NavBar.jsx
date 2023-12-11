@@ -23,9 +23,7 @@ export function NavBar () {
         </ul>
         <ul>
           <li className='flex items-center gap-3'>
-            <li>
-              <UserLoged />
-            </li>
+            <UserLoged />
           </li>
         </ul>
       </nav>
