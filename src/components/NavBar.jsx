@@ -1,13 +1,7 @@
 import { Link } from 'react-router-dom'
-import { useAuth } from '../auth/AuthContext'
+import { UserLoged } from './UserLoged'
 
 export function NavBar () {
-  const { logout } = useAuth()
-
-  function handleClick () {
-    logout()
-  }
-
   return (
     <>
       <nav className='flex bg-slate-800 h-auto py-2 px-4 justify-around items-center'>
@@ -28,11 +22,10 @@ export function NavBar () {
           </li>
         </ul>
         <ul>
-          <li>
-            <button className='bg-blue-400 p-2 rounded-md hover:bg-yellow-500'
-              onClick={handleClick}>
-              Cerrar Sesion
-            </button>
+          <li className='flex items-center gap-3'>
+            <li>
+              <UserLoged />
+            </li>
           </li>
         </ul>
       </nav>

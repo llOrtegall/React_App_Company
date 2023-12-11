@@ -38,8 +38,8 @@ export function Login () {
   }
 
   return (
-    <section className="h-screen w-full bg-blue-800 flex items-center justify-center">
-      <form className="flex flex-col relative" onSubmit={handleSubmit}>
+    <section className="h-screen w-full bg-blue-800 flex items-center justify-center relative">
+      <form className="flex flex-col" onSubmit={handleSubmit}>
         <input
           className="bg-white rounded-lg p-2 my-2 shadow-lg"
           onChange={ev => setUsername(ev.target.value)}
@@ -58,10 +58,10 @@ export function Login () {
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-2"
           type="submit"
         >
-          Sign In
+          Iniciar Sesión
         </button>
-        {error && <p className="text-red-400 font-bold absolute text-center -bottom-12">{error}</p>}
       </form>
+      {error && <p className="text-red-400 font-bold absolute text-center justify-center bottom-80 ">{error}</p>}
     </section>
   )
 }
