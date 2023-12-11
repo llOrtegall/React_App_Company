@@ -26,7 +26,7 @@ export function UserLoged () {
           <ul className='flex flex-col gap-2'>
             <li className='text-white text-xl font-semibold hover:text-yellow-600'>
               <button onClick={handleClick}>
-                <Link to='/userConfig'>Usuario</Link>
+                <Link to='/userConfig'>Mi Usuario</Link>
               </button>
             </li>
             <li className='text-white text-xl font-semibold hover:text-yellow-600'>

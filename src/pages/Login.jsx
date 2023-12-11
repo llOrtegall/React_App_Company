@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useAuth } from '../auth/AuthContext'
 import { useNavigate } from 'react-router-dom'
+import { GetUserCookie } from '../utils/GetUser'
 
 export function Login () {
   const [username, setUsername] = useState('')
@@ -20,9 +21,10 @@ export function Login () {
         body: JSON.stringify({ user: username, password })
       })
       if (response.status === 200) {
-        const { auth, token } = await response.json()
-        login(auth)
-        document.cookie = `token=${token}`
+        const result = await response.json()
+        document.cookie = `token=${result.token}`
+        const user = await GetUserCookie(result.token)
+        login(result.auth, user)
         navigate('/dashboard')
       }
 

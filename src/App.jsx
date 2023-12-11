@@ -1,13 +1,13 @@
 import { Route, Routes, Navigate, useNavigate } from 'react-router-dom'
-import { getCookie } from './utils/getToken.js'
 import { CreateUser } from './pages/CreateUser'
 import { Layout } from './components/Layout'
 import { useAuth } from './auth/AuthContext'
 import { Login } from './pages/Login'
-import { useEffect } from 'react'
 import { Dashboard } from './pages/Dashboard'
 import { Usuarios } from './pages/Usuarios'
 import { UserConfig } from './pages/UserConfig'
+import { useEffect } from 'react'
+import { getCookie } from './utils/getToken'
 
 // eslint-disable-next-line react/prop-types
 const ProtectedRoute = ({ children }) => {
@@ -20,7 +20,6 @@ const ProtectedRoute = ({ children }) => {
 
 export function App () {
   const { login } = useAuth()
-
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -31,8 +30,8 @@ export function App () {
           headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' }
         })
         if (result.status === 200) {
-          const { auth } = await result.json()
-          login(auth)
+          const usuario = await result.json()
+          login(usuario.auth, usuario.user)
           navigate('/dashboard')
         }
         if (result.status === 401) {
