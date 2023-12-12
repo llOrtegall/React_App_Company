@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react'
+import { API } from '../App.jsx'
 
 export function CreateUser () {
   const [nombres, setNombres] = useState('')
@@ -33,7 +34,7 @@ export function CreateUser () {
     const pro = parseInt(proceso)
     const emp = parseInt(empresa)
 
-    const result = await fetch('http://172.20.1.160:3000/register', {
+    const result = await fetch(`${API}/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

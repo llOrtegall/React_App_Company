@@ -1,5 +1,7 @@
+import { API } from '../App.jsx'
+
 export const GetUserCookie = async (token) => {
-  const response = await fetch('http://172.20.1.160:3000/profile', {
+  const response = await fetch(`${API}/profile`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',

@@ -6,8 +6,10 @@ import { Login } from './pages/Login'
 import { Dashboard } from './pages/Dashboard'
 import { Usuarios } from './pages/Usuarios'
 import { UserConfig } from './pages/UserConfig'
-import { useEffect } from 'react'
 import { getCookie } from './utils/getToken'
+import { useEffect } from 'react'
+
+export const API = 'http://localhost:6060'
 
 // eslint-disable-next-line react/prop-types
 const ProtectedRoute = ({ children }) => {
@@ -26,7 +28,7 @@ export function App () {
     const getLoggedIn = async () => {
       try {
         const token = getCookie('token')
-        const result = await fetch('http://172.20.1.160:3000/profile', {
+        const result = await fetch(`${API}/profile`, {
           headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' }
         })
         if (result.status === 200) {

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { API } from '../App.jsx'
 
 export function Usuarios () {
   const [users, setUsers] = useState([])
@@ -6,7 +7,7 @@ export function Usuarios () {
   useEffect(() => {
     const getUsers = async () => {
       try {
-        const result = await fetch('http://172.20.1.160:3000/users', {
+        const result = await fetch(`${API}/users`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'

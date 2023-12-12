@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useAuth } from '../auth/AuthContext'
 import { useNavigate } from 'react-router-dom'
 import { GetUserCookie } from '../utils/GetUser'
+import { API } from '../App.jsx'
 
 export function Login () {
   const [username, setUsername] = useState('')
@@ -14,28 +15,37 @@ export function Login () {
   const handleSubmit = async (ev) => {
     ev.preventDefault()
 
-    try {
-      const response = await fetch('http://172.20.1.160:3000/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ user: username, password })
-      })
-      if (response.status === 200) {
-        const result = await response.json()
-        document.cookie = `token=${result.token}`
-        const user = await GetUserCookie(result.token)
-        login(result.auth, user)
-        navigate('/dashboard')
-      }
+    // eslint-disable-next-line no-constant-condition
+    if (username === 'CP1118307852' || username === 'CP6550436') {
+      try {
+        const response = await fetch(`${API}/login`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ user: username, password })
+        })
+        if (response.status === 200) {
+          const result = await response.json()
+          document.cookie = `token=${result.token}`
+          const user = await GetUserCookie(result.token)
+          const { documento } = user
+          console.log(documento)
+          // eslint-disable-next-line no-constant-condition
+          login(result.auth, user)
+          navigate('/dashboard')
+        }
 
-      if (response.status === 400 || response.status === 401) {
-        const data = await response.json()
-        setError(data.error)
-        setTimeout(() => setError(null), 3000)
+        if (response.status === 400 || response.status === 401) {
+          const data = await response.json()
+          setError(data.error)
+          setTimeout(() => setError(null), 3000)
+        }
+      } catch (error) {
+        if (error) throw new Error(error)
+        console.log(error)
       }
-    } catch (error) {
-      if (error) throw new Error(error)
-      console.log(error)
+    } else {
+      setError('Usuario no autorizado, No Administrador')
+      setTimeout(() => setError(null), 3000)
     }
   }
 
