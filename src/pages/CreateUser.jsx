@@ -74,10 +74,10 @@ export function CreateUser () {
   }
 
   return (
-    <main className="bg-blue-400 w-full h-screen flex items-center justify-center">
-      <form onSubmit={handleSubmit} className='' ref={formRef}>
+    <main className="bg-blue-400 w-full h-screen flex justify-center">
+      <form onSubmit={handleSubmit} className='pt-6'>
         <h1 className="text-3xl text-white font-bold text-center">Crear Usuarios </h1>
-        <div className="bg-white rounded-lg shadow-lg w-96 p-6 mt-10">
+        <div className="bg-white rounded-lg shadow-lg w-96 p-6 mt-4">
           <div className="flex flex-col space-y-4">
             <input type="text" placeholder="Nombres"
               className="border-2 rounded-lg p-3"
