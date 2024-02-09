@@ -12,9 +12,9 @@ export function App () {
 
   return (
     <section className={'w-[100vw] h-[100vh] flex bg-tremor-background-default dark:bg-dark-tremor-background-default text-tremor-content-default dark:text-dark-tremor-content-default'}>
-      <NavBar />
+      <NavBar darkMode={darkMode} toggleTheme={toggleTheme}/>
 
-      <main className='p-2'>
+      <main className='p-2 bg-white dark:bg-slate-800 w-full'>
         <Routes>
           <Route path="/metas/*" >
             <Route path="resumen" element={<ResumenAsp />} />
@@ -24,9 +24,6 @@ export function App () {
             <Route path="sugeridos" element={<Sugeridos />} />
           </Route>
         </Routes>
-        <button onClick={toggleTheme}>
-          Cambiar a modo {darkMode ? 'claro' : 'oscuro'}
-        </button>
       </main>
 
     </section>

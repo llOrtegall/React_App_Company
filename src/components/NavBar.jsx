@@ -1,11 +1,18 @@
 import { Link } from 'react-router-dom'
 import { CalendarAntIcon, CalendarIcon, Dashboard, DocsIcon, SunIcon } from '../components/icons/Icons'
+import { Card, Switch, Title } from '@tremor/react'
 
-export const NavBar = () => {
+export const NavBar = ({ toggleTheme, darkMode }) => {
   return (
     <nav className="bg-white dark:bg-slate-900 dark:border-none dark:text-white text-black w-[35vh] p-4 flex flex-col gap-8 items-center justify-between border">
-      <section className="flex flex-col gap-4 items-center">
-        <figure className="py-12">
+
+      <section className="flex flex-col gap-8 items-center">
+        <Card className='flex items-center justify-between'>
+          <Title className="text-center">Modo: {darkMode ? 'Claro' : 'Oscuro' }</Title>
+          <Switch id="switch" name="switch" checked={darkMode} onChange={toggleTheme} />
+        </Card>
+
+        <figure className="py-4">
           <img src="ganeyumbo.png" width={100} alt="logo gane yumbo" />
         </figure>
 
