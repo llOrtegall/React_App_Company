@@ -3,7 +3,7 @@ import { CalendarAntIcon, CalendarIcon, Dashboard, DocsIcon, SunIcon } from '../
 
 export const NavBar = () => {
   return (
-    <nav className="bg-black text-white w-[35vh] p-4 flex flex-col gap-8 items-center justify-between">
+    <nav className="bg-white dark:bg-slate-900 dark:border-none dark:text-white text-black w-[35vh] p-4 flex flex-col gap-8 items-center justify-between border">
       <section className="flex flex-col gap-4 items-center">
         <figure className="py-12">
           <img src="ganeyumbo.png" width={100} alt="logo gane yumbo" />
@@ -43,7 +43,7 @@ export const NavBar = () => {
         </ul>
       </section>
 
-      <button className="bg-blue-800 p-3 font-semibold rounded-lg hover:bg-blue-600">
+      <button className="bg-blue-300 p-3 font-semibold rounded-lg hover:bg-blue-600 text-white dark:bg-white dark:text-black dark:hover:bg-blue-300">
         Cerrar Sesión
       </button>
 

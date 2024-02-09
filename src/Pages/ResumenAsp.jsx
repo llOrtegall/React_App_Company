@@ -11,7 +11,7 @@ export function ResumenAsp () {
       </article>
 
       <article>
-        <Card className='w-[560px] '>
+        <Card className='w-[560px]'>
           <ProgressCircle value={porcentaje} size='xl' strokeWidth={20} color="cyan">
             <span className="text-lg text-gray-700 font-medium">{`${porcentaje} %`}</span>
           </ProgressCircle>
