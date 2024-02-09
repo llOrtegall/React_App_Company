@@ -3,6 +3,7 @@ import { NavBar } from './components/NavBar'
 import { ResumenAsp } from './Pages/ResumenAsp'
 import { AspiracionMesActual } from './Pages/AspiracionMesActual'
 import { AspiracionMesAnterior } from './Pages/AspiracionMesAnterior'
+import { AspiracionDelDia } from './Pages/AspiracionDelDia'
 import { Sugeridos } from './Pages/Sugeridos'
 import { useContext } from 'react'
 import { ThemeContext } from './context/ThemeProvider'
@@ -18,7 +19,7 @@ export function App () {
         <Routes>
           <Route path="/metas/*" >
             <Route path="resumen" element={<ResumenAsp />} />
-            <Route path="aspiracionDia" element={<ResumenAsp />} />
+            <Route path="aspiracionDia" element={<AspiracionDelDia />} />
             <Route path="infmesactual" element={<AspiracionMesActual />} />
             <Route path="infmesant" element={<AspiracionMesAnterior />} />
             <Route path="sugeridos" element={<Sugeridos />} />
