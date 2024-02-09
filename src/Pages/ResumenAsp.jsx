@@ -2,8 +2,8 @@ import { Card, ProgressCircle, Title, Text, Callout } from '@tremor/react'
 
 export function ResumenAsp () {
   const nombre = 'Jorge Andres Pineda'
-  const porcentaje = 80
-  const informacionCartera = false
+  const porcentaje = 100
+  const informacionCartera = true
   const valor1 = 984.345
   const valor2 = 928.699
 
@@ -21,11 +21,11 @@ export function ResumenAsp () {
 
   return (
     <>
-      <article className='text-gray-700 dark:text-white text-3xl text-center font-semibold border rounded-lg p-2 mb-2'>
+      <article className='text-gray-700 dark:text-white text-4xl text-center font-semibold border rounded-lg p-2 mb-2'>
         <h2>Bienvenid@ <span className='text-blue-700 pl-2 dark:text-yellow-600'>{nombre}</span></h2>
       </article>
 
-      <section className='grid grid-cols-3 gap-4'>
+      <section className='grid grid-cols-3 gap-2'>
 
         <article>
           <Card className='min-h-[247px] '>
@@ -40,23 +40,27 @@ export function ResumenAsp () {
           {
             informacionCartera === true
               ? (
-              <Card className="min-h-[247px] flex flex-col items-center">
-                <Text className='font-semibold text-xl'><span className='text-black dark:text-white'>Información De Cartera</span></Text>
-                <Callout
-                  className="h-12 mt-4"
-                  title="Critical speed limit reached"
-                  icon={undefined}
-                  color="rose"
-                >
-                  Turbine reached critical speed. Immediately reduce turbine speed.
-                </Callout>
-              </Card>
+                <Card className="min-h-[247px] flex flex-col items-center justify-center">
+                  <Text className='font-semibold text-xl'><span className='text-black dark:text-white'>Información De Cartera</span></Text>
+                  <Callout
+                    className="mt-4 w-full"
+                    title="Cartera Pendiente:"
+                    icon={undefined}
+                    color="rose"
+                  >
+                    Tu Cartera Es: $ 345.411
+                  </Callout>
+                </Card>
                 )
               : (
-                <Card className="min-h-[247px] flex flex-col items-center">
+                <Card className="min-h-[247px] flex flex-col items-center justify-center">
                   <Text className='font-semibold text-xl'><span className='text-black dark:text-white'>Información De Cartera</span></Text>
-                  <Callout className="mt-4" title="No critical system data" icon={undefined} color="teal">
-                    All systems are currently within their default operating ranges.
+                  <Callout
+                    className="mt-4 w-full"
+                    title="Cartera:"
+                    icon={undefined}
+                    color="teal">
+                    Actualmente No Tienes Reportes De Cartera
                   </Callout>
                 </Card>
                 )
@@ -65,9 +69,9 @@ export function ResumenAsp () {
         </article>
 
         <article>
-          <Card className="min-h-[247px]  dark:text-white flex flex-col items-center justify-center">
-            <h2>VENTA DE PRODUCTOS CHANCE DEL DIA ES: <span>$ - {valor1}</span></h2>
-            <h2>META DEL DÍA DE PRODUCTOS CHANCE ES: <span>$ - {valor2}</span></h2>
+          <Card className="min-h-[247px] gap-4 dark:text-white flex flex-col items-center justify-center">
+            <h2>VENTA ACTUAL CHANCE DEL DÍA: <span>$ - {valor1}</span></h2>
+            <h2>META DEL DÍA PRODUCTOS CHANCE ES: <span>$ - {valor2}</span></h2>
           </Card>
         </article>
 
