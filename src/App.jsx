@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import { NavBar } from './components/NavBar'
-import { ResumenAspDia } from './Pages/ResumenAspDia'
+import { ResumenAsp } from './Pages/ResumenAsp'
 import { AspiracionMesActual } from './Pages/AspiracionMesActual'
 import { AspiracionMesAnterior } from './Pages/AspiracionMesAnterior'
 import { Sugeridos } from './Pages/Sugeridos'
@@ -12,11 +12,13 @@ export function App () {
 
       <main className='p-2'>
         <Routes>
-          <Route path="/resumen" element={<ResumenAspDia />} />
-          <Route path="/resumendia" element={<ResumenAspDia />} />
-          <Route path="/infmesactual" element={<AspiracionMesActual />} />
-          <Route path="/infmesant" element={<AspiracionMesAnterior />} />
-          <Route path="/sugeridos" element={<Sugeridos />} />
+          <Route path="/metas/*" >
+            <Route path="resumen" element={<ResumenAsp />} />
+            <Route path="aspiracionDia" element={<ResumenAsp />} />
+            <Route path="infmesactual" element={<AspiracionMesActual />} />
+            <Route path="infmesant" element={<AspiracionMesAnterior />} />
+            <Route path="sugeridos" element={<Sugeridos />} />
+          </Route>
         </Routes>
       </main>
 

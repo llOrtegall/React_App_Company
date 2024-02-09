@@ -11,31 +11,31 @@ export const NavBar = () => {
 
         <ul className="flex flex-col gap-4 uppercase font-semibold">
           <li>
-            <Link className="flex items-center gap-2 hover:text-yellow-400 hover:underline" to="/resumen">
+            <Link className="flex items-center gap-2 hover:text-yellow-400 hover:underline" to="/metas/resumen">
               <Dashboard />
               Resumen De Aspiración
             </Link>
           </li>
           <li>
-            <Link className="flex items-center gap-2 hover:text-yellow-400 hover:underline" to="/resumendia">
+            <Link className="flex items-center gap-2 hover:text-yellow-400 hover:underline" to="/metas/aspiracionDia">
               <SunIcon />
               Arpiración Del Día
             </Link>
           </li>
           <li>
-            <Link className="flex items-center gap-2 hover:text-yellow-400 hover:underline" to="/infmesactual">
+            <Link className="flex items-center gap-2 hover:text-yellow-400 hover:underline" to="/metas/infmesactual">
               <CalendarIcon />
               Aspiración Mes Actual
             </Link>
           </li>
           <li>
-            <Link className="flex items-center gap-2 hover:text-yellow-400 hover:underline" to="/infmesant">
+            <Link className="flex items-center gap-2 hover:text-yellow-400 hover:underline" to="/metas/infmesant">
               <CalendarAntIcon />
               Aspiración Mes Anterior
             </Link>
           </li>
           <li>
-            <Link className="flex items-center gap-2 hover:text-yellow-400 hover:underline" to="/sugeridos">
+            <Link className="flex items-center gap-2 hover:text-yellow-400 hover:underline" to="/metas/sugeridos">
               <DocsIcon />
               Sugeridos
             </Link>
