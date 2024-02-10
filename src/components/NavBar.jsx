@@ -45,14 +45,14 @@ export const NavBar = ({ toggleTheme, darkMode }) => {
           </li>
         </ul>
 
-        <button className="w-2/12 h-14 bg-blue-500 p-2 font-semibold rounded-lg hover:bg-blue-600 text-white dark:bg-white dark:text-black dark:hover:bg-blue-500">
-          Cerrar Sesión
-        </button>
-
         <Card className='w-2/12 h-14 flex items-center'>
           <p className="text-center text-xs">Modo:</p>
           <Switch id="switch" name="switch" checked={darkMode} onChange={toggleTheme} />
         </Card>
+
+        <button className="w-2/12 h-14 bg-blue-500 p-2 font-semibold rounded-lg hover:bg-blue-600 text-white dark:bg-white dark:text-black dark:hover:bg-blue-500">
+          Cerrar Sesión
+        </button>
 
       </section>
 
