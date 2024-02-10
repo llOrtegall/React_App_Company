@@ -8,22 +8,26 @@ export function ProgressBarUsageExample ({ pruducto, ventaActual, aspiracionDia 
   }
 
   const determineProgressColor = (percentage) => {
-    if (percentage < 20) return 'red'
-    if (percentage < 50) return 'yellow'
-    if (percentage < 80) return 'cyan'
-    if (percentage < 100) return 'blue'
+    if (percentage <= 49.99) return 'red'
+    if (percentage <= 95) return 'yellow'
+    if (percentage <= 99.99) return 'sky'
     return 'green'
   }
 
   const percentage = calculatePercentage(ventaActual, aspiracionDia)
   const progressColor = determineProgressColor(percentage)
 
+  // Formatea los números con la notación de Colombia
+  const ventaActualFormateada = ventaActual.toLocaleString('es-CO')
+  const aspiracionDiaFormateada = aspiracionDia.toLocaleString('es-CO')
+
   return (
-    <Card className="mx-auto max-w-sm bg-slate-200">
-      <h2>{pruducto}</h2>
-      <p className="text-tremor-default text-tremor-content dark:text-dark-tremor-content flex items-center justify-between">
-        <span>${ventaActual} &bull; {percentage}%</span>
-        <span>${aspiracionDia}</span>
+    <Card className={`mx-auto max-w-sm  bg-${progressColor}-100 `}>
+      <h2 className='font-semibold flex justify-between'><span>{pruducto}</span> <span>Aspiración</span></h2>
+      <p className="text-tremor-default pt-2 dark:text-dark-tremor-content flex justify-between">
+        <span className='font-semibold'>Actual: ${ventaActualFormateada} </span>
+        <span><span>&bull;</span> {percentage}%</span>
+        <span className='font-bold'>${aspiracionDiaFormateada}</span>
       </p>
       <ProgressBar value={percentage} color={progressColor} className="mt-3" />
     </Card>
