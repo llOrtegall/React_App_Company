@@ -12,10 +12,13 @@ export function App () {
   const { darkMode, toggleTheme } = useContext(ThemeContext)
 
   return (
-    <section className={'w-[100vw] h-[100vh] flex bg-tremor-background-default dark:bg-dark-tremor-background-default text-tremor-content-default dark:text-dark-tremor-content-default'}>
-      <NavBar darkMode={darkMode} toggleTheme={toggleTheme}/>
+    <section className={'min-h-[100vh] flex bg-tremor-background-default dark:bg-dark-tremor-background-default text-tremor-content-default dark:text-dark-tremor-content-default'}>
 
-      <main className='p-2 bg-white dark:bg-slate-800 w-full'>
+      <nav className="w-1/6 bg-slate-300 dark:bg-slate-900 dark:border-none dark:text-white text-black ">
+        <NavBar darkMode={darkMode} toggleTheme={toggleTheme}/>
+      </nav>
+
+      <main className='w-5/6 p-2 bg-white dark:bg-slate-800 '>
         <Routes>
           <Route path="/metas/*" >
             <Route path="resumen" element={<ResumenAsp />} />
