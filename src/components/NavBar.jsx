@@ -1,58 +1,60 @@
 import { Link } from 'react-router-dom'
 import { CalendarAntIcon, CalendarIcon, Dashboard, DocsIcon, SunIcon } from '../components/icons/Icons'
-import { Card, Switch, Title } from '@tremor/react'
+import { Card, Switch } from '@tremor/react'
 
 export const NavBar = ({ toggleTheme, darkMode }) => {
   return (
     <>
 
-      <section className="flex flex-col gap-8 items-center">
-        <Card className='flex items-center justify-between'>
-          <Title className="text-center text-xs">Modo: {darkMode ? 'Claro' : 'Oscuro' }</Title>
-          <Switch id="switch" name="switch" checked={darkMode} onChange={toggleTheme} />
-        </Card>
+      <section className="flex gap-2 px-4 py-2">
 
-        <figure className="py-4">
+        <figure className='w-2/12 '>
           <img src="ganeyumbo.png" width={100} alt="logo gane yumbo" />
         </figure>
 
-        <ul className="flex flex-col gap-4 uppercase font-semibold">
+        <ul className='w-6/12 flex justify-around'>
           <li>
-            <Link className="flex items-center gap-2 hover:text-blue-500 hover:underline" to="/metas/resumen">
+            <Link className="hover:text-yellow-200 hover:underline" to="/metas/resumen">
               <Dashboard />
-              Resumen De Aspiración
+              <span className='hidden text-xs'>Resumen De Aspiración</span>
             </Link>
           </li>
           <li>
-            <Link className="flex items-center gap-2 hover:text-blue-500 hover:underline" to="/metas/aspiracionDia">
+            <Link className="hover:text-yellow-200 hover:underline" to="/metas/aspiracionDia">
               <SunIcon />
-              Arpiración Del Día
+              <span className='hidden text-xs'>Arpiración Del Día</span>
             </Link>
           </li>
           <li>
-            <Link className="flex items-center gap-2 hover:text-blue-500 hover:underline" to="/metas/infmesactual">
+            <Link className="hover:text-yellow-200 hover:underline" to="/metas/infmesactual">
               <CalendarIcon />
-              Aspiración Mes Actual
+              <span className='hidden text-xs'>Aspiración Mes Actual</span>
             </Link>
           </li>
           <li>
-            <Link className="flex items-center gap-2 hover:text-blue-500 hover:underline" to="/metas/infmesant">
+            <Link className="hover:text-yellow-200 hover:underline" to="/metas/infmesant">
               <CalendarAntIcon />
-              Aspiración Mes Anterior
+              <span className='hidden text-xs'>Aspiración Mes Anterior</span>
             </Link>
           </li>
           <li>
-            <Link className="flex items-center gap-2 hover:text-blue-500 hover:underline" to="/metas/sugeridos">
+            <Link className="hover:text-yellow-200 hover:underline" to="/metas/sugeridos">
               <DocsIcon />
-              Sugeridos
+              <span className='hidden text-xs'>Sugeridos</span>
             </Link>
           </li>
         </ul>
-      </section>
 
-      <button className="bg-blue-500 p-3 font-semibold rounded-lg hover:bg-blue-600 text-white dark:bg-white dark:text-black dark:hover:bg-blue-500">
-        Cerrar Sesión
-      </button>
+        <button className="w-2/12 h-14 bg-blue-500 p-2 font-semibold rounded-lg hover:bg-blue-600 text-white dark:bg-white dark:text-black dark:hover:bg-blue-500">
+          Cerrar Sesión
+        </button>
+
+        <Card className='w-2/12 h-14 flex items-center'>
+          <p className="text-center text-xs">Modo:</p>
+          <Switch id="switch" name="switch" checked={darkMode} onChange={toggleTheme} />
+        </Card>
+
+      </section>
 
     </>
   )

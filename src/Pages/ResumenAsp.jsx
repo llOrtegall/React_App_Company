@@ -20,14 +20,14 @@ export function ResumenAsp () {
   }
 
   return (
-    <div className='text-gray-700 h-full dark:text-white grid grid-cols-3 text-4xl text-center font-semibold rounded-lg gap-2'>
+    <div className='text-gray-700 dark:text-white grid grid-cols-3 text-4xl text-center font-semibold rounded-lg gap-2'>
 
-      <Title className='col-span-3 rounded-lg text-3xl flex items-center justify-center bg-slate-300 dark:bg-slate-900 '>
+      <Title className='col-span-3 rounded-lg text-lg flex items-center justify-center bg-slate-300 dark:bg-slate-900 '>
         Bienvenid@ <span className='text-blue-700 dark:text-yellow-400 pl-2'>{nombre}</span>
       </Title>
 
       <Card className='col-span-1 bg-slate-300 dark:bg-slate-900 flex flex-col justify-around'>
-        <Title className='text-center'>Porcentaje De Meta Realizada</Title>
+        <Title className='text-center text-sm'>Porcentaje De Meta Realizada</Title>
         <ProgressCircle value={porcentaje} size='xl' strokeWidth={20} color={ColorPorcentaje(porcentaje)}>
           <span className="text-lg text-gray-700 dark:text-white font-medium">{`${porcentaje} %`}</span>
         </ProgressCircle>
@@ -37,8 +37,8 @@ export function ResumenAsp () {
         informacionCartera === true
           ? (
             <Card className="col-span-1 bg-slate-300 dark:bg-slate-900 flex flex-col">
-              <Text className='font-semibold text-2xl pb-2 text-center'><span className='text-black dark:text-white'>Información De Cartera</span></Text>
-              <Callout className="w-full h-full text-3xl"
+              <Text className='font-semibold text-lg pb-2 text-center'><span className='text-black dark:text-white'>Información De Cartera</span></Text>
+              <Callout className="w-full h-full text-lg"
                 title="Cartera Pendiente:"
                 icon={undefined}
                 color="rose"
@@ -49,8 +49,8 @@ export function ResumenAsp () {
             )
           : (
             <Card className="col-span-1 bg-slate-300 dark:bg-slate-900 flex flex-col">
-              <Text className='font-semibold text-2xl pb-2 text-center'><span className='text-black dark:text-white'>Información De Cartera</span></Text>
-              <Callout className="w-full h-full text-3xl"
+              <Text className='font-semibold text-lg pb-2 text-center'><span className='text-black dark:text-white'>Información De Cartera</span></Text>
+              <Callout className="w-full h-full text-lg"
                 title="Cartera:"
                 icon={undefined}
                 color="teal">
@@ -61,13 +61,13 @@ export function ResumenAsp () {
       }
 
       <Card className="gap-4 dark:text-white flex flex-col items-center justify-center col-span-1 bg-slate-300 dark:bg-slate-900">
-        <h2>VENTA ACTUAL CHANCE DEL DÍA: <span>$ - {valor1}</span></h2>
-        <h2>META DEL DÍA PRODUCTOS CHANCE ES: <span>$ - {valor2}</span></h2>
+        <p className='text-xs'>VENTA ACTUAL CHANCE DEL DÍA: <span>$ - {valor1}</span></p>
+        <p className='text-xs'>META DEL DÍA PRODUCTOS CHANCE ES: <span>$ - {valor2}</span></p>
       </Card>
 
       <figure className='col-span-3 flex flex-col items-center justify-center bg-slate-300 dark:bg-slate-900 rounded-md '>
-        <img src="/diamante.png" width={250} alt="logo_punto" />
-        <img src="/logos.png" width={600} alt="logos juegos" />
+        <img src="/diamante.png" alt="logo_punto" width={100} loading='lazy' className=''/>
+        <img src="/logos.png" alt="logos juegos" width={400} loading='lazy' className=''/>
       </figure>
     </div>
   )
