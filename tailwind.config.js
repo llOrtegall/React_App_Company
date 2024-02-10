@@ -15,6 +15,9 @@ module.exports = {
     transparent: 'transparent',
     current: 'currentColor',
     extend: {
+      screens: {
+        '0xl': '1440px'
+      },
       colors: {
         // light mode
         tremor: {
