@@ -14,31 +14,31 @@ export const NavBar = ({ toggleTheme, darkMode }) => {
 
         <ul className='w-6/12 flex justify-around lg:flex-col lg:w-full 0xl:gap-2'>
           <li>
-            <Link className="hover:text-yellow-200 hover:underline lg:flex lg:items-center lg:gap-2 lg:py-2 0xl:gap-6" to="/metas/resumen">
+            <Link className="hover:text-blue-600 hover:underline lg:flex lg:items-center lg:gap-2 lg:py-2 0xl:gap-6" to="/metas/resumen">
               <Dashboard />
               <span className='hidden lg:block text-xs lg:text-sm lg:font-semibold 0xl:text-lg'>Resumen De Aspiración</span>
             </Link>
           </li>
           <li>
-            <Link className="hover:text-yellow-200 hover:underline lg:flex lg:items-center lg:gap-2 lg:py-2 0xl:gap-6" to="/metas/aspiracionDia">
+            <Link className="hover:text-blue-600 hover:underline lg:flex lg:items-center lg:gap-2 lg:py-2 0xl:gap-6" to="/metas/aspiracionDia">
               <SunIcon />
               <span className='hidden lg:block text-xs lg:text-sm lg:font-semibold 0xl:text-lg'>Arpiración Del Día</span>
             </Link>
           </li>
           <li>
-            <Link className="hover:text-yellow-200 hover:underline lg:flex lg:items-center lg:gap-2 lg:py-2 0xl:gap-6" to="/metas/infmesactual">
+            <Link className="hover:text-blue-600 hover:underline lg:flex lg:items-center lg:gap-2 lg:py-2 0xl:gap-6" to="/metas/infmesactual">
               <CalendarIcon />
               <span className='hidden lg:block text-xs lg:text-sm lg:font-semibold 0xl:text-lg'>Aspiración Mes Actual</span>
             </Link>
           </li>
           <li>
-            <Link className="hover:text-yellow-200 hover:underline lg:flex lg:items-center lg:gap-2 lg:py-2 0xl:gap-6" to="/metas/infmesant">
+            <Link className="hover:text-blue-600 hover:underline lg:flex lg:items-center lg:gap-2 lg:py-2 0xl:gap-6" to="/metas/infmesant">
               <CalendarAntIcon />
               <span className='hidden lg:block text-xs lg:text-sm lg:font-semibold 0xl:text-lg'>Aspiración Mes Anterior</span>
             </Link>
           </li>
           <li>
-            <Link className="hover:text-yellow-200 hover:underline lg:flex lg:items-center lg:gap-2 lg:py-2 0xl:gap-6" to="/metas/sugeridos">
+            <Link className="hover:text-blue-600 hover:underline lg:flex lg:items-center lg:gap-2 lg:py-2 0xl:gap-6" to="/metas/sugeridos">
               <DocsIcon />
               <span className='hidden lg:block text-xs lg:text-sm lg:font-semibold 0xl:text-lg'>Sugeridos</span>
             </Link>
