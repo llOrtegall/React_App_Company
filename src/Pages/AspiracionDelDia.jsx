@@ -105,20 +105,20 @@ export function AspiracionDelDia () {
   const navigate = useNavigate()
 
   const handleClickCard = (producto) => {
-    navigate(`/metas/producto/${producto.id}`, { state: { producto } })
+    navigate(`/metas/producto/${producto.id}`)
   }
 
   return (
     <section className='w-full flex flex-col gap-2'>
 
-      <InfoPuntCoord title={'Aspiración Del Día'} />
+      <InfoPuntCoord titulo='Aspiración Del Día' />
 
       <section className='grid grid-cols-4 gap-4 pt-2'>
         {
           productos.map((producto, index) => {
             return (
               <button key={index} className='hover:border border-black dark:hover:border-white' onClick={() => handleClickCard(producto)}>
-                <ProgressBarUsageExample key={index} pruducto={producto.producto}
+                <ProgressBarUsageExample pruducto={producto.producto}
                   ventaActual={producto.ventaActual} aspiracionDia={producto.aspiracionDia} />
               </button>
             )
@@ -129,22 +129,25 @@ export function AspiracionDelDia () {
       <section className='w-full flex gap-4'>
         <figure className='w-1/2 flex flex-col justify-center items-center border p-2 rounded-md'>
           <h2 className='font-semibold'>Código Generado</h2>
-          <img src="/qr.png" alt="codigo qr generado" width={200}/>
+          <img src="/qr.png" alt="codigo qr generado" width={200} />
         </figure>
 
         <section className='w-1/2 border p-2 rounded-md'>
           <h2 className='text-center font-semibold pb-2'>Utilidades Incluye Giros</h2>
           <table >
             <thead>
-              <th>Periodo</th>
-              <th>N° Documento</th>
-              <th>Referencia</th>
-
+              <tr>
+                <th>Periodo</th>
+                <th>N° Documento</th>
+                <th>Referencia</th>
+              </tr>
             </thead>
             <tbody >
-              <td>1.118.523</td>
-              <td>1.118.523</td>
-              <td>154674</td>
+              <tr>
+                <td>1.118.523</td>
+                <td>1.118.523</td>
+                <td>154674</td>
+              </tr>
             </tbody>
           </table>
         </section>
