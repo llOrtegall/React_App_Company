@@ -1,13 +1,14 @@
 import { ProgressBarUsageExample } from '../components/progresoVenta'
 import { InfoPuntCoord } from '../components/InfoPuntoCoor'
+import { useNavigate } from 'react-router-dom'
 
 export function AspiracionDelDia () {
   const productos = [
     {
       id: 1,
       producto: 'Juegos Azar',
-      ventaActual: 860245,
-      aspiracionDia: 953542
+      ventaActual: 40000,
+      aspiracionDia: 35000
     },
     {
       id: 2,
@@ -101,16 +102,25 @@ export function AspiracionDelDia () {
     }
   ]
 
+  const navigate = useNavigate()
+
+  const handleClickCard = (producto) => {
+    navigate(`/metas/producto/${producto.id}`, { state: { producto } })
+  }
+
   return (
     <section className='w-full'>
 
-      <InfoPuntCoord title={'Aspiración Del Día'}/>
+      <InfoPuntCoord title={'Aspiración Del Día'} />
 
-      <section className='grid grid-cols-4 gap-2 pt-2'>
+      <section className='grid grid-cols-4 gap-4 pt-2'>
         {
           productos.map((producto, index) => {
             return (
-              <ProgressBarUsageExample key={index} pruducto={producto.producto} ventaActual={producto.ventaActual} aspiracionDia={producto.aspiracionDia} />
+              <button key={index} className='hover:border border-black' onClick={() => handleClickCard(producto)}>
+                <ProgressBarUsageExample key={index} pruducto={producto.producto}
+                  ventaActual={producto.ventaActual} aspiracionDia={producto.aspiracionDia} />
+              </button>
             )
           })
         }

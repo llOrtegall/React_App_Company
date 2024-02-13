@@ -7,6 +7,9 @@ import { AspiracionDelDia } from './Pages/AspiracionDelDia'
 import { Sugeridos } from './Pages/Sugeridos'
 import { useContext } from 'react'
 import { ThemeContext } from './context/ThemeProvider'
+// import { MetasPorHora } from './components/MetasPorHora'
+
+import { MetasxHora2 } from './components/MetasPorHora2'
 
 export function App () {
   const { darkMode, toggleTheme } = useContext(ThemeContext)
@@ -25,6 +28,8 @@ export function App () {
             <Route path="aspiracionDia" element={<AspiracionDelDia />} />
             <Route path="infmesactual" element={<AspiracionMesActual />} />
             <Route path="infmesant" element={<AspiracionMesAnterior />} />
+            {/* <Route path="porhora" element={<MetasPorHora />} /> */}
+            <Route path='producto/:producto' element={<MetasxHora2 />} />
             <Route path="sugeridos" element={<Sugeridos />} />
           </Route>
         </Routes>

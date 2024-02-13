@@ -2,8 +2,8 @@ import { Card, ProgressCircle, Callout } from '@tremor/react'
 
 export function ResumenAsp () {
   const nombre = 'Jorge Andres Pineda'
-  const porcentaje = 20
-  const informacionCartera = true
+  const porcentaje = 100
+  const informacionCartera = false
   const valor1 = 984.345
   const valor2 = 928.699
 
@@ -12,7 +12,7 @@ export function ResumenAsp () {
       return 'red'
     } else if (porcentaje >= 30 && porcentaje < 60) {
       return 'cyan'
-    } else if (porcentaje >= 60 && porcentaje < 99) {
+    } else if (porcentaje >= 60 && porcentaje < 99.999) {
       return 'yellow'
     } else {
       return 'green'

@@ -2,9 +2,8 @@ import { InfoPuntCoord } from '../components/InfoPuntoCoor'
 import { Card, ProgressBar } from '@tremor/react'
 
 export function Sugeridos () {
-  const valueNo = 20
-
-  const valueImp = 20 // modificar este valor para ver diferentes resultados DOM
+  const valueNo = 100
+  const valueImp = 100 // modificar este valor para ver diferentes resultados DOM
 
   const boletasGanadas = 2
 

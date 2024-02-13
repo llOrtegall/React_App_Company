@@ -8,9 +8,9 @@ export function ProgressBarUsageExample ({ pruducto, ventaActual, aspiracionDia 
   }
 
   const determineProgressColor = (percentage) => {
-    if (percentage <= 49.99) return 'red'
-    if (percentage <= 95) return 'yellow'
-    if (percentage <= 99.99) return 'sky'
+    if (percentage <= 49.999) return 'red'
+    if (percentage <= 94.999) return 'yellow'
+    if (percentage <= 99.999) return 'sky'
     return 'green'
   }
 
