@@ -21,7 +21,7 @@ export function InfoPuntCoord ({ title }) {
   return (
     <article className='flex flex-col items-center bg-slate-200 dark:bg-slate-900 rounded-xl'>
       <h1 className='text-xl font-semibold py-2'>{title}</h1>
-      <section className='flex w-full text-sm justify-around py-4'>
+      <section className='flex w-full sm:text-xs lg:text-lg justify-around py-4'>
         <p className='flex items-center justify-center w-2/12 text-center border p-3 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold'>Fecha: {date.toLocaleDateString()}</p>
         <p className='flex items-center justify-center w-2/12 text-center border p-3 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold'>Hora: {horaFinal}</p>
         <p className='flex items-center justify-center w-2/12 text-center border p-3 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold'>Punto 12 Parroquial</p>

@@ -8,9 +8,9 @@ export function ProgressBarUsageExample ({ pruducto, ventaActual, aspiracionDia 
   }
 
   const determineProgressColor = (percentage) => {
-    if (percentage <= 49.999) return 'red'
-    if (percentage <= 94.999) return 'yellow'
-    if (percentage <= 99.999) return 'sky'
+    if (percentage <= 49.99) return 'red'
+    if (percentage <= 94.99) return 'yellow'
+    if (percentage <= 99.99) return 'sky'
     return 'green'
   }
 
@@ -22,7 +22,7 @@ export function ProgressBarUsageExample ({ pruducto, ventaActual, aspiracionDia 
   const aspiracionDiaFormateada = aspiracionDia.toLocaleString('es-CO')
 
   return (
-    <Card className={`mx-auto max-w-sm  bg-${progressColor}-100 `}>
+    <Card className={`mx-auto max-w-sm  bg-${progressColor}-100  text-xs sm:text-sm lg:text-lg`}>
       <h2 className='font-semibold flex justify-between'><span>{pruducto}</span> <span>Aspiración</span></h2>
       <p className="text-tremor-default pt-2 dark:text-dark-tremor-content flex justify-between">
         <span className='font-semibold'>Actual: ${ventaActualFormateada} </span>

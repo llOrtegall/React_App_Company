@@ -1,45 +1,52 @@
-import { LineChart, Title } from '@tremor/react'
+import { AreaChart } from '@tremor/react'
 
 const chartdata = [
-  { hora: '6:00 am', 'Aspiracion x Hora': 10000, 'Venta Actual': 5870 },
-  { hora: '7:00 am', 'Aspiracion x Hora': 20000, 'Venta Actual': 1000 },
-  { hora: '8:00 am', 'Aspiracion x Hora': 30000, 'Venta Actual': 2456 },
-  { hora: '9:00 am', 'Aspiracion x Hora': 40000, 'Venta Actual': 2108 },
-  { hora: '10:00 am', 'Aspiracion x Hora': 50000, 'Venta Actual': 14150 },
-  { hora: '11:00 am', 'Aspiracion x Hora': 50000, 'Venta Actual': 13260 },
-  { hora: '12:00 pm', 'Aspiracion x Hora': 50000, 'Venta Actual': 30000 },
-  { hora: '1:00 pm', 'Aspiracion x Hora': 30000, 'Venta Actual': 25000 },
-  { hora: '2:00 pm', 'Aspiracion x Hora': 20000, 'Venta Actual': 2342 },
-  { hora: '3:00 pm', 'Aspiracion x Hora': 50000, 'Venta Actual': 2473 },
-  { hora: '4:00 pm', 'Aspiracion x Hora': 50000, 'Venta Actual': 3848 },
-  { hora: '5:00 pm', 'Aspiracion x Hora': 50000, 'Venta Actual': 3736 },
-  { hora: '6:00 pm', 'Aspiracion x Hora': 50000, 'Venta Actual': 35705 },
-  { hora: '7:00 pm', 'Aspiracion x Hora': 50000, 'Venta Actual': 3736 },
-  { hora: '8:00 pm', 'Aspiracion x Hora': 50000, 'Venta Actual': 3736 },
-  { hora: '9:00 pm', 'Aspiracion x Hora': 50000, 'Venta Actual': 3736 },
-  { hora: '10:00 pm', 'Aspiracion x Hora': 50000, 'Venta Actual': 3736 }
+  { date: '6:00 am', 'Aspiración x Hora': 0, 'Venta Actual x Hora': 0 },
+  { date: '7:00 am', 'Aspiración x Hora': 3000, 'Venta Actual x Hora': 1500 },
+  { date: '8:00 am', 'Aspiración x Hora': 3000, 'Venta Actual x Hora': 3500 },
+  { date: '9:00 am', 'Aspiración x Hora': 3000, 'Venta Actual x Hora': null },
+  { date: '10:00 am', 'Aspiración x Hora': 6000, 'Venta Actual x Hora': null },
+  { date: '11:00 am', 'Aspiración x Hora': 9000, 'Venta Actual x Hora': null },
+  { date: '12:00 pm', 'Aspiración x Hora': 3000, 'Venta Actual x Hora': null },
+  { date: '1:00 pm', 'Aspiración x Hora': 3000, 'Venta Actual x Hora': null },
+  { date: '2:00 pm', 'Aspiración x Hora': 3000, 'Venta Actual x Hora': null },
+  { date: '3:00 pm', 'Aspiración x Hora': 6000, 'Venta Actual x Hora': null },
+  { date: '4:00 pm', 'Aspiración x Hora': 9000, 'Venta Actual x Hora': null },
+  { date: '5:00 pm', 'Aspiración x Hora': 6000, 'Venta Actual x Hora': null },
+  { date: '6:00 pm', 'Aspiración x Hora': 3000, 'Venta Actual x Hora': null },
+  { date: '7:00 pm', 'Aspiración x Hora': 3000, 'Venta Actual x Hora': null },
+  { date: '8:00 pm', 'Aspiración x Hora': 9000, 'Venta Actual x Hora': null },
+  { date: '9:00 pm', 'Aspiración x Hora': 3000, 'Venta Actual x Hora': null },
+  { date: '10:00 pm', 'Aspiración x Hora': 6000, 'Venta Actual x Hora': null }
 ]
 
 const dataFormatter = (number) =>
-  `$${Intl.NumberFormat('us').format(number).toString()}`
+  `$ ${Intl.NumberFormat('CO').format(number).toString()}`
 
-export function MetasPorHora () {
+export function MetasxHora () {
+  const nombreProducto = 'Pagamas'
+
   return (
-    <section className='flex flex-col items-center p-4 '>
 
-      <Title>
-        Metas Por Hora Producto Pagamas
-      </Title>
-      <LineChart
+    <section className='flex flex-col gap-6 pt-2'>
+      <h2 className='text-2xl font-semibold text-center'>Metas por hora producto {nombreProducto}</h2>
+
+      <article className='flex items-center gap-4 border p-4 rounded-lg '>
+        <h3 className="text-black dark:text-white text-xl font-semibold">Meta Del Día: </h3>
+        <p className="text-tremor-metric text-tremor-content-strong dark:text-dark-tremor-content-strong font-semibold">$34,567</p>
+      </article>
+
+      <AreaChart
         className="h-80"
         data={chartdata}
-        index="hora"
-        categories={['Aspiracion x Hora', 'Venta Actual']}
+        index="date"
+        categories={['Aspiración x Hora', 'Venta Actual x Hora']}
         colors={['indigo', 'rose']}
         valueFormatter={dataFormatter}
-        yAxisWidth={60}
+        yAxisWidth={70}
         onValueChange={(v) => console.log(v)}
       />
     </section>
+
   )
 }

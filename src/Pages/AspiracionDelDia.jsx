@@ -7,7 +7,7 @@ export function AspiracionDelDia () {
     {
       id: 1,
       producto: 'Juegos Azar',
-      ventaActual: 40000,
+      ventaActual: 34950,
       aspiracionDia: 35000
     },
     {
@@ -117,7 +117,7 @@ export function AspiracionDelDia () {
         {
           productos.map((producto, index) => {
             return (
-              <button key={index} className='hover:border border-black' onClick={() => handleClickCard(producto)}>
+              <button key={index} className='hover:border border-black dark:hover:border-white' onClick={() => handleClickCard(producto)}>
                 <ProgressBarUsageExample key={index} pruducto={producto.producto}
                   ventaActual={producto.ventaActual} aspiracionDia={producto.aspiracionDia} />
               </button>
