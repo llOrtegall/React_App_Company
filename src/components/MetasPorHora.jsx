@@ -29,9 +29,9 @@ export function MetasxHora () {
   return (
 
     <section className='flex flex-col gap-6 pt-2'>
-      <h2 className='text-2xl font-semibold text-center'>Metas por hora producto {nombreProducto}</h2>
+      <h2 className='text-2xl font-semibold text-center'>Metas Producto {nombreProducto}</h2>
 
-      <article className='flex items-center gap-4 border p-4 rounded-lg '>
+      <article className='flex items-center gap-4 border p-4 rounded-lg w-80 justify-center'>
         <h3 className="text-black dark:text-white text-xl font-semibold">Meta Del Día: </h3>
         <p className="text-tremor-metric text-tremor-content-strong dark:text-dark-tremor-content-strong font-semibold">$34,567</p>
       </article>

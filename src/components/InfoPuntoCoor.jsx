@@ -1,17 +1,27 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { getColombiaTime } from '../services/HoraColombia'
 import { Cargando } from './animation/Loadin'
 
 export function InfoPuntCoord ({ titulo }) {
   const [Fecha, setFecha] = useState('')
   const [Hora, setHora] = useState('')
+  const isMounted = useRef(true)
 
   useEffect(() => {
     getColombiaTime()
       .then(response => {
-        setFecha(response.fecha)
-        SimularReloj(response.hora)
+        if (isMounted.current) {
+          setFecha(response.fecha)
+          SimularReloj(response.hora)
+        }
       })
+      .catch(error => {
+        console.error('Error fetching time:', error)
+      })
+
+    return () => {
+      isMounted.current = false
+    }
   }, [])
 
   const SimularReloj = (hora) => {
@@ -22,13 +32,19 @@ export function InfoPuntCoord ({ titulo }) {
     date.setMinutes(minutes)
     date.setSeconds(seconds)
 
-    setInterval(() => {
-      date = new Date(date.getTime() + 1000)
-      const newHours = date.getHours()
-      const newPeriod = newHours >= 12 ? 'pm' : 'am'
-      const newTimePart = `${newHours % 12 || 12}:${date.getMinutes().toString().padStart(2, '0')}:${date.getSeconds().toString().padStart(2, '0')}`
-      setHora(`${newTimePart} ${newPeriod}`)
+    const intervalId = setInterval(() => {
+      if (isMounted.current) {
+        date = new Date(date.getTime() + 1000)
+        const newHours = date.getHours()
+        const newPeriod = newHours >= 12 ? 'pm' : 'am'
+        const newTimePart = `${newHours % 12 || 12}:${date.getMinutes().toString().padStart(2, '0')}:${date.getSeconds().toString().padStart(2, '0')}`
+        setHora(`${newTimePart} ${newPeriod}`)
+      }
     }, 1000)
+
+    return () => {
+      clearInterval(intervalId)
+    }
   }
 
   return (
