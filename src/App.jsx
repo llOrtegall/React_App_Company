@@ -17,7 +17,7 @@ export function App () {
   return (
     <section className={'min-h-[100vh] bg-tremor-background-default dark:bg-dark-tremor-background-default text-tremor-content-default dark:text-dark-tremor-content-default lg:flex '}>
 
-      <nav className="  dark:bg-slate-900 dark:border-none dark:text-white text-black lg:w-[25vw] lg:h-full">
+      <nav className="  dark:bg-slate-900 dark:border-none dark:text-white text-black lg:w-[25vw] lg:h-[100vh]">
         <NavBar darkMode={darkMode} toggleTheme={toggleTheme}/>
       </nav>
 

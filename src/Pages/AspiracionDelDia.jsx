@@ -109,7 +109,7 @@ export function AspiracionDelDia () {
   }
 
   return (
-    <section className='w-full'>
+    <section className='w-full flex flex-col gap-2'>
 
       <InfoPuntCoord title={'Aspiración Del Día'} />
 
@@ -124,6 +124,31 @@ export function AspiracionDelDia () {
             )
           })
         }
+      </section>
+
+      <section className='w-full flex gap-4'>
+        <figure className='w-1/2 flex flex-col justify-center items-center border p-2 rounded-md'>
+          <h2 className='font-semibold'>Código Generado</h2>
+          <img src="/qr.png" alt="codigo qr generado" width={200}/>
+        </figure>
+
+        <section className='w-1/2 border p-2 rounded-md'>
+          <h2 className='text-center font-semibold pb-2'>Utilidades Incluye Giros</h2>
+          <table >
+            <thead>
+              <th>Periodo</th>
+              <th>N° Documento</th>
+              <th>Referencia</th>
+
+            </thead>
+            <tbody >
+              <td>1.118.523</td>
+              <td>1.118.523</td>
+              <td>154674</td>
+            </tbody>
+          </table>
+        </section>
+
       </section>
 
     </section>
