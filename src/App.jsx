@@ -16,11 +16,11 @@ export function App () {
   return (
     <section className={'min-h-[100vh] bg-tremor-background-default dark:bg-dark-tremor-background-default text-tremor-content-default dark:text-dark-tremor-content-default lg:flex '}>
 
-      <nav className="  dark:bg-slate-900 dark:border-none dark:text-white text-black lg:w-[25vw] lg:h-[100vh]">
+      <nav className="  dark:bg-slate-900 dark:border-none dark:text-white text-black lg:w-[20vw] lg:h-[100vh]">
         <NavBar darkMode={darkMode} toggleTheme={toggleTheme}/>
       </nav>
 
-      <main className='py-2 px-1 bg-white dark:bg-slate-800 lg:w-[75vw]'>
+      <main className='py-2 px-1 bg-white dark:bg-slate-800 lg:w-[85vw]'>
         <Routes>
           <Route path="/metas/*" >
             <Route path="resumen" element={<ResumenAsp />} />
