@@ -16,8 +16,7 @@ export const LoginForm = () => {
     e.preventDefault()
     axios.post('http://172.20.1.191:3000/metasLogin', { username, password })
       .then(response => {
-        const user = response.data
-        login({ auth: true, user })
+        login({ auth: true, user: response.data.user })
         setMessage('Iniciando sesión...')
         setTimeout(() => {
           setMessage('')

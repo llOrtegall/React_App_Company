@@ -1,7 +1,7 @@
 import { Card, ProgressCircle, Callout } from '@tremor/react'
 
 export function ResumenAsp () {
-  const nombre = 'Jorge Andres Pineda'
+  const nombre = 'Juan'
   const porcentaje = 90
   const informacionCartera = false
   const valor1 = 984.345

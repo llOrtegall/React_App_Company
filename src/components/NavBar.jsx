@@ -1,14 +1,11 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { CalendarAntIcon, CalendarIcon, Dashboard, DocsIcon, SunIcon } from '../components/icons/Icons'
 import { Card, Switch } from '@tremor/react'
 
 export const NavBar = ({ toggleTheme, darkMode }) => {
-  const navigate = useNavigate()
-
   return (
     <>
-
-      <section className="flex lg:flex-col gap-2 px-4 py-2 items-center lg:gap-8 lg:py-12">
+      <nav className="flex lg:flex-col gap-2 px-4 py-2 items-center lg:gap-8 lg:py-12">
 
         <figure className='w-2/12 lg:w-full lg:flex lg:justify-center'>
           <img src="../../public/ganeyumbo.png" width={100} alt="logo gane yumbo" className='0xl:w-40'/>
@@ -52,12 +49,11 @@ export const NavBar = ({ toggleTheme, darkMode }) => {
           <Switch id="switch" name="switch" checked={darkMode} onChange={toggleTheme}/>
         </Card>
 
-        <button onClick={navigate('/login')} className="w-2/12 h-12 bg-blue-500 p-2 font-semibold rounded-lg hover:bg-blue-600 text-white dark:bg-gray-300 dark:text-black dark:hover:bg-blue-500 lg:w-full lg:h-10 lg:my-8 0xl:my-6 0xl:h-14">
+        <button className="w-2/12 h-12 bg-blue-500 p-2 font-semibold rounded-lg hover:bg-blue-600 text-white dark:bg-gray-300 dark:text-black dark:hover:bg-blue-500 lg:w-full lg:h-10 lg:my-8 0xl:my-6 0xl:h-14">
           Cerrar Sesión
         </button>
 
-      </section>
-
+      </nav>
     </>
   )
 }
