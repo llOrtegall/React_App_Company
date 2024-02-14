@@ -3,13 +3,13 @@ import { Outlet } from 'react-router-dom'
 
 export function Layout () {
   return (
-    <>
-    <nav className='flex w-[20vw]'>
+    <section className='flex h-full'>
+    <nav className='w-[20vw]'>
       <NavBar />
     </nav>
-    <main className='flex'>
+    <main className='w-[80vw]'>
       <Outlet />
     </main>
-    </>
+    </section>
   )
 }
