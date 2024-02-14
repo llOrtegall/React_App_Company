@@ -10,7 +10,7 @@ export function InfoPuntCoord ({ titulo, codigo }) {
   const isMounted = useRef(true)
 
   useEffect(() => {
-    axios.post('http://localhost:3060/infoPuntoDeVenta', { codigo })
+    axios.post('/infoPuntoDeVenta', { codigo })
       .then(res => {
         setData(res.data)
       })

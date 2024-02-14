@@ -14,7 +14,7 @@ export const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    axios.post('http://localhost:3060/metasLogin', { username, password })
+    axios.post('/metasLogin', { username, password })
       .then(response => {
         login({ auth: true, user: response.data.user })
         setMessage('Iniciando sesión...')

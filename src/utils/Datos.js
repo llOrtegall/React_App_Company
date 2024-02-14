@@ -98,7 +98,7 @@ export async function UnificarDatos (data) {
 
   const SOAT = {
     id: 13,
-    producto: 'Soat',
+    producto: 'Baloto',
     ventaActual: data?.SOAT,
     aspiracionDia: data?.PROMEDIO_DIARIO_SOAT,
     porcentaje: data?.PORSOAT
@@ -120,16 +120,16 @@ export async function UnificarDatos (data) {
     porcentaje: data?.PORECAR
   }
 
-  const PROMO1 = {
-    id: 16,
-    producto: 'Promo 1',
-    ventaActual: data?.PROMO1,
-    aspiracionDia: data?.META_PROMO1
-  }
+  // const PROMO1 = {
+  //   id: 16,
+  //   producto: 'Promo 1',
+  //   ventaActual: data?.PROMO1,
+  //   aspiracionDia: data?.META_PROMO1
+  // }
 
   const PROMO2 = {
     id: 17,
-    producto: 'Promo 2',
+    producto: 'Raspe y Listo',
     ventaActual: data?.PROMO2,
     aspiracionDia: data?.META_PROMO2,
     porcentaje: data?.PORASPE
@@ -151,7 +151,7 @@ export async function UnificarDatos (data) {
     SOAT,
     RECAUDOS,
     RECARGAS,
-    PROMO1,
+    // PROMO1,
     PROMO2
   }
 
