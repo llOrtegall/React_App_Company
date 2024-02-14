@@ -120,20 +120,20 @@ export async function UnificarDatos (data) {
     porcentaje: data?.PORECAR
   }
 
+  const PROMO2 = {
+    id: 16,
+    producto: 'Raspe y Listo',
+    ventaActual: data?.PROMO2,
+    aspiracionDia: data?.META_PROMO2,
+    porcentaje: data?.PORASPE
+  }
+
   // const PROMO1 = {
   //   id: 16,
   //   producto: 'Promo 1',
   //   ventaActual: data?.PROMO1,
   //   aspiracionDia: data?.META_PROMO1
   // }
-
-  const PROMO2 = {
-    id: 17,
-    producto: 'Raspe y Listo',
-    ventaActual: data?.PROMO2,
-    aspiracionDia: data?.META_PROMO2,
-    porcentaje: data?.PORASPE
-  }
 
   const DATA_UNIFICADA = {
     ASTRO,
@@ -151,8 +151,8 @@ export async function UnificarDatos (data) {
     SOAT,
     RECAUDOS,
     RECARGAS,
-    // PROMO1,
     PROMO2
+    // PROMO1,
   }
 
   return DATA_UNIFICADA

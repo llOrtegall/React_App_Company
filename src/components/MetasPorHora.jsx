@@ -1,4 +1,5 @@
 import { AreaChart } from '@tremor/react'
+import { useLocation } from 'react-router-dom';
 
 const chartdata = [
   { date: '6:00 am', 'Aspiración x Hora': 0, 'Venta Actual x Hora': 0 },
@@ -24,7 +25,11 @@ const dataFormatter = (number) =>
   `$ ${Intl.NumberFormat('CO').format(number).toString()}`
 
 export function MetasxHora () {
-  const nombreProducto = 'Pagamas'
+  const location = useLocation()
+  const producto = location.state.producto
+
+  console.log(producto)
+  const nombreProducto = producto.producto || 'Producto'
 
   return (
 

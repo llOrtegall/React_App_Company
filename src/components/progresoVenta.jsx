@@ -1,6 +1,6 @@
 import { Card, ProgressBar } from '@tremor/react'
 
-export function ProgressBarUsageExample ({ pruducto, ventaActual, aspiracionDia }) {
+export function ProgresoProducto ({ pruducto, ventaActual, aspiracionDia }) {
   const calculatePercentage = (actual, metaDia) => {
     // eslint-disable-next-line prefer-const
     let percentage = (actual * 100) / metaDia
@@ -29,7 +29,7 @@ export function ProgressBarUsageExample ({ pruducto, ventaActual, aspiracionDia 
         <span><span>&bull;</span> {percentage}%</span>
         <span className='font-bold'>${aspiracionDiaFormateada}</span>
       </p>
-      <ProgressBar value={percentage} color={progressColor} className="mt-3" />
+      <ProgressBar value={percentage} color={progressColor} className="mt-3" showAnimation={true} />
     </Card>
   )
 }

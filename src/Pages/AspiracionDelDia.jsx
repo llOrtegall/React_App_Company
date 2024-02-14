@@ -1,4 +1,4 @@
-import { ProgressBarUsageExample } from '../components/progresoVenta'
+import { ProgresoProducto } from '../components/progresoVenta'
 import { UnificarDatos } from '../utils/Datos.js'
 import { InfoPuntCoord } from '../components/InfoPuntoCoor'
 import { useNavigate } from 'react-router-dom'
@@ -22,7 +22,7 @@ export function AspiracionDelDia ({ user }) {
   const navigate = useNavigate()
 
   const handleClickCard = (producto) => {
-    navigate(`/metas/producto/${producto.id}`)
+    navigate(`/metas/producto/${producto.id}`, { state: { producto } })
   }
 
   return (
@@ -35,8 +35,8 @@ export function AspiracionDelDia ({ user }) {
         {
           Object.keys(datos).length > 0 &&
           Object.values(datos).map(producto => (
-            <button key={producto.id} className='hover:border border-black dark:hover:border-white' onClick={() => handleClickCard(producto.id)}>
-              <ProgressBarUsageExample key={producto.id} pruducto={producto.producto} porcentaje={producto.porcentaje} aspiracionDia={producto.aspiracionDia} ventaActual={producto.ventaActual} />
+            <button key={producto.id} className='hover:border border-black dark:hover:border-white' onClick={() => handleClickCard(producto)}>
+              <ProgresoProducto key={producto.id} pruducto={producto.producto} porcentaje={producto.porcentaje} aspiracionDia={producto.aspiracionDia} ventaActual={producto.ventaActual} />
             </button>
           ))
         }

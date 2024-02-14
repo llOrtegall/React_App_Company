@@ -8,6 +8,7 @@ import { LoginForm } from './Pages/LoginForm'
 
 import { useAuth } from './auth/AuthContext'
 import { ThemeContext } from './context/ThemeProvider'
+import { MetasxHora } from './components/MetasPorHora'
 import { useContext } from 'react'
 import axios from 'axios'
 
@@ -29,6 +30,7 @@ export function App () {
         <Route path='/' element={<Layout darkMode={darkMode} toggleTheme={toggleTheme}/>}>
           <Route path='/metas/resumen' element={<ResumenAsp user={user}/>} />
           <Route path='/metas/aspiracionDia' element={<AspiracionDelDia user={user}/>} />
+          <Route path='/metas/producto/:id' element={<MetasxHora />} />
         </Route>
       </Routes>
     </>
