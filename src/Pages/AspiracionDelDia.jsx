@@ -28,7 +28,7 @@ export function AspiracionDelDia ({ user }) {
   return (
     <section className='w-full flex flex-col gap-2'>
 
-      <InfoPuntCoord titulo='Aspiración Del Día' />
+      <InfoPuntCoord titulo='Aspiración Del Día' codigo={user.codigo}/>
 
       <section className='grid grid-cols-4 gap-4 pt-2'>
         {console.log(datos)}
