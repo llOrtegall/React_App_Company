@@ -63,7 +63,7 @@ export function InfoPuntCoord ({ titulo, codigo }) {
         <div className='flex items-center justify-center text-center border p-3 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold'>Fecha: {Fecha || <Cargando />}</div>
         <div className='flex items-center justify-center text-center border p-3 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold'>Hora: {Hora || <Cargando />}</div>
         <p className='flex items-center justify-center text-center border p-3 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold'>{data.PDV_COOR || <Cargando />}</p>
-        <p className='flex items-center justify-center text-center border p-3 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold'>{data.VERSION}</p>
+        <p className='flex items-center justify-center text-center border p-3 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold'>{data.VERSION || <Cargando />}</p>
       </article>
     </div>
   )

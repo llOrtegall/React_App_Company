@@ -135,7 +135,7 @@ export async function UnificarDatos (data) {
   //   aspiracionDia: data?.META_PROMO1
   // }
 
-  const DATA_UNIFICADA = {
+  const DATA_UNIFICADA = [
     ASTRO,
     CHANCE,
     PAGAMAS,
@@ -153,7 +153,7 @@ export async function UnificarDatos (data) {
     RECARGAS,
     PROMO2
     // PROMO1,
-  }
+  ]
 
   return DATA_UNIFICADA
 }

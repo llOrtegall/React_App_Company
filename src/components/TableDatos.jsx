@@ -1,6 +1,6 @@
 export function TableDatos () {
   return (
-    <section className="w-full pb-8">
+    <section className="w-full pb-8 mx-4">
       <h2 className='text-center font-semibold pb-2'>Utilidades Incluye Giros</h2>
       <table >
         <thead>
