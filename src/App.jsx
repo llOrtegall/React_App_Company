@@ -9,13 +9,14 @@ import { LoginForm } from './Pages/LoginForm'
 import { useAuth } from './auth/AuthContext'
 import { ThemeContext } from './context/ThemeProvider'
 import { MetasxHora } from './components/MetasPorHora'
-import { InfoPuntCoord } from './components/InfoPuntoCoor'
+import { AspiracionMesActual } from './Pages/AspiracionMesActual'
+import { AspiracionMesAnterior } from './Pages/AspiracionMesAnterior'
 import { Sugeridos } from './Pages/Sugeridos'
 import { useContext } from 'react'
 import axios from 'axios'
 
 export function App () {
-  axios.defaults.baseURL = 'http://localhost:3060'
+  axios.defaults.baseURL = 'http://172.20.1.110:3060'
 
   const { isAutentificate, user } = useAuth()
   const { darkMode, toggleTheme } = useContext(ThemeContext)
@@ -28,13 +29,14 @@ export function App () {
 
   return (
     <>
-      <InfoPuntCoord codigo={user.codigo}/>
       <Routes>
-        <Route path='/' element={<Layout darkMode={darkMode} toggleTheme={toggleTheme}/>}>
+        <Route path='/' element={<Layout user={user.codigo} darkMode={darkMode} toggleTheme={toggleTheme}/>}>
           <Route path='/metas/resumen' element={<ResumenAsp user={user}/>} />
           <Route path='/metas/aspiracionDia' element={<AspiracionDelDia user={user}/>} />
           <Route path='/metas/producto/:id' element={<MetasxHora />} />
           <Route path='/metas/sugeridos' element={<Sugeridos />} />
+          <Route path='/metas/aspiracionMesActual' element={<AspiracionMesActual user={user}/>} />
+          <Route path='/metas/aspiracionMesAnterior' element={<AspiracionMesAnterior user={user}/>} />
         </Route>
       </Routes>
     </>

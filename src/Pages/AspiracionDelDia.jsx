@@ -10,10 +10,10 @@ import { ArrowsIcon } from '../components/icons/Icons.jsx'
 export function AspiracionDelDia ({ user }) {
   const datos = useFetchData(user.codigo)
   const navigate = useNavigate()
-  const [isAscending, setIsAscending] = useState(true)
+  const [isAscending, setIsAscending] = useState(false)
 
   const handleClickCard = useCallback((p) => {
-    navigate(`/metas/p/${p.id}`, { state: { p } })
+    navigate(`/metas/producto/${p.id}`, { state: { p } })
   }, [navigate])
 
   // Verifica que los datos existen antes de intentar ordenarlos

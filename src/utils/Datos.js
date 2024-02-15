@@ -1,4 +1,4 @@
-export async function UnificarDatos (data) {
+export async function UnificarDatosYumbo (data) {
   const ASTRO = {
     id: 1,
     producto: 'Astro',

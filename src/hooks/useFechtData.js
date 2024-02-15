@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { UnificarDatos } from '../utils/Datos.js'
+import { UnificarDatosYumbo } from '../utils/Datos.js'
 import axios from 'axios'
 
 const getDataAspDia = async (codigo) => {
@@ -7,7 +7,7 @@ const getDataAspDia = async (codigo) => {
     const res = await axios.post('/cumplimientoDiaProducto', { codigo })
 
     if (res.data) {
-      return UnificarDatos(res.data)
+      return UnificarDatosYumbo(res.data)
     }
   } catch (error) {
     console.error('Error fetching data: ', error)

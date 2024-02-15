@@ -1,15 +1,20 @@
+import { InfoPuntCoord } from './InfoPuntoCoor'
 import { NavBar } from '../components/NavBar'
 import { Outlet } from 'react-router-dom'
 
-export function Layout ({ darkMode, toggleTheme }) {
+export function Layout ({ darkMode, toggleTheme, user }) {
   return (
-    <section className='flex h-full'>
+    <section className='flex min-h-screen'>
+
       <nav className='w-[20vw]'>
-        <NavBar darkMode={darkMode} toggleTheme={toggleTheme}/>
+        <NavBar darkMode={darkMode} toggleTheme={toggleTheme} />
       </nav>
-      <main className='w-[80vw]'>
+
+      <main className='w-[80vw] px-4'>
+        <InfoPuntCoord codigo={user} />
         <Outlet />
       </main>
+
     </section>
   )
 }

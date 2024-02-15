@@ -25,13 +25,13 @@ export const NavBar = ({ toggleTheme, darkMode }) => {
             </Link>
           </li>
           <li>
-            <Link className="hover:text-blue-600 hover:underline lg:flex lg:items-center lg:gap-2 lg:py-2 0xl:gap-6" to="/metas/infmesactual">
+            <Link className="hover:text-blue-600 hover:underline lg:flex lg:items-center lg:gap-2 lg:py-2 0xl:gap-6" to="/metas/aspiracionMesActual">
               <CalendarIcon />
               <span className='hidden lg:block text-xs lg:text-sm lg:font-semibold 0xl:text-lg'>Aspiración Mes Actual</span>
             </Link>
           </li>
           <li>
-            <Link className="hover:text-blue-600 hover:underline lg:flex lg:items-center lg:gap-2 lg:py-2 0xl:gap-6" to="/metas/infmesant">
+            <Link className="hover:text-blue-600 hover:underline lg:flex lg:items-center lg:gap-2 lg:py-2 0xl:gap-6" to="/metas/aspiracionMesAnterior">
               <CalendarAntIcon />
               <span className='hidden lg:block text-xs lg:text-sm lg:font-semibold 0xl:text-lg'>Aspiración Mes Anterior</span>
             </Link>
