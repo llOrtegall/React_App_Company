@@ -28,8 +28,6 @@ export function ResumenAsp ({ user }) {
     }
   }
 
-  console.log(data)
-
   return (
     <div className='text-gray-700 dark:text-white grid grid-cols-3 text-4xl text-center font-semibold rounded-lg gap-2'>
 

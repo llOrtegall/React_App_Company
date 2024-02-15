@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react'
 import { UnificarDatosYumbo } from '../utils/Datos.js'
 import axios from 'axios'
 
-const getDataAspDia = async (codigo) => {
+const getDataAspDia = async (codigo, zone) => {
   try {
-    const res = await axios.post('/cumplimientoDiaProducto', { codigo })
+    const res = await axios.post('/cumplimientoDiaProducto', { codigo, zona: zone })
 
     if (res.data) {
       return UnificarDatosYumbo(res.data)
@@ -15,11 +15,11 @@ const getDataAspDia = async (codigo) => {
   }
 }
 
-export function useFetchData (codigo) {
+export function useFetchData (codigo, zone) {
   const [datos, setDatos] = useState({})
 
   useEffect(() => {
-    getDataAspDia(codigo).then(data => {
+    getDataAspDia(codigo, zone).then(data => {
       setDatos(data)
     })
 

@@ -6,7 +6,12 @@ const AuthContext = createContext()
 export function AuthProvider ({ children }) {
   const [isAutentificate, setIsAutentificate] = useState(false)
   const [user, setUser] = useState({})
+  const [zona, setZona] = useState(null)
   const navigate = useNavigate()
+
+  const defineZona = (cod) => {
+    setZona(cod)
+  }
 
   const login = ({ auth, user }) => {
     if (auth === true) {
@@ -23,7 +28,7 @@ export function AuthProvider ({ children }) {
   }
 
   return (
-    <AuthContext.Provider value={{ isAutentificate, login, user, logout }}>
+    <AuthContext.Provider value={{ isAutentificate, login, user, logout, zona, defineZona }}>
       {children}
     </AuthContext.Provider>
   )

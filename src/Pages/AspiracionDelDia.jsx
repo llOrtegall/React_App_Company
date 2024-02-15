@@ -7,8 +7,9 @@ import { CodigoQR } from '../components/CodigoQR.jsx'
 import { TableDatos } from '../components/TableDatos.jsx'
 import { ArrowsIcon } from '../components/icons/Icons.jsx'
 
-export function AspiracionDelDia ({ user }) {
-  const datos = useFetchData(user.codigo)
+export function AspiracionDelDia ({ user, zone }) {
+  const { codigo } = user
+  const datos = useFetchData(codigo, zone)
   const navigate = useNavigate()
   const [isAscending, setIsAscending] = useState(false)
 

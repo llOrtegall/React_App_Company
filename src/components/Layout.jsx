@@ -11,7 +11,7 @@ export function Layout ({ darkMode, toggleTheme, user }) {
       </nav>
 
       <main className='w-[80vw] px-4'>
-        <InfoPuntCoord codigo={user} />
+        <InfoPuntCoord codigo={user}/>
         <Outlet />
       </main>
 
