@@ -1,4 +1,4 @@
-import { ProgresoProducto } from '../components/progresoVenta'
+import { BarraProgresoPro } from '../components/progresoVenta'
 import { InfoPuntCoord } from '../components/InfoPuntoCoor'
 import { useNavigate } from 'react-router-dom'
 import { useCallback } from 'react'
@@ -9,22 +9,24 @@ export function AspiracionDelDia ({ user }) {
   const datos = useFetchData(user.codigo)
   const navigate = useNavigate()
 
-  const handleClickCard = useCallback((producto) => {
-    navigate(`/metas/producto/${producto.id}`, { state: { producto } })
+  const handleClickCard = useCallback((p) => {
+    navigate(`/metas/p/${p.id}`, { state: { p } })
   }, [navigate])
 
   return (
     <section className='w-full flex flex-col gap-2 relative'>
+
       <InfoPuntCoord titulo='Aspiración Del Día' codigo={user.codigo} />
 
       <section className='grid grid-cols-4 gap-4 pt-2'>
         {
-          Object.values(datos).map(producto => (
-            <button key={producto.id} onClick={handleClickCard.bind(null, producto)}
+          Object.values(datos).map(p => (
+            <button key={p.id} onClick={handleClickCard.bind(null, p)}
               className='hover:border border-black dark:hover:border-white'>
-              <ProgresoProducto key={producto.id} pruducto={producto.producto}
-                porcentaje={producto.porcentaje} aspiracionDia={producto.aspiracionDia}
-                ventaActual={producto.ventaActual}
+              <BarraProgresoPro key={p.id}
+                pruducto={p.producto}
+                aspiracionDia={p.aspiracionDia}
+                ventaActual={p.ventaActual}
               />
             </button>
           ))
