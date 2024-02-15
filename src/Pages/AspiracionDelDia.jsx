@@ -7,17 +7,40 @@ import axios from 'axios'
 
 export function AspiracionDelDia ({ user }) {
   const [datos, setDatos] = useState({})
+  const [count, setCount] = useState(5 * 60) // Inicia la cuenta en 5 minutos (en segundos)
   const { codigo } = user
 
   useEffect(() => {
-    axios.post('http://localhost:3060/cumplimientoDiaProducto', { codigo })
-      .then(res => {
-        if (res.data) {
-          UnificarDatos(res.data)
-            .then(data => setDatos(data))
-        }
-      })
+    const fetchData = () => {
+      axios.post('/cumplimientoDiaProducto', { codigo })
+        .then(res => {
+          if (res.data) {
+            UnificarDatos(res.data)
+              .then(data => setDatos(data))
+          }
+        })
+    }
+
+    fetchData() // Llama a la función inmediatamente al montar el componente
+
+    const intervalId = setInterval(() => {
+      fetchData()
+      setCount(5 * 60) // Reinicia la cuenta cada 5 minutos
+    }, 5 * 60 * 1000) // Llama a la función cada 5 minutos
+
+    return () => clearInterval(intervalId) // Limpia el intervalo al desmontar el componente
   }, [])
+
+  useEffect(() => {
+    const countdownId = count > 0 && setInterval(() => {
+      setCount(count => count - 1) // Disminuye la cuenta en 1 cada segundo
+    }, 1000)
+
+    return () => clearInterval(countdownId) // Limpia el intervalo al desmontar el componente
+  }, [])
+
+  const minutes = Math.floor(count / 60)
+  const seconds = count % 60
 
   const navigate = useNavigate()
 
@@ -26,12 +49,16 @@ export function AspiracionDelDia ({ user }) {
   }
 
   return (
-    <section className='w-full flex flex-col gap-2'>
+    <section className='w-full flex flex-col gap-2 relative'>
+
+    <div className='absolute'>
+      {/* Tu código de renderizado aquí */}
+      {minutes}:{seconds < 10 ? '0' + seconds : seconds} hasta la próxima actualización
+    </div>
 
       <InfoPuntCoord titulo='Aspiración Del Día' codigo={user.codigo}/>
 
       <section className='grid grid-cols-4 gap-4 pt-2'>
-        {console.log(datos)}
         {
           Object.keys(datos).length > 0 &&
           Object.values(datos).map(producto => (
