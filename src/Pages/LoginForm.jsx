@@ -25,7 +25,7 @@ export const LoginForm = () => {
       })
       .catch(error => {
         console.log(error)
-        setError('Error al iniciar sesión')
+        setError(error.response.data.error)
         setTimeout(() => {
           setError('')
         }, 4000)
@@ -38,11 +38,11 @@ export const LoginForm = () => {
         <form onSubmit={handleSubmit}
           className='flex flex-col w-[450px] h-auto rounded-2xl shadow-2xl px-10 py-20 mb-4 justify-around bg-slate-200'>
           <figure className='mb-12 flex items-center justify-center'>
-            <img src="../../public/ganeyumbo.png" width={150} alt="" />
+            <img src="../../public/gane.png" width={150} alt="" />
           </figure>
           <article className='flex flex-col mb-20'>
             <label className='font-semibold mb-2 text-black'>Usuario:</label>
-            <input type='text' placeholder='CP1118333444'
+            <input type='text' placeholder='CV1118333444'
               className='p-2.5 mb-10 rounded-md  text-black'
               onChange={ev => setUsername(ev.target.value)} />
             <label className='font-semibold mb-2 text-black'>Contraseña:</label>
