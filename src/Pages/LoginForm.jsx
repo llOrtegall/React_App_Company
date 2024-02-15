@@ -17,6 +17,7 @@ export const LoginForm = () => {
     axios.post('/metasLogin', { username, password })
       .then(response => {
         login({ auth: true, user: response.data.user })
+        localStorage.setItem('user', JSON.stringify(response.data.user))
         setMessage('Iniciando sesión...')
         setTimeout(() => {
           setMessage('')

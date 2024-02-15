@@ -68,8 +68,10 @@ export function InfoPuntCoord ({ codigo }) {
         <span className='text-sm flex gap-4'>{data.NOMBRE || <Cargando />}</span>
         <span className='text-sm flex gap-4'>{data.SUPERVISOR || <Cargando />}</span>
       </p>
+
       {
-        data.VERSION !== 0
+        // eslint-disable-next-line eqeqeq
+        data.VERSION != 0
           ? (
             <article className='flex flex-col items-center justify-center text-center border p-3 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold gap-2'>
               <p className='text-sm flex gap-4'>

@@ -30,7 +30,7 @@ export function App () {
   return (
     <>
       <Routes>
-        <Route path='/' element={<Layout user={user.codigo} darkMode={darkMode} toggleTheme={toggleTheme}/>}>
+        <Route path='/' element={<Layout user={user.codigo} darkMode={darkMode} toggleTheme={toggleTheme} zone={zona}/>}>
           <Route path='/metas/resumen' element={<ResumenAsp zone={zona} user={user}/>} />
           <Route path='/metas/aspiracionDia' element={<AspiracionDelDia zone={zona} user={user}/>} />
           <Route path='/metas/producto/:id' element={<MetasxHora />} />

@@ -1,4 +1,4 @@
-import { createContext, useState, useContext } from 'react'
+import { createContext, useState, useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const AuthContext = createContext()
@@ -8,6 +8,24 @@ export function AuthProvider ({ children }) {
   const [user, setUser] = useState({})
   const [zona, setZona] = useState(null)
   const navigate = useNavigate()
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('user'))
+    if (user) {
+      setUser(user)
+      setIsAutentificate(true)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (isAutentificate) {
+      const timerId = setTimeout(() => {
+        logout()
+      }, 60 * 60 * 1000) // 1 hora
+
+      return () => clearTimeout(timerId)
+    }
+  }, [isAutentificate])
 
   const defineZona = (cod) => {
     setZona(cod)
@@ -24,7 +42,7 @@ export function AuthProvider ({ children }) {
 
   const logout = () => {
     setIsAutentificate(false)
-    navigate('/metas/resumen')
+    localStorage.removeItem('user')
   }
 
   return (

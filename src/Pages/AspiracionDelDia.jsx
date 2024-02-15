@@ -30,6 +30,7 @@ export function AspiracionDelDia ({ user, zone }) {
       </section>
 
       <section className='grid grid-cols-4 gap-4 pt-2'>
+        {console.log(datos)}
         {
           sortedData !== null && sortedData !== undefined
             ? Object.values(sortedData).map(p => (
