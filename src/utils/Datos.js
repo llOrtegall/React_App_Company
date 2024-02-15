@@ -147,9 +147,6 @@ export async function UnificarDatosYumbo (data) {
     data?.PROMEDIO_DIARIO_DOBLECHANCE +
     data?.PROMEDIO_DIARIO_CHMILL
 
-  console.log(ventaActualAzarCal)
-  console.log(aspiracionDiaAzarCal)
-
   porcentajeAzarCal = (ventaActualAzarCal / aspiracionDiaAzarCal) * 100
 
   const JUEGOS_AZAR = {
@@ -161,7 +158,6 @@ export async function UnificarDatosYumbo (data) {
   }
 
   const DATA_UNIFICADA = [
-    JUEGOS_AZAR,
     ASTRO,
     CHANCE,
     PAGAMAS,
@@ -177,8 +173,8 @@ export async function UnificarDatosYumbo (data) {
     SOAT,
     RECAUDOS,
     RECARGAS,
-    PROMO2
-    // PROMO1,
+    PROMO2,
+    JUEGOS_AZAR
   ]
 
   return DATA_UNIFICADA
@@ -313,11 +309,34 @@ export async function UnificarDatosJamundi (data) {
     porcentaje: data?.PORASPE
   }
 
-  // const JUEGOS_AZAR = {
-  //   id: 16,
-  //   producto: 'Juegos de Azar',
-  //   ventaActual:
-  // }
+  let ventaActualAzarCal = 0; let aspiracionDiaAzarCal = 0; let porcentajeAzarCal = 0
+  ventaActualAzarCal =
+    data?.CHANCE +
+    data?.CHOLADITO +
+    data?.PAGATODO_JAMUNDI +
+    data?.GANE5 +
+    data?.PATA_MILLONARIA +
+    data?.DOBLECHANCE +
+    data?.CHANCE_MILLONARIO
+
+  aspiracionDiaAzarCal =
+    data?.PROMEDIO_DIARIO_CHANCE +
+    data?.PROMEDIO_DIARIO_CHOLADITO +
+    data?.PROMEDIO_DIARIO_PGTJAMUNDI +
+    data?.PROMEDIO_DIARIO_GANE5 +
+    data?.PROMEDIO_DIARIO_PATAMI +
+    data?.PROMEDIO_DIARIO_DOBLECHANCE +
+    data?.PROMEDIO_DIARIO_CHMILL
+
+  porcentajeAzarCal = (ventaActualAzarCal / aspiracionDiaAzarCal) * 100
+
+  const JUEGOS_AZAR = {
+    id: 17,
+    producto: 'Juegos de Azar',
+    ventaActual: ventaActualAzarCal,
+    aspiracionDia: aspiracionDiaAzarCal,
+    porcentaje: porcentajeAzarCal
+  }
 
   const DATA_UNIFICADA = [
     ASTRO,
@@ -335,7 +354,8 @@ export async function UnificarDatosJamundi (data) {
     SOAT,
     RECAUDOS,
     RECARGAS,
-    PROMO2
+    PROMO2,
+    JUEGOS_AZAR
   ]
 
   return DATA_UNIFICADA
