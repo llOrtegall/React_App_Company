@@ -18,6 +18,8 @@ const getDataAspDia = async (codigo) => {
 export function useFetchData (codigo) {
   const [datos, setDatos] = useState({})
 
+  console.log(datos)
+
   useEffect(() => {
     getDataAspDia(codigo).then(data => {
       setDatos(data)
