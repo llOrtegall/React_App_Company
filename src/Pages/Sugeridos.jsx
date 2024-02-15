@@ -1,4 +1,3 @@
-import { InfoPuntCoord } from '../components/InfoPuntoCoor'
 import { Card, ProgressBar } from '@tremor/react'
 
 export function Sugeridos () {
@@ -25,8 +24,6 @@ export function Sugeridos () {
 
   return (
     <section className='w-full'>
-      <InfoPuntCoord title={'Sugeridos'} />
-
       <Card className={`mx-auto mt-2 w-full flex flex-col gap-4 bg-${progressColor}-100`}>
         <article className='flex gap-4'>
           <h2>Pata Millonaria</h2>

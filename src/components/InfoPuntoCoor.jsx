@@ -3,7 +3,7 @@ import { getColombiaTime } from '../services/HoraColombia'
 import { Cargando } from './animation/Loadin'
 import axios from 'axios'
 
-export function InfoPuntCoord ({ titulo, codigo }) {
+export function InfoPuntCoord ({ codigo }) {
   const [data, setData] = useState({})
   const [Fecha, setFecha] = useState('')
   const [Hora, setHora] = useState('')
@@ -57,14 +57,11 @@ export function InfoPuntCoord ({ titulo, codigo }) {
   }
 
   return (
-    <div className='flex flex-col items-center bg-slate-200 dark:bg-slate-900 rounded-xl'>
-      <h1 className='text-3xl pt-4 font-semibold'>{titulo}</h1>
-      <article className='grid grid-cols-4 w-full sm:text-xs lg:text-lg justify-around py-4'>
-        <div className='flex items-center justify-center text-center border p-3 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold'>Fecha: {Fecha || <Cargando />}</div>
-        <div className='flex items-center justify-center text-center border p-3 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold'>Hora: {Hora || <Cargando />}</div>
-        <p className='flex items-center justify-center text-center border p-3 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold'>{data.PDV_COOR || <Cargando />}</p>
-        <p className='flex items-center justify-center text-center border p-3 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold'>{data.VERSION || <Cargando />}</p>
-      </article>
-    </div>
+    <article className='grid grid-cols-4 w-full sm:text-xs lg:text-lg justify-around py-4'>
+      <div className='flex items-center justify-center text-center border p-3 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold'>Fecha: {Fecha || <Cargando />}</div>
+      <div className='flex items-center justify-center text-center border p-3 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold'>Hora: {Hora || <Cargando />}</div>
+      <p className='flex items-center justify-center text-center border p-3 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold'>{data.PDV_COOR || <Cargando />}</p>
+      <p className='flex items-center justify-center text-center border p-3 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold'>{data.VERSION || <Cargando />}</p>
+    </article>
   )
 }

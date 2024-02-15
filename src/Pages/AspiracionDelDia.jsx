@@ -1,5 +1,4 @@
 import { BarraProgresoPro } from '../components/progresoVenta'
-import { InfoPuntCoord } from '../components/InfoPuntoCoor'
 import { useNavigate } from 'react-router-dom'
 import { useCallback, useState } from 'react'
 
@@ -21,8 +20,6 @@ export function AspiracionDelDia ({ user }) {
   const sortedData = Array.isArray(datos) ? [...datos].sort((a, b) => isAscending ? parseFloat(a.porcentaje) - parseFloat(b.porcentaje) : parseFloat(b.porcentaje) - parseFloat(a.porcentaje)) : []
   return (
     <section className='w-full flex flex-col gap-2 relative'>
-
-      <InfoPuntCoord titulo='Aspiración Del Día' codigo={user.codigo} />
 
       <section className='w-full flex items-center justify-center'>
         <button onClick={() => setIsAscending(!isAscending)} className='flex p-3 items-center justify-center bg-blue-600 text-lg rounded-md gap-4 text-white font-semibold hover:bg-blue-500'>
