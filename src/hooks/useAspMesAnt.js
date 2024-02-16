@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { UnificarDatosMesAntJamundi, UnificarDatosYumbo } from '../utils/Datos.js'
+import { UnificarDatosMesAntJamundi, UnificarDatosMesAntYumbo } from '../utils/Datos.js'
 import axios from 'axios'
 
 const getDataMesAnt = async (codigo, zone) => {
@@ -8,7 +8,7 @@ const getDataMesAnt = async (codigo, zone) => {
 
     let data
     if (zone === 39627) {
-      data = await UnificarDatosYumbo(response.data)
+      data = await UnificarDatosMesAntYumbo(response.data)
     } else if (zone === 39628) {
       data = await UnificarDatosMesAntJamundi(response.data)
     } else {
@@ -18,7 +18,6 @@ const getDataMesAnt = async (codigo, zone) => {
   } catch (error) {
     console.error('Error fetching data: ', error)
     return new Error('Error fetching data')
-    // Aquí puedes manejar el error como prefieras, por ejemplo, mostrando un mensaje al usuario
   }
 }
 
@@ -28,8 +27,8 @@ export function useAspiracionDiaActual (codigo, zone) {
   useEffect(() => {
     getDataMesAnt(codigo, zone)
       .then(data => {
-        console.log(typeof data)
-        console.log(data)
+        // console.log(typeof data)
+        // console.log(data)
         setDatosMesAnt(data)
       })
   }, [codigo, zone])

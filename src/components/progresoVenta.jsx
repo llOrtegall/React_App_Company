@@ -17,12 +17,12 @@ export function BarraProgresoPro ({ pruducto, ventaActual, aspiracionDia, percen
             ? <span className='font-semibold'>Actual: {ventaActualFormateada} </span>
             : <span className='font-semibold'>Actual: ${ventaActualFormateada} </span>
         }
+        <span><span>&bull;</span> {percentage}%</span>
         {
           pruducto === 'Recaudos' || pruducto === 'Giros'
             ? <span className='font-bold'>{aspiracionDiaFormateada}</span>
             : <span className='font-bold'>${aspiracionDiaFormateada}</span>
         }
-        <span><span>&bull;</span> {percentage}%</span>
       </p>
       <ProgressBar value={percentage} color={progressColor} className="mt-3" showAnimation={true} />
     </Card>

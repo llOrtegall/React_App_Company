@@ -4,14 +4,12 @@ import { useAspiracionDiaActual } from '../hooks/useAspMesAnt.js'
 
 export function AspiracionMesAnterior ({ user, zone }) {
   const { codigo } = user
-  const [isAscending, setIsAscending] = useState(true)
-  const { datosMesAnt } = useAspiracionDiaActual(codigo, zone)
-
-  // console.log(datosMesAnt)
+  const [isAscending, setIsAscending] = useState(false)
+  const datosMesAnt = useAspiracionDiaActual(codigo, zone)
 
   const sortedData = Array.isArray(datosMesAnt)
     ? [...datosMesAnt]
-        .sort((a, b) => isAscending ? (a.porcentaje) - (b.porcentaje) : (b.porcentaje) - (a.porcentaje))
+        .sort((a, b) => isAscending ? parseFloat(a.porcentaje) - parseFloat(b.porcentaje) : parseFloat(b.porcentaje) - parseFloat(a.porcentaje))
     : []
   return (
     <section className='w-full flex flex-col gap-2 relative'>
@@ -24,6 +22,7 @@ export function AspiracionMesAnterior ({ user, zone }) {
                   pruducto={p.producto}
                   aspiracionDia={p.aspiracionDia}
                   ventaActual={p.ventaActual}
+                  percentage={p.porcentaje}
                 />
             ))
             : (

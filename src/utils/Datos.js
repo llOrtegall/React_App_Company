@@ -358,146 +358,317 @@ export async function UnificarDatosJamundi (data) {
   return DATA_UNIFICADA
 }
 
-export async function UnificarDatosMesAntJamundi (data) {
+export async function UnificarDatosMesAntYumbo (data) {
   const ASTRO = {
     id: 1,
     producto: 'Astro',
-    ventaActual: data?.VTM_ASTRO,
-    aspiracionDia: data?.EJE_ASTRO,
-    porcentaje: calcularPorcentaje(data?.VTM_ASTRO, data?.EJE_ASTRO)
+    ventaActual: data?.EJE_ASTRO,
+    aspiracionDia: data?.VTM_ASTRO,
+    porcentaje: calcularPorcentaje(data?.EJE_ASTRO, data?.VTM_ASTRO)
   }
 
   const CHANCE = {
     id: 2,
     producto: 'Chance 4 Y 3 Cif',
-    ventaActual: data?.VTM_CHANCE,
-    aspiracionDia: data?.EJE_CHANCE,
-    porcentaje: calcularPorcentaje(data?.VTM_CHANCE, data?.EJE_CHANCE)
+    ventaActual: data?.EJE_CHANCE,
+    aspiracionDia: data?.VTM_CHANCE,
+    porcentaje: calcularPorcentaje(data?.EJE_CHANCE, data?.VTM_CHANCE)
   }
 
-  const CHOLADITO = {
+  const PAGAMAS = {
     id: 3,
-    producto: 'Choladito',
-    ventaActual: data?.VTM_CHOLADITO,
-    aspiracionDia: data?.EJE_CHOLADITO,
-    porcentaje: calcularPorcentaje(data?.VTM_CHOLADITO, data?.EJE_CHOLADITO)
+    producto: 'Pagamas',
+    ventaActual: data?.EJE_PAGAMAS,
+    aspiracionDia: data?.VTM_PAGAMAS,
+    porcentaje: calcularPorcentaje(data?.EJE_PAGAMAS, data?.VTM_PAGAMAS)
   }
 
-  const PAGATODO_JAMUNDI = {
+  const PAGATODO = {
     id: 4,
     producto: 'Paga Todo',
-    ventaActual: data?.VTM_PAGATODO_JAMUNDI,
-    aspiracionDia: data?.EJE_PAGATODO_JAMUNDI,
-    porcentaje: calcularPorcentaje(data?.VTM_PAGATODO_JAMUNDI, data?.EJE_PAGATODO_JAMUNDI)
+    ventaActual: data?.EJE_PAGATODO,
+    aspiracionDia: data?.VTM_PAGATODO,
+    porcentaje: calcularPorcentaje(data?.EJE_PAGATODO, data?.VTM_PAGATODO)
   }
 
   const GANE5 = {
     id: 5,
     producto: 'Gane 5',
-    ventaActual: data?.VTM_GANE5,
-    aspiracionDia: data?.EJE_GANE5,
-    porcentaje: calcularPorcentaje(data?.VTM_GANE5, data?.EJE_GANE5)
+    ventaActual: data?.EJE_GANE5,
+    aspiracionDia: data?.VTM_GANE5,
+    porcentaje: calcularPorcentaje(data?.EJE_GANE5, data?.VTM_GANE5)
   }
 
   const PATA_MILLONARIA = {
     id: 6,
     producto: 'Pata Millonaria',
-    ventaActual: data?.VTM_PATA_MILLONARIA,
-    aspiracionDia: data?.EJE_PATA_MILLONARIA,
-    porcentaje: calcularPorcentaje(data?.VTM_PATA_MILLONARIA, data?.EJE_PATA_MILLONARIA)
+    ventaActual: data?.EJE_PATA_MILLONARIA,
+    aspiracionDia: data?.VTM_PATA_MILLONARIA,
+    porcentaje: calcularPorcentaje(data?.EJE_PATA_MILLONARIA, data?.VTM_PATA_MILLONARIA)
   }
 
   const DOBLECHANCE = {
     id: 7,
     producto: 'Doble chance',
-    ventaActual: data?.VTM_DOBLECHANCE,
-    aspiracionDia: data?.EJE_DOBLECHANCE,
-    porcentaje: calcularPorcentaje(data?.VTM_DOBLECHANCE, data?.EJE_DOBLECHANCE)
+    ventaActual: data?.EJE_DOBLECHANCE,
+    aspiracionDia: data?.VTM_DOBLECHANCE,
+    porcentaje: calcularPorcentaje(data?.EJE_DOBLECHANCE, data?.VTM_DOBLECHANCE)
   }
 
   const CHANCE_MILLONARIO = {
     id: 8,
     producto: 'Chance Millonario',
-    ventaActual: data?.VTM_CHANCE_MILLONARIO,
-    aspiracionDia: data?.EJE_CHANCE_MILLONARIO,
-    porcentaje: calcularPorcentaje(data?.VTM_CHANCE_MILLONARIO, data?.EJE_CHANCE_MILLONARIO)
+    ventaActual: data?.EJE_CHANCE_MILLONARIO,
+    aspiracionDia: data?.VTM_CHANCE_MILLONARIO,
+    porcentaje: calcularPorcentaje(data?.EJE_CHANCE_MILLONARIO, data?.VTM_CHANCE_MILLONARIO)
   }
 
   const LOTERIA_FISICA = {
     id: 9,
     producto: 'Loteria Fisica',
-    ventaActual: data?.VTM_LOTERIA_FISICA,
-    aspiracionDia: data?.EJE_LOTERIA_FISICA,
-    porcentaje: calcularPorcentaje(data?.VTM_LOTERIA_FISICA, data?.EJE_LOTERIA_FISICA)
+    ventaActual: data?.EJE_LOTERIA_FISICA,
+    aspiracionDia: data?.VTM_LOTERIA_FISICA,
+    porcentaje: calcularPorcentaje(data?.EJE_LOTERIA_FISICA, data?.VTM_LOTERIA_FISICA)
   }
 
   const LOTERIA_VIRTUAL = {
     id: 10,
     producto: 'Loteria Virtual',
-    ventaActual: data?.VTM_LOTERIA_VIRTUAL,
-    aspiracionDia: data?.EJE_LOTERIA_VIRTUAL,
-    porcentaje: calcularPorcentaje(data?.VTM_LOTERIA_VIRTUAL, data?.EJE_LOTERIA_VIRTUAL)
+    ventaActual: data?.EJE_LOTERIA_VIRTUAL,
+    aspiracionDia: data?.VTM_LOTERIA_VIRTUAL,
+    porcentaje: calcularPorcentaje(data?.EJE_LOTERIA_VIRTUAL, data?.VTM_LOTERIA_VIRTUAL)
   }
 
   const BETPLAY = {
     id: 11,
     producto: 'BetPlay',
-    ventaActual: data?.VTM_BETPLAY,
-    aspiracionDia: data?.EJE_BETPLAY,
-    porcentaje: calcularPorcentaje(data?.VTM_BETPLAY, data?.EJE_BETPLAY)
+    ventaActual: data?.EJE_BETPLAY,
+    aspiracionDia: data?.VTM_BETPLAY,
+    porcentaje: calcularPorcentaje(data?.EJE_BETPLAY, data?.VTM_BETPLAY)
   }
 
   const GIROS = {
     id: 12,
     producto: 'Giros',
-    ventaActual: data?.VTM_GIROS,
-    aspiracionDia: data?.EJE_GIROS,
-    porcentaje: calcularPorcentaje(data?.VTM_GIROS, data?.EJE_GIROS)
+    ventaActual: data?.EJE_GIROS,
+    aspiracionDia: data?.VTM_GIROS,
+    porcentaje: calcularPorcentaje(data?.EJE_GIROS, data?.VTM_GIROS)
   }
 
   const SOAT = {
     id: 13,
     producto: 'Baloto',
-    ventaActual: data?.VTM_SOAT,
-    aspiracionDia: data?.EJE_SOAT,
-    porcentaje: calcularPorcentaje(data?.VTM_SOAT, data?.EJE_SOAT)
+    ventaActual: data?.EJE_SOAT,
+    aspiracionDia: data?.VTM_SOAT,
+    porcentaje: calcularPorcentaje(data?.EJE_SOAT, data?.VTM_SOAT)
   }
 
   const RECAUDOS = {
     id: 14,
     producto: 'Recaudos',
-    ventaActual: data?.VTM_RECAUDOS,
-    aspiracionDia: data?.EJE_RECAUDOS,
-    porcentaje: calcularPorcentaje(data?.VTM_RECAUDOS, data?.EJE_RECAUDOS)
+    ventaActual: data?.EJE_RECAUDOS,
+    aspiracionDia: data?.VTM_RECAUDOS,
+    porcentaje: calcularPorcentaje(data?.EJE_RECAUDOS, data?.VTM_RECAUDOS)
   }
 
   const RECARGAS = {
     id: 15,
     producto: 'Recargas',
-    ventaActual: data?.VTM_RECARGAS,
-    aspiracionDia: data?.EJE_RECARGAS,
-    porcentaje: calcularPorcentaje(data?.VTM_RECARGAS, data?.EJE_RECARGAS)
+    ventaActual: data?.EJE_RECARGAS,
+    aspiracionDia: data?.VTM_RECARGAS,
+    porcentaje: calcularPorcentaje(data?.EJE_RECARGAS, data?.VTM_RECARGAS)
   }
 
   const PROMO2 = {
     id: 16,
     producto: 'Raspe y Listo',
-    ventaActual: data?.VTM_RASPE,
-    aspiracionDia: data?.EJE_RASPE,
-    porcentaje: calcularPorcentaje(data?.VTM_RASPE, data?.EJE_RASPE)
+    ventaActual: data?.EJE_RASPE,
+    aspiracionDia: data?.VTM_RASPE,
+    porcentaje: calcularPorcentaje(data?.EJE_RASPE, data?.VTM_RASPE)
   }
 
   let ventaActualAzarCal = 0; let aspiracionDiaAzarCal = 0
   ventaActualAzarCal =
+    data?.EJE_CHANCE +
+    data?.EJE_PAGAMAS +
+    data?.EJE_PAGATODO +
+    data?.EJE_GANE5 +
+    data?.EJE_PATA_MILLONARIA +
+    data?.EJE_DOBLECHANCE +
+    data?.EJE_CHANCE_MILLONARIO
+
+  aspiracionDiaAzarCal =
     data?.VTM_CHANCE +
-    data?.VTM_CHOLADITO +
-    data?.VTM_PAGATODO_JAMUNDI +
+    data?.VTM_PAGAMAS +
+    data?.VTM_PAGATODO +
     data?.VTM_GANE5 +
     data?.VTM_PATA_MILLONARIA +
     data?.VTM_DOBLECHANCE +
     data?.VTM_CHANCE_MILLONARIO
 
-  aspiracionDiaAzarCal =
+  const JUEGOS_AZAR = {
+    id: 17,
+    producto: 'Juegos De Azar',
+    ventaActual: ventaActualAzarCal,
+    aspiracionDia: aspiracionDiaAzarCal,
+    porcentaje: calcularPorcentaje(ventaActualAzarCal, aspiracionDiaAzarCal)
+  }
+
+  const DATA_UNIFICADA = [
+    ASTRO,
+    CHANCE,
+    PAGAMAS,
+    PAGATODO,
+    GANE5,
+    PATA_MILLONARIA,
+    DOBLECHANCE,
+    CHANCE_MILLONARIO,
+    LOTERIA_FISICA,
+    LOTERIA_VIRTUAL,
+    BETPLAY,
+    GIROS,
+    SOAT,
+    RECAUDOS,
+    RECARGAS,
+    PROMO2,
+    JUEGOS_AZAR
+  ]
+
+  return DATA_UNIFICADA
+}
+
+export async function UnificarDatosMesAntJamundi (data) {
+  const ASTRO = {
+    id: 1,
+    producto: 'Astro',
+    ventaActual: data?.EJE_ASTRO,
+    aspiracionDia: data?.VTM_ASTRO,
+    porcentaje: calcularPorcentaje(data?.EJE_ASTRO, data?.VTM_ASTRO)
+  }
+
+  const CHANCE = {
+    id: 2,
+    producto: 'Chance 4 Y 3 Cif',
+    ventaActual: data?.EJE_CHANCE,
+    aspiracionDia: data?.VTM_CHANCE,
+    porcentaje: calcularPorcentaje(data?.EJE_CHANCE, data?.VTM_CHANCE)
+  }
+
+  const CHOLADITO = {
+    id: 3,
+    producto: 'Choladito',
+    ventaActual: data?.EJE_CHOLADITO,
+    aspiracionDia: data?.VTM_CHOLADITO,
+    porcentaje: calcularPorcentaje(data?.EJE_CHOLADITO, data?.VTM_CHOLADITO)
+  }
+
+  const PAGATODO_JAMUNDI = {
+    id: 4,
+    producto: 'Paga Todo',
+    ventaActual: data?.EJE_PAGATODO_JAMUNDI,
+    aspiracionDia: data?.VTM_PAGATODO_JAMUNDI,
+    porcentaje: calcularPorcentaje(data?.EJE_PAGATODO_JAMUNDI, data?.VTM_PAGATODO_JAMUNDI)
+  }
+
+  const GANE5 = {
+    id: 5,
+    producto: 'Gane 5',
+    ventaActual: data?.EJE_GANE5,
+    aspiracionDia: data?.VTM_GANE5,
+    porcentaje: calcularPorcentaje(data?.EJE_GANE5, data?.VTM_GANE5)
+  }
+
+  const PATA_MILLONARIA = {
+    id: 6,
+    producto: 'Pata Millonaria',
+    ventaActual: data?.EJE_PATA_MILLONARIA,
+    aspiracionDia: data?.VTM_PATA_MILLONARIA,
+    porcentaje: calcularPorcentaje(data?.EJE_PATA_MILLONARIA, data?.VTM_PATA_MILLONARIA)
+  }
+
+  const DOBLECHANCE = {
+    id: 7,
+    producto: 'Doble chance',
+    ventaActual: data?.EJE_DOBLECHANCE,
+    aspiracionDia: data?.VTM_DOBLECHANCE,
+    porcentaje: calcularPorcentaje(data?.EJE_DOBLECHANCE, data?.VTM_DOBLECHANCE)
+  }
+
+  const CHANCE_MILLONARIO = {
+    id: 8,
+    producto: 'Chance Millonario',
+    ventaActual: data?.EJE_CHANCE_MILLONARIO,
+    aspiracionDia: data?.VTM_CHANCE_MILLONARIO,
+    porcentaje: calcularPorcentaje(data?.EJE_CHANCE_MILLONARIO, data?.VTM_CHANCE_MILLONARIO)
+  }
+
+  const LOTERIA_FISICA = {
+    id: 9,
+    producto: 'Loteria Fisica',
+    ventaActual: data?.EJE_LOTERIA_FISICA,
+    aspiracionDia: data?.VTM_LOTERIA_FISICA,
+    porcentaje: calcularPorcentaje(data?.EJE_LOTERIA_FISICA, data?.VTM_LOTERIA_FISICA)
+  }
+
+  const LOTERIA_VIRTUAL = {
+    id: 10,
+    producto: 'Loteria Virtual',
+    ventaActual: data?.EJE_LOTERIA_VIRTUAL,
+    aspiracionDia: data?.VTM_LOTERIA_VIRTUAL,
+    porcentaje: calcularPorcentaje(data?.EJE_LOTERIA_VIRTUAL, data?.VTM_LOTERIA_VIRTUAL)
+  }
+
+  const BETPLAY = {
+    id: 11,
+    producto: 'BetPlay',
+    ventaActual: data?.EJE_BETPLAY,
+    aspiracionDia: data?.VTM_BETPLAY,
+    porcentaje: calcularPorcentaje(data?.EJE_BETPLAY, data?.VTM_BETPLAY)
+  }
+
+  const GIROS = {
+    id: 12,
+    producto: 'Giros',
+    ventaActual: data?.EJE_GIROS,
+    aspiracionDia: data?.VTM_GIROS,
+    porcentaje: calcularPorcentaje(data?.EJE_GIROS, data?.VTM_GIROS)
+  }
+
+  const SOAT = {
+    id: 13,
+    producto: 'Baloto',
+    ventaActual: data?.EJE_SOAT,
+    aspiracionDia: data?.VTM_SOAT,
+    porcentaje: calcularPorcentaje(data?.EJE_SOAT, data?.VTM_SOAT)
+  }
+
+  const RECAUDOS = {
+    id: 14,
+    producto: 'Recaudos',
+    ventaActual: data?.EJE_RECAUDOS,
+    aspiracionDia: data?.VTM_RECAUDOS,
+    porcentaje: calcularPorcentaje(data?.EJE_RECAUDOS, data?.VTM_RECAUDOS)
+  }
+
+  const RECARGAS = {
+    id: 15,
+    producto: 'Recargas',
+    ventaActual: data?.EJE_RECARGAS,
+    aspiracionDia: data?.VTM_RECARGAS,
+    porcentaje: calcularPorcentaje(data?.EJE_RECARGAS, data?.VTM_RECARGAS)
+  }
+
+  const PROMO2 = {
+    id: 16,
+    producto: 'Raspe y Listo',
+    ventaActual: data?.EJE_RASPE,
+    aspiracionDia: data?.VTM_RASPE,
+    porcentaje: calcularPorcentaje(data?.EJE_RASPE, data?.VTM_RASPE)
+  }
+
+  let ventaActualAzarCal = 0; let aspiracionDiaAzarCal = 0
+
+  ventaActualAzarCal =
     data?.EJE_CHANCE +
     data?.EJE_CHOLADITO +
     data?.EJE_PAGATODO_JAMUNDI +
@@ -505,6 +676,15 @@ export async function UnificarDatosMesAntJamundi (data) {
     data?.EJE_PATA_MILLONARIA +
     data?.EJE_DOBLECHANCE +
     data?.EJE_CHANCE_MILLONARIO
+
+  aspiracionDiaAzarCal =
+    data?.VTM_CHANCE +
+    data?.VTM_CHOLADITO +
+    data?.VTM_PAGATODO_JAMUNDI +
+    data?.VTM_GANE5 +
+    data?.VTM_PATA_MILLONARIA +
+    data?.VTM_DOBLECHANCE +
+    data?.VTM_CHANCE_MILLONARIO
 
   const JUEGOS_AZAR = {
     id: 17,
