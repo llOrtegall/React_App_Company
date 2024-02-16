@@ -12,11 +12,16 @@ export function AspiracionMesAnterior ({ user, zone }) {
     ? [...datosMesAnt]
         .sort((a, b) => isAscending ? parseFloat(a.porcentaje) - parseFloat(b.porcentaje) : parseFloat(b.porcentaje) - parseFloat(a.porcentaje))
     : []
+
+  const date = new Date()
+  date.setMonth(date.getMonth() - 1)
+  const MesAnterior = date.toLocaleString('CO', { month: 'long' })
+
   return (
     <section className='w-full flex flex-col gap-2 relative'>
 
       <section className='w-full flex items-center justify-center gap-10'>
-      <h1 className='text-2xl font-semibold'>Aspiración Mes Anterior </h1>
+      <h1 className='text-2xl font-semibold'>Aspiración Mes Anterior: <span className='uppercase'>{MesAnterior}</span> </h1>
         <button onClick={() => setIsAscending(!isAscending)} className='flex p-3 items-center justify-center bg-blue-600 text-lg rounded-md gap-4 text-white font-semibold hover:bg-blue-500'>
           <p className='text-center'>Cambiar Orden</p>
           <ArrowsIcon />

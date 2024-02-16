@@ -1,6 +1,7 @@
 import { Card, ProgressCircle, Callout } from '@tremor/react'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import { calcularPorcentaje } from '../utils/progress'
 
 export function ResumenAsp ({ user }) {
   const { codigo } = user
@@ -8,11 +9,13 @@ export function ResumenAsp ({ user }) {
 
   useEffect(() => {
     axios.post('http://localhost:3060/metasDelDiaSucursal', { codigo })
-      .then(res => setData(res.data))
+      .then(res => {
+        console.log(res.data)
+        setData(res.data)
+      })
   }, [])
 
-  const obj = data.porcentaje
-  const num = parseFloat(obj)
+  const porcentaje = calcularPorcentaje((data.totalVentaDia), (data.metaDiaria))
 
   const informacionCartera = false
 
@@ -37,8 +40,8 @@ export function ResumenAsp ({ user }) {
 
       <Card className='col-span-1 bg-slate-300 dark:bg-slate-900 flex flex-col justify-around'>
         <h2 className='text-center text-sm pb-2 0xl:text-lg'>Porcentaje De Meta Realizada</h2>
-        <ProgressCircle value={num || 0} size='xl' strokeWidth={20} color={ColorPorcentaje(num)}>
-          <span className="text-xl text-gray-700 dark:text-white font-medium">{`${num} %`}</span>
+        <ProgressCircle value={porcentaje || 0} size='xl' strokeWidth={20} color={ColorPorcentaje(porcentaje)}>
+          <span className="text-xl text-gray-700 dark:text-white font-medium">{`${porcentaje} %`}</span>
         </ProgressCircle>
       </Card>
 
@@ -73,13 +76,13 @@ export function ResumenAsp ({ user }) {
         <p className='text-xs flex flex-col items-center gap-2 w-full 0xl:text-lg'>
           VENTA ACTUAL CHANCE DEL DÍA:
           <span className='text-2xl font-semibold'>
-             {(data.totalVentaDia || 0).toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}
+            {(data.totalVentaDia || 0).toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}
           </span>
         </p>
         <p className='text-xs flex flex-col items-center gap-2 w-full 0xl:text-lg'>
           META DEL DÍA PRODUCTOS CHANCE ES:
           <span className='text-2xl font-semibold'>
-             {(data.metaDiaria || 0).toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}
+            {(data.metaDiaria || 0).toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}
           </span>
         </p>
       </Card>
