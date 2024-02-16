@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { BarraProgresoPro } from '../components/progresoVenta'
 import { useAspiracionDiaActual } from '../hooks/useAspMesAnt.js'
 import { ArrowsIcon } from '../components/icons/Icons.jsx'
+import { RenderizarMes } from '../components/ObtenerMes.jsx'
 
 export function AspiracionMesAnterior ({ user, zone }) {
   const { codigo } = user
@@ -13,15 +14,11 @@ export function AspiracionMesAnterior ({ user, zone }) {
         .sort((a, b) => isAscending ? parseFloat(a.porcentaje) - parseFloat(b.porcentaje) : parseFloat(b.porcentaje) - parseFloat(a.porcentaje))
     : []
 
-  const date = new Date()
-  date.setMonth(date.getMonth() - 1)
-  const MesAnterior = date.toLocaleString('CO', { month: 'long' })
-
   return (
     <section className='w-full flex flex-col gap-2 relative'>
 
       <section className='w-full flex items-center justify-center gap-10'>
-      <h1 className='text-2xl font-semibold'>Aspiración Mes Anterior: <span className='uppercase'>{MesAnterior}</span> </h1>
+      <h1 className='text-2xl font-semibold'>Aspiración Mes Anterior: <RenderizarMes type={'anterior'} /> </h1>
         <button onClick={() => setIsAscending(!isAscending)} className='flex p-3 items-center justify-center bg-blue-600 text-lg rounded-md gap-4 text-white font-semibold hover:bg-blue-500'>
           <p className='text-center'>Cambiar Orden</p>
           <ArrowsIcon />
@@ -40,7 +37,6 @@ export function AspiracionMesAnterior ({ user, zone }) {
                 />
             ))
             : (
-
               <h2 className='w-full col-span-4 rounded-lg bg-red-300 place-content-center text-center font-semibold py-4'>No Se Encontraron Datos De Venta </h2>
               )
         }
