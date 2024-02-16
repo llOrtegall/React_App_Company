@@ -35,7 +35,7 @@ export function App () {
           <Route path='/metas/resumen' element={<ResumenAsp zone={zona} user={user}/>} />
           <Route path='/metas/aspiracionDia' element={<AspiracionDelDia zone={zona} user={user}/>} />
           <Route path='/metas/producto/:id' element={<MetasxHora />} />
-          <Route path='/metas/sugeridos' element={<Sugeridos />} />
+          <Route path='/metas/sugeridos' element={<Sugeridos zone={zona} user={user}/>} />
           <Route path='/metas/aspiracionMesActual' element={<AspiracionMesActual user={user} zone={zona}/>} />
           <Route path='/metas/aspiracionMesAnterior' element={<AspiracionMesAnterior user={user} zone={zona}/>} />
         </Route>
