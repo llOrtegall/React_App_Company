@@ -2,14 +2,14 @@ import { BarraProgresoPro } from '../components/progresoVenta'
 import { useNavigate } from 'react-router-dom'
 import { useCallback, useState } from 'react'
 
-import { useFetchData } from '../hooks/useFechtData.js'
+import { useAspiracionDiaActual } from '../hooks/useAspDiaActual.js'
 import { CodigoQR } from '../components/CodigoQR.jsx'
 import { TableDatos } from '../components/TableDatos.jsx'
 import { ArrowsIcon } from '../components/icons/Icons.jsx'
 
 export function AspiracionDelDia ({ user, zone }) {
   const { codigo } = user
-  const datos = useFetchData(codigo, zone)
+  const datos = useAspiracionDiaActual(codigo, zone)
   const navigate = useNavigate()
   const [isAscending, setIsAscending] = useState(false)
 
@@ -18,7 +18,10 @@ export function AspiracionDelDia ({ user, zone }) {
   }, [navigate])
 
   // Verifica que los datos existen antes de intentar ordenarlos
-  const sortedData = Array.isArray(datos) ? [...datos].sort((a, b) => isAscending ? parseFloat(a.porcentaje) - parseFloat(b.porcentaje) : parseFloat(b.porcentaje) - parseFloat(a.porcentaje)) : []
+  const sortedData = Array.isArray(datos)
+    ? [...datos]
+        .sort((a, b) => isAscending ? parseFloat(a.porcentaje) - parseFloat(b.porcentaje) : parseFloat(b.porcentaje) - parseFloat(a.porcentaje))
+    : []
   return (
     <section className='w-full flex flex-col gap-2 relative'>
 
@@ -40,6 +43,7 @@ export function AspiracionDelDia ({ user, zone }) {
                   pruducto={p.producto}
                   aspiracionDia={p.aspiracionDia}
                   ventaActual={p.ventaActual}
+                  percentage={p.porcentaje}
                 />
               </button>
             ))

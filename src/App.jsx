@@ -16,7 +16,8 @@ import { useContext } from 'react'
 import axios from 'axios'
 
 export function App () {
-  axios.defaults.baseURL = 'http://172.20.1.110:3060'
+  // axios.defaults.baseURL = 'http://localhost:3060'
+  axios.defaults.baseURL = 'http://172.20.1.110:3060/'
 
   const { isAutentificate, user, zona } = useAuth()
   const { darkMode, toggleTheme } = useContext(ThemeContext)
@@ -35,8 +36,8 @@ export function App () {
           <Route path='/metas/aspiracionDia' element={<AspiracionDelDia zone={zona} user={user}/>} />
           <Route path='/metas/producto/:id' element={<MetasxHora />} />
           <Route path='/metas/sugeridos' element={<Sugeridos />} />
-          <Route path='/metas/aspiracionMesActual' element={<AspiracionMesActual user={user}/>} />
-          <Route path='/metas/aspiracionMesAnterior' element={<AspiracionMesAnterior user={user}/>} />
+          <Route path='/metas/aspiracionMesActual' element={<AspiracionMesActual user={user} zone={zona}/>} />
+          <Route path='/metas/aspiracionMesAnterior' element={<AspiracionMesAnterior user={user} zone={zona}/>} />
         </Route>
       </Routes>
     </>

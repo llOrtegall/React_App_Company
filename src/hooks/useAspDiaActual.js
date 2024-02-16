@@ -21,7 +21,7 @@ const getDataAspDia = async (codigo, zone) => {
   }
 }
 
-export function useFetchData (codigo, zone) {
+export function useAspiracionDiaActual (codigo, zone) {
   const [datos, setDatos] = useState({})
 
   useEffect(() => {

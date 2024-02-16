@@ -1,15 +1,12 @@
 import { Card, ProgressBar } from '@tremor/react'
-import { calcularPorcentaje, determineProgressColor } from '../utils/progress.js'
+import { determineProgressColor } from '../utils/progress.js'
 
-export function BarraProgresoPro ({ pruducto, ventaActual, aspiracionDia }) {
-  const percentage = calcularPorcentaje(ventaActual, aspiracionDia)
-  const progressColor = determineProgressColor(percentage)
-
+export function BarraProgresoPro ({ pruducto, ventaActual, aspiracionDia, percentage }) {
   // Formatea los números con la notación de Colombia
   const ventaActualFormateada = ventaActual.toLocaleString('es-CO')
   const aspiracionDiaFormateada = aspiracionDia.toLocaleString('es-CO')
 
-  console.log(pruducto)
+  const progressColor = determineProgressColor(percentage)
 
   return (
     <Card className={`mx-auto max-w-sm  bg-${progressColor}-100  text-xs sm:text-sm lg:text-lg`}>

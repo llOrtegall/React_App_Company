@@ -33,7 +33,6 @@ export function AuthProvider ({ children }) {
 
   const login = ({ auth, user }) => {
     if (auth === true) {
-      console.log(user)
       setUser(user)
       setIsAutentificate(auth)
       navigate('/metas/resumen')
