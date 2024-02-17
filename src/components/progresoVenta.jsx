@@ -9,22 +9,31 @@ export function BarraProgresoPro ({ pruducto, ventaActual, aspiracionDia, percen
   const progressColor = determineProgressColor(percentage)
 
   return (
-    <Card className={`mx-auto max-w-sm  bg-${progressColor}-100  text-xs sm:text-xs lg:text-sm xl:text-xl`}>
-      <h2 className='font-semibold flex justify-between'><span>{pruducto}</span> <span>Aspiración</span></h2>
-      <p className="text-tremor-default pt-2 dark:text-gray-300 flex justify-between">
-        {
-          pruducto === 'Recaudos' || pruducto === 'Giros'
-            ? <span className='font-semibold'>Actual: {ventaActualFormateada} </span>
-            : <span className='font-semibold'>Actual: ${ventaActualFormateada} </span>
-        }
-        <span><span>&bull;</span> {percentage}%</span>
-        {
-          pruducto === 'Recaudos' || pruducto === 'Giros'
-            ? <span className='font-bold'>{aspiracionDiaFormateada}</span>
-            : <span className='font-bold'>${aspiracionDiaFormateada}</span>
-        }
-      </p>
-      <ProgressBar value={percentage} color={progressColor} className="mt-3" showAnimation={true} />
+    <Card className={`mx-auto bg-${progressColor}-100 text-sm flex flex-col gap-2`}>
+
+      <h2 className='flex justify-between'>
+        <span className='font-bold'>{pruducto}</span>
+        <span className='font-bold'>Aspiración</span>
+      </h2>
+
+      <article className="flex justify-between">
+          {
+            pruducto === 'Recaudos' || pruducto === 'Giros'
+              ? <p className=''>Venta Actual: <span className='font-semibold'>{ventaActualFormateada}</span> </p>
+              : <p className=''>Venta Actual: <span className='font-semibold'> ${ventaActualFormateada}</span> </p>
+          }
+          {
+            pruducto === 'Recaudos' || pruducto === 'Giros'
+              ? <p className='font-semibold'> <span>{aspiracionDiaFormateada}</span> </p>
+              : <p className='font-semibold'><span>${aspiracionDiaFormateada}</span></p>
+          }
+        </article>
+
+      <section className='flex justify-center items-center gap-4'>
+        <ProgressBar value={percentage} color={progressColor} className="" showAnimation={true} />
+        <span>{percentage}%</span>
+      </section>
+
     </Card>
   )
 }

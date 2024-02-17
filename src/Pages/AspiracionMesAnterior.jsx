@@ -25,7 +25,7 @@ export function AspiracionMesAnterior ({ user, zone }) {
         </button>
       </section>
 
-      <section className='grid grid-cols-4 gap-4 pt-2'>
+      <section className='grid grid-cols-2 gap-2 xl:grid-cols-3 2xl:grid-cols-4'>
         {
           sortedData !== null && sortedData !== undefined
             ? Object.values(sortedData).map(p => (

@@ -12,8 +12,8 @@ export const NavBar = ({ toggleTheme, darkMode, zona }) => {
       <figure className=''>
         {
           zona === 39627
-            ? <img src="../../public/ganeyumbo.png" width={100} alt="logo gane yumbo" className='0xl:w-40' />
-            : <img src="../../public/ganejamundi.png" width={100} alt="logo gane jamundi" className='0xl:w-40' />
+            ? <img src="../../public/ganeyumbo.png" width={120} alt="logo gane yumbo" className='0xl:w-40' />
+            : <img src="../../public/ganejamundi.png" width={120} alt="logo gane jamundi" className='0xl:w-40' />
         }
 
       </figure>
@@ -52,7 +52,7 @@ export const NavBar = ({ toggleTheme, darkMode, zona }) => {
       </ul>
 
       <section className='w-full flex flex-col gap-2 items-center justify-center'>
-        <section className='pt-2 bg-blue-700 rounded-md'>
+        <section className='pt-2 w-full flex justify-center bg-blue-700 rounded-md'>
           <Switch id="switch" name="switch" checked={darkMode} onChange={toggleTheme} className='w-full' />
         </section>
 

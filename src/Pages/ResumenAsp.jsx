@@ -1,4 +1,4 @@
-import { Card, ProgressCircle, Callout } from '@tremor/react'
+import { ProgressCircle, Callout } from '@tremor/react'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { calcularPorcentaje } from '../utils/progress'
@@ -17,7 +17,7 @@ export function ResumenAsp ({ user }) {
 
   const porcentaje = calcularPorcentaje((data.totalVentaDia), (data.metaDiaria))
 
-  const informacionCartera = false
+  //  const informacionCartera = false
 
   function ColorPorcentaje (num) {
     if (num < 30) {
@@ -32,65 +32,63 @@ export function ResumenAsp ({ user }) {
   }
 
   return (
-    <div className='text-gray-700 dark:text-white grid grid-cols-3 text-4xl text-center font-semibold rounded-lg gap-2'>
+    <section className='w-full
+      text-center font-semibold rounded-lg gap-2 text-gray-700 dark:text-white'>
 
-      <h3 className='col-span-3 py-4 rounded-lg text-3xl flex items-center justify-center bg-slate-300 dark:bg-slate-900 '>
+      <h3 className='h-10 py-2 rounded-lg bg-slate-300 dark:bg-slate-900'>
         Bienvenid@ <span className='text-blue-700 dark:text-yellow-400 pl-2'>{user.nombres || undefined}</span>
       </h3>
 
-      <Card className='col-span-1 bg-slate-300 dark:bg-slate-900 flex flex-col justify-around'>
-        <h2 className='text-center text-sm pb-2 0xl:text-lg'>Porcentaje De Meta Realizada</h2>
+      <Callout color="rose" title='Cartera' className=''>
+        <span className='text-xs'>Tu Cartera Es: $ 345.411</span>
+      </Callout>
+
+      <section className='py-2 rounded-md
+        bg-slate-300 dark:bg-slate-900 flex flex-col justify-around gap-2'>
+        <h2 className='text-center text-xs'>Porcentaje De Meta Realizada</h2>
         <ProgressCircle value={porcentaje || 0} size='xl' strokeWidth={20} color={ColorPorcentaje(porcentaje)}>
-          <span className="text-xl text-gray-700 dark:text-white font-medium">{`${porcentaje} %`}</span>
+          <span className="text-xs text-gray-700 dark:text-white font-medium">{`${porcentaje} %`}</span>
         </ProgressCircle>
-      </Card>
+      </section>
 
-      {
-        informacionCartera === true
-          ? (
-            <Card className="col-span-1 bg-slate-300 dark:bg-slate-900 flex flex-col 0xl:justify-around">
-              <p className='font-semibold text-lg pb-2 text-center'><span className='text-black dark:text-white'>Información De Cartera</span></p>
-              <Callout className="text-lg"
-                title="Cartera Pendiente:"
-                icon={undefined}
-                color="rose"
-              >
-                <span className='text-xs'>Tu Cartera Es: $ 345.411</span>
-              </Callout>
-            </Card>
-            )
-          : (
-            <Card className="col-span-1 bg-slate-300 dark:bg-slate-900 flex flex-col 0xl:justify-around">
-              <p className='font-semibold text-lg pb-2 text-center'><span className='text-black dark:text-white'>Información De Cartera</span></p>
-              <Callout className="text-lg"
-                title="Cartera:"
-                icon={undefined}
-                color="teal">
-                <span className='text-xs'>Actualmente No Tienes Reportes De Cartera</span>
-              </Callout>
-            </Card>
-            )
-      }
-
-      <Card className="gap-4 p-0 dark:text-white flex flex-col items-center justify-center col-span-1 bg-slate-300 dark:bg-slate-900">
-        <p className='text-xs flex flex-col items-center gap-2 w-full 0xl:text-lg'>
-          VENTA ACTUAL CHANCE DEL DÍA:
-          <span className='text-2xl font-semibold'>
+      <article className="gap-4 py-3 flex flex-col  justify-around dark:text-white bg-slate-300 dark:bg-slate-900">
+        <h2 className='text-center text-xs'>Información De Venta Chance</h2>
+        <p className='text-xs gap-2 w-full text-center'>
+          VENTA ACTUAL:
+          <span className='font-semibold'>
             {(data.totalVentaDia || 0).toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}
           </span>
         </p>
-        <p className='text-xs flex flex-col items-center gap-2 w-full 0xl:text-lg'>
-          META DEL DÍA PRODUCTOS CHANCE ES:
-          <span className='text-2xl font-semibold'>
+        <p className='text-xs gap-2 w-full text-center'>
+          META DÍA:
+          <span className='font-semibold'>
             {(data.metaDiaria || 0).toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}
           </span>
         </p>
-      </Card>
+      </article>
 
-      <figure className='col-span-3 flex flex-col items-center justify-center bg-slate-300 dark:bg-slate-900 rounded-md '>
-        <img src="/diamante.png" alt="logo_punto" width={100} loading='lazy' className='w-60 0xl:py-6 ' />
-        <img src="/logos.png" alt="logos juegos" width={400} loading='lazy' className='w-60 0xl:py-6 ' />
+      <figure className='flex flex-col items-center justify-center bg-slate-300 dark:bg-slate-900 rounded-md '>
+        <img src="/diamante.png" alt="logo_punto" width={160} loading='lazy' className='' />
+        <img src="/logos.png" alt="logos juegos" width={200} loading='lazy' className='' />
       </figure>
-    </div>
+
+    </section>
   )
 }
+
+// {
+//   informacionCartera === true
+//  (
+
+//       <Callout color="rose" title='Cartera' className=''>
+//         <span className='text-xs'>Tu Cartera Es: $ 345.411</span>
+//       </Callout>
+
+//       )
+//     : (
+
+//       <Callout color="teal" title='Cartera'>
+//         <span className='text-xs'>Actualmente No Tienes Reportes</span>
+//       </Callout>
+//       )
+// }

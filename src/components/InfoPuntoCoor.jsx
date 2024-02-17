@@ -66,31 +66,29 @@ export function InfoPuntCoord ({ codigo }) {
   }
 
   return (
-    <article className='grid grid-cols-2 w-full sm:text-xs lg:text-lg justify-around py-4'>
-      <div className='flex items-center justify-center text-center border p-3 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold'>Fecha: {Fecha || <Cargando />}</div>
-      <div className='flex items-center justify-center text-center border p-3 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold'>Hora: {Hora || <Cargando />}</div>
-      <div className='flex items-center justify-center text-center border p-3 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold flex-col'>
-        <span className='text-sm flex gap-4'>{data.NOMBRE || <Cargando />}</span>
-        <span className='text-sm flex gap-4'>{data.SUPERVISOR || <Cargando />}</span>
+    <article className='grid grid-cols-2 w-full sm:text-xs lg:text-lg justify-around py-2 gap-2'>
+      <div className='flex items-center justify-center text-center border py-1 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold'>
+        <span className='text-xs'>Fecha: {Fecha || <Cargando />}</span>
+      </div>
+      <div className='flex items-center justify-center text-center border py-1 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold'>
+        <span className='text-xs'> Hora: {Hora || <Cargando />}</span>
+      </div>
+      <div className='flex items-center justify-center text-center border py-1 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold gap-4'>
+        <span className='text-xs'>{data.NOMBRE || <Cargando />}</span>
+        <span className='text-xs'>{data.SUPERVISOR || <Cargando />}</span>
       </div>
 
       {
         // eslint-disable-next-line eqeqeq
         data.VERSION != 0
           ? (
-            <article className='flex flex-col items-center justify-center text-center border p-3 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold gap-2'>
-              <p className='text-sm flex gap-4'>
-                <span>Clasificación:</span>
-                <span>💎 {data.VERSION || ''} 💎</span>
-              </p>
-              <p className='text-sm flex gap-4'>
-                <span>Catergoria:</span>
-                <span>{data.CATEGORIA || ''}</span>
-              </p>
+            <article className='flex justify-center text-center border py-1 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold gap-2'>
+              <span className='text-xs'>Catergoria: {data.CATEGORIA || ''} </span>
+              <span className='text-xs'>Clasificación: 💎 {data.VERSION || ''} 💎</span>
             </article>
             )
           : (
-            <article className='flex items-center justify-center text-center border p-3 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold gap-2'>
+            <article className='flex items-center justify-center text-center border py-1 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold gap-2'>
               <p>
                 <span>Categoria:</span>
                 <span>{data.CATEGORIA} </span>
