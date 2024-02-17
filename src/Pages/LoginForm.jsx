@@ -35,7 +35,7 @@ export const LoginForm = () => {
     <>
       <section className='w-full h-screen flex flex-col items-center justify-center relative bg-blue-900'>
 
-        <form onSubmit={handleSubmit} className='flex flex-col w-[450px] h-auto rounded-2xl shadow-2xl px-10 py-20 mb-4 justify-around bg-slate-200'>
+        <form onSubmit={handleSubmit} className='flex flex-col w-[450px] h-auto rounded-2xl shadow-2xl px-10 py-10 justify-around bg-slate-200'>
           <figure className='mb-12 flex items-center justify-center'>
             <img src="../../public/gane.png" width={150} alt="" />
           </figure>

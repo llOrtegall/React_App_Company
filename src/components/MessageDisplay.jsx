@@ -3,7 +3,7 @@ import { SuccesIcon, WarningIcon } from './icons/Icons'
 // eslint-disable-next-line react/prop-types
 export function MessageDisplay ({ message, error }) {
   return (
-    <section className='h-10'>
+    <section className='h-10 mt-2'>
       <article className="flex items-center justify-center">
         {message &&
           <div className='flex gap-2'>

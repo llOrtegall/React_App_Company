@@ -4,7 +4,7 @@ import axios from 'axios'
 
 const productMetaMap = {
   CHANCE: 1000,
-  PAGAMAS: 750,
+  PAGAMAS: 1500,
   CHOLADITO: 650,
   DOBLECHANCE: 2000,
   PATA: 3000,
