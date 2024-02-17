@@ -32,44 +32,47 @@ export function ResumenAsp ({ user }) {
   }
 
   return (
-    <section className='w-full
+    <section className='w-full grid grid-cols-3
       text-center font-semibold rounded-lg gap-2 text-gray-700 dark:text-white'>
 
-      <h3 className='h-10 py-2 rounded-lg bg-slate-300 dark:bg-slate-900'>
+      <h3 className='col-span-3 h-10 py-2 rounded-lg bg-slate-300 dark:bg-slate-900'>
         Bienvenid@ <span className='text-blue-700 dark:text-yellow-400 pl-2'>{user.nombres || undefined}</span>
       </h3>
 
-      <Callout color="rose" title='Cartera' className=''>
-        <span className='text-xs'>Tu Cartera Es: $ 345.411</span>
-      </Callout>
+      <section className='col-span-1 flex flex-col gap-2'>
 
-      <section className='py-2 rounded-md
+        <section className='py-2 rounded-md
         bg-slate-300 dark:bg-slate-900 flex flex-col justify-around gap-2'>
-        <h2 className='text-center text-xs'>Porcentaje De Meta Realizada</h2>
-        <ProgressCircle value={porcentaje || 0} size='xl' strokeWidth={20} color={ColorPorcentaje(porcentaje)}>
-          <span className="text-xs text-gray-700 dark:text-white font-medium">{`${porcentaje} %`}</span>
-        </ProgressCircle>
+          <h2 className='text-center text-xs'>Porcentaje De Meta Realizada</h2>
+          <ProgressCircle value={porcentaje || 0} size='xl' strokeWidth={20} color={ColorPorcentaje(porcentaje)}>
+            <span className="text-xs text-gray-700 dark:text-white font-medium">{`${porcentaje} %`}</span>
+          </ProgressCircle>
+        </section>
+
+        <article className="gap-4 py-3 flex flex-col rounded-md justify-around dark:text-white bg-slate-300 dark:bg-slate-900">
+          <p className='text-xs gap-2 w-full flex justify-between px-4'>
+            <span>VENTA ACTUAL:</span>
+            <span className='font-semibold'>
+              {(data.totalVentaDia || 0).toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}
+            </span>
+          </p>
+          <p className='text-xs gap-2 w-full flex justify-between px-4'>
+            <span>META DÍA:</span>
+            <span className='font-semibold'>
+              {(data.metaDiaria || 0).toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}
+            </span>
+          </p>
+        </article>
+
+        <Callout color="rose" title='Cartera' className='col-span-1'>
+          <span className='text-xs'>Tu Cartera Es: $ 345.411</span>
+        </Callout>
+
       </section>
 
-      <article className="gap-4 py-3 flex flex-col  justify-around dark:text-white bg-slate-300 dark:bg-slate-900">
-        <h2 className='text-center text-xs'>Información De Venta Chance</h2>
-        <p className='text-xs gap-2 w-full text-center'>
-          VENTA ACTUAL:
-          <span className='font-semibold'>
-            {(data.totalVentaDia || 0).toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}
-          </span>
-        </p>
-        <p className='text-xs gap-2 w-full text-center'>
-          META DÍA:
-          <span className='font-semibold'>
-            {(data.metaDiaria || 0).toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}
-          </span>
-        </p>
-      </article>
-
-      <figure className='flex flex-col items-center justify-center bg-slate-300 dark:bg-slate-900 rounded-md '>
-        <img src="/diamante.png" alt="logo_punto" width={160} loading='lazy' className='' />
-        <img src="/logos.png" alt="logos juegos" width={200} loading='lazy' className='' />
+      <figure className='col-span-2 flex flex-col items-center justify-center bg-slate-300 dark:bg-slate-900 rounded-md '>
+        <img src="/diamante.png" alt="logo_punto" width={200} loading='lazy' className='' />
+        <img src="/logos.png" alt="logos juegos" width={500} loading='lazy' className='' />
       </figure>
 
     </section>

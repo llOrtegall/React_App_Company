@@ -68,23 +68,22 @@ export function InfoPuntCoord ({ codigo }) {
   return (
     <article className='grid grid-cols-2 w-full sm:text-xs lg:text-lg justify-around py-2 gap-2'>
       <div className='flex items-center justify-center text-center border py-1 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold'>
-        <span className='text-xs'>Fecha: {Fecha || <Cargando />}</span>
+        <span className='text-xs lg:text-sm'>Fecha: {Fecha || <Cargando />}</span>
       </div>
       <div className='flex items-center justify-center text-center border py-1 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold'>
-        <span className='text-xs'> Hora: {Hora || <Cargando />}</span>
+        <span className='text-xs lg:text-sm'> Hora: {Hora || <Cargando />}</span>
       </div>
       <div className='flex items-center justify-center text-center border py-1 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold gap-4'>
-        <span className='text-xs'>{data.NOMBRE || <Cargando />}</span>
-        <span className='text-xs'>{data.SUPERVISOR || <Cargando />}</span>
+        <span className='text-xs lg:text-sm'>{data.NOMBRE || <Cargando />}</span>
+        <span className='text-xs lg:text-sm'>{data.SUPERVISOR || <Cargando />}</span>
       </div>
-
       {
         // eslint-disable-next-line eqeqeq
         data.VERSION != 0
           ? (
             <article className='flex justify-center text-center border py-1 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold gap-2'>
-              <span className='text-xs'>Catergoria: {data.CATEGORIA || ''} </span>
-              <span className='text-xs'>Clasificación: 💎 {data.VERSION || ''} 💎</span>
+              <span className='text-xs lg:text-sm'>Catergoria: {data.CATEGORIA || ''} </span>
+              <span className='text-xs lg:text-sm'>Clasificación: 💎 {data.VERSION || ''} 💎</span>
             </article>
             )
           : (
