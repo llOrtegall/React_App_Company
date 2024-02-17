@@ -8,7 +8,7 @@ export function ResumenAsp ({ user }) {
   const [data, setData] = useState({})
 
   useEffect(() => {
-    axios.post('http://localhost:3060/metasDelDiaSucursal', { codigo })
+    axios.post('/metasDelDiaSucursal', { codigo })
       .then(res => {
         console.log(res.data)
         setData(res.data)

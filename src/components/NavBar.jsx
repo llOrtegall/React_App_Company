@@ -1,15 +1,15 @@
 import { Link } from 'react-router-dom'
 import { CalendarAntIcon, CalendarIcon, Dashboard, DocsIcon, SunIcon } from '../components/icons/Icons'
-import { Card, Switch } from '@tremor/react'
+import { Switch } from '@tremor/react'
 import { useAuth } from '../auth/AuthContext'
 
 export const NavBar = ({ toggleTheme, darkMode, zona }) => {
   const { logout } = useAuth()
 
   return (
-    <nav className="flex lg:flex-col gap-2 px-4 py-2 items-center lg:gap-8 lg:py-12">
+    <nav className="flex flex-col px-4 gap-2 items-center pt-10 w-[30vw] 2xl">
 
-      <figure className='lg:w-full lg:flex lg:justify-center'>
+      <figure className=''>
         {
           zona === 39627
             ? <img src="../../public/ganeyumbo.png" width={100} alt="logo gane yumbo" className='0xl:w-40' />
@@ -18,7 +18,7 @@ export const NavBar = ({ toggleTheme, darkMode, zona }) => {
 
       </figure>
 
-      <ul className='w-6/12 flex justify-around lg:flex-col lg:w-full 0xl:gap-2'>
+      <ul className=''>
         <li>
           <Link className="hover:text-blue-600 hover:underline lg:flex lg:items-center lg:gap-2 lg:py-2 0xl:gap-6" to="/metas/resumen">
             <Dashboard />
@@ -51,12 +51,13 @@ export const NavBar = ({ toggleTheme, darkMode, zona }) => {
         </li>
       </ul>
 
-      <Card className='h-12 p-0 flex bg-gray-900 text-white items-center justify-center gap-2 lg:w-full lg:h-10 lg:my-8 0xl:my-6 0xl:h-14'>
-        <p className="text-center text-xs 0xl:text-lg 0xl:font-semibold">Modo:</p>
-        <Switch id="switch" name="switch" checked={darkMode} onChange={toggleTheme} />
-      </Card>
+     <section className='pt-2 w-full flex flex-col gap-2 items-center justify-center bg-blue-700 rounded-md'>
+      <p className='text-sm text-white font-semibold hidden xl:block'>Activar Modo</p>
+      <Switch id="switch" name="switch" checked={darkMode} onChange={toggleTheme} className='w-full'/>
+     </section>
 
-      <button onClick={logout} className="h-12 bg-blue-500 p-2 font-semibold rounded-lg hover:bg-blue-600 text-white dark:bg-gray-300 dark:text-black dark:hover:bg-blue-500 lg:w-full lg:h-10 lg:my-8 0xl:my-6 0xl:h-14">
+      <button onClick={logout} className="w-full text-white font-semibold
+        bg-blue-700 p-2 rounded-md hover:bg-blue-500">
         Cerrar Sesión
       </button>
 

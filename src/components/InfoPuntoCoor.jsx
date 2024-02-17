@@ -66,13 +66,13 @@ export function InfoPuntCoord ({ codigo }) {
   }
 
   return (
-    <article className='grid grid-cols-4 w-full sm:text-xs lg:text-lg justify-around py-4'>
+    <article className='grid grid-cols-2 w-full sm:text-xs lg:text-lg justify-around py-4'>
       <div className='flex items-center justify-center text-center border p-3 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold'>Fecha: {Fecha || <Cargando />}</div>
       <div className='flex items-center justify-center text-center border p-3 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold'>Hora: {Hora || <Cargando />}</div>
-      <p className='flex items-center justify-center text-center border p-3 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold flex-col'>
+      <div className='flex items-center justify-center text-center border p-3 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold flex-col'>
         <span className='text-sm flex gap-4'>{data.NOMBRE || <Cargando />}</span>
         <span className='text-sm flex gap-4'>{data.SUPERVISOR || <Cargando />}</span>
-      </p>
+      </div>
 
       {
         // eslint-disable-next-line eqeqeq
