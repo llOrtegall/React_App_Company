@@ -7,7 +7,7 @@ export const NavBar = ({ toggleTheme, darkMode, zona }) => {
   const { logout } = useAuth()
 
   return (
-    <nav className="flex flex-col px-4 gap-2 items-center pt-10 w-[30vw] 2xl">
+    <nav className="flex flex-col px-4 gap-2 justify-around h-[90vh] items-center pt-10 w-[30vw] 2xl">
 
       <figure className=''>
         {
@@ -51,15 +51,16 @@ export const NavBar = ({ toggleTheme, darkMode, zona }) => {
         </li>
       </ul>
 
-     <section className='pt-2 w-full flex flex-col gap-2 items-center justify-center bg-blue-700 rounded-md'>
-      <p className='text-sm text-white font-semibold hidden xl:block'>Activar Modo</p>
-      <Switch id="switch" name="switch" checked={darkMode} onChange={toggleTheme} className='w-full'/>
-     </section>
+      <section className='w-full flex flex-col gap-2 items-center justify-center'>
+        <section className='pt-2 bg-blue-700 rounded-md'>
+          <Switch id="switch" name="switch" checked={darkMode} onChange={toggleTheme} className='w-full' />
+        </section>
 
-      <button onClick={logout} className="w-full text-white font-semibold
+        <button onClick={logout} className="w-full text-white font-semibold
         bg-blue-700 p-2 rounded-md hover:bg-blue-500">
-        Cerrar Sesión
-      </button>
+          Cerrar Sesión
+        </button>
+      </section>
 
     </nav>
   )

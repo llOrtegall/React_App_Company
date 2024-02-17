@@ -28,7 +28,7 @@ export const useSugeridos = ({ zone, user }) => {
 
   useEffect(() => {
     const fetchData = () => {
-      axios.post('http://localhost:3060/SugeridosPrimeraConsulta', { codigo, user: usuario, zona: zone })
+      axios.post('/SugeridosPrimeraConsulta', { codigo, user: usuario, zona: zone })
         .then((response) => {
           setData(response.data)
         })
