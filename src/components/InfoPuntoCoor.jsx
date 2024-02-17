@@ -6,6 +6,7 @@ import { useAuth } from '../auth/AuthContext'
 
 export function InfoPuntCoord ({ codigo }) {
   const [data, setData] = useState({})
+  const [error, setError] = useState('')
   const [Fecha, setFecha] = useState('')
   const [Hora, setHora] = useState('')
   const isMounted = useRef(true)
@@ -17,6 +18,10 @@ export function InfoPuntCoord ({ codigo }) {
       .then(res => {
         setData(res.data)
         defineZona(res.data.zona)
+      })
+      .catch(error => {
+        console.log(error)
+        setError(error.response.data.error)
       })
   }, [])
 
@@ -93,6 +98,9 @@ export function InfoPuntCoord ({ codigo }) {
             </article>
             )
       }
+
+      {error && <p className='text-red-500'>{error}</p>}
+
     </article>
   )
 }

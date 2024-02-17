@@ -1,7 +1,7 @@
-import { Card, ProgressBar } from '@tremor/react'
-import { useSugeridos } from '../hooks/useSugeridos.js'
-import { determineProgressColor } from '../utils/progress.js'
 import { ConsultarBoletasGanadas } from '../components/ConsultarBoletasGanadas.jsx'
+import { determineProgressColor } from '../utils/progress.js'
+import { useSugeridos } from '../hooks/useSugeridos.js'
+import { Card, ProgressBar } from '@tremor/react'
 
 export function Sugeridos ({ zone, user }) {
   const { data, MetaSugerido, ImpresosActual, percentage } = useSugeridos({ zone, user })

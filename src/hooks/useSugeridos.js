@@ -1,6 +1,6 @@
+import { calcularPorcentaje } from '../utils/progress'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import { calcularPorcentaje } from '../utils/progress'
 
 const productMetaMap = {
   CHANCE: 1000,
