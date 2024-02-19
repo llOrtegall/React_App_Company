@@ -17,7 +17,7 @@ import axios from 'axios'
 
 export function App () {
   // axios.defaults.baseURL = 'http://localhost:3060'
-  axios.defaults.baseURL = 'http://172.20.1.110:3060/'
+  axios.defaults.baseURL = 'http://localhost:4001/'
 
   const { isAutentificate, user, zona } = useAuth()
   const { darkMode, toggleTheme } = useContext(ThemeContext)
