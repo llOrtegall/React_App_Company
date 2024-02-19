@@ -15,10 +15,26 @@ export function Sugeridos ({ zone, user }) {
 
       <div className='grid grid-cols-1'>
         <ProgressSugerido percentage={percentage} data={data} MetaSugerido={MetaSugerido} ImpresosActual={ImpresosActual} color={color} user={user} />
+        <article>
+        {
+          percentage === 100
+            ? (
+              <p className='pt-2 text-center'>Buen Trabajo 😁 - Primera Meta Completada ✅  </p>
+              )
+            : null
+        }
+        </article>
         {
           data2
             ? (
               <ProgressSugerido percentage={percentage2} data={data2} MetaSugerido={MetaSugerido2} ImpresosActual={ImpresosActual2} color={determineProgressColor(percentage2)} user={user} />
+              )
+            : null
+        }
+                {
+          percentage2 === 100
+            ? (
+              <p className='pt-2 text-center'>Buen Trabajo 😁 - Segunda Meta Completada ✅  </p>
               )
             : null
         }

@@ -19,13 +19,6 @@ export function ProgressSugerido ({ percentage, data, MetaSugerido, ImpresosActu
           <p> <span>Progeso Actual: </span> &bull; {percentage} %</p>
         </p>
         <ProgressBar value={percentage} color={color} className="mt-3" />
-        {
-          percentage === 100
-            ? (
-              <p className='pt-2'>Buen Trabajo 😁 - Primera Meta Completada ✅  </p>
-              )
-            : null
-        }
       </article>
     </Card>
   )

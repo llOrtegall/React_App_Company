@@ -11,8 +11,8 @@ export function ConsultarBoletasGanadas ({ codigo, user }) {
 
   return (
     data && (
-      <div className='flex bg-blue-300 items-center w-full justify-between py-2 px-4 rounded-lg'>
-        <p className='font-semibold'>Primera Meta Cumplida: ✅ 😁 </p>
+      <div className='flex bg-blue-300 dark:bg-gray-700 items-center w-full justify-between py-2 px-4 rounded-lg'>
+        <p className='font-semibold'>Logro Superado </p>
         <p className='font-semibold'> {user.nombres} </p>
         <p>N° Boletas Ganadas: <span className='font-semibold'> {data.CANT_BOLETAS}</span> 🥇 </p>
       </div>
