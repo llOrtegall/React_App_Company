@@ -68,22 +68,22 @@ export function InfoPuntCoord ({ codigo }) {
   return (
     <article className='grid grid-cols-2 w-full sm:text-xs lg:text-lg justify-around py-2 gap-2'>
       <div className='flex items-center justify-center text-center border py-1 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold'>
-        <span className='text-xs lg:text-sm'>Fecha: {Fecha || <Cargando />}</span>
+        <span className='text-xs lg:text-sm 2xl:text-xl'>Fecha: {Fecha || <Cargando />}</span>
       </div>
       <div className='flex items-center justify-center text-center border py-1 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold'>
-        <span className='text-xs lg:text-sm'> Hora: {Hora || <Cargando />}</span>
+        <span className='text-xs lg:text-sm 2xl:text-xl'> Hora: {Hora || <Cargando />}</span>
       </div>
       <div className='flex items-center justify-center text-center border py-1 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold gap-4'>
-        <p className='text-xs lg:text-sm overflow-hidden overflow-ellipsis whitespace-nowrap'>{data.NOMBRE || <Cargando />}</p>
-        <p className='text-xs lg:text-sm overflow-hidden overflow-ellipsis whitespace-nowrap'>{data.SUPERVISOR || <Cargando />}</p>
+        <p className='text-xs lg:text-sm 2xl:text-xl overflow-hidden overflow-ellipsis whitespace-nowrap'>{data.NOMBRE || <Cargando />}</p>
+        <p className='text-xs lg:text-sm 2xl:text-xl overflow-hidden overflow-ellipsis whitespace-nowrap'>{data.SUPERVISOR || <Cargando />}</p>
       </div>
       {
         // eslint-disable-next-line eqeqeq
         data.VERSION != 0
           ? (
             <article className='flex justify-center text-center border py-1 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold gap-2'>
-              <span className='text-xs lg:text-sm'>Catergoria: {data.CATEGORIA || ''} </span>
-              <span className='text-xs lg:text-sm'>Clasificación: 💎 {data.VERSION || ''} 💎</span>
+              <span className='text-xs lg:text-sm 2xl:text-xl'>Catergoria: {data.CATEGORIA || ''} </span>
+              <span className='text-xs lg:text-sm 2xl:text-xl'>Clasificación: 💎 {data.VERSION || ''} 💎</span>
             </article>
             )
           : (

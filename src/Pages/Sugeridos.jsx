@@ -13,17 +13,8 @@ export function Sugeridos ({ zone, user }) {
     <section>
       <h1 className='text-center text-3xl font-semibold py-2'>Sugeridos Del Día </h1>
 
-      <div className='grid grid-cols-1'>
+      <article className='grid grid-cols-1 2xl:grid-cols-2 gap-2 2xl:gap-6'>
         <ProgressSugerido percentage={percentage} data={data} MetaSugerido={MetaSugerido} ImpresosActual={ImpresosActual} color={color} user={user} />
-        <article>
-        {
-          percentage === 100
-            ? (
-              <p className='pt-2 text-center'>Buen Trabajo 😁 - Primera Meta Completada ✅  </p>
-              )
-            : null
-        }
-        </article>
         {
           data2
             ? (
@@ -31,18 +22,11 @@ export function Sugeridos ({ zone, user }) {
               )
             : null
         }
-                {
-          percentage2 === 100
-            ? (
-              <p className='pt-2 text-center'>Buen Trabajo 😁 - Segunda Meta Completada ✅  </p>
-              )
-            : null
-        }
-      </div>
+      </article>
 
-      <div className='py-2'>
+      <footer className='py-2'>
         <ConsultarBoletasGanadas codigo={user.codigo} user={user} />
-      </div>
+      </footer>
 
     </section>
   )

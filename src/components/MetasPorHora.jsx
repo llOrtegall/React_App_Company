@@ -30,7 +30,7 @@ export function MetasxHora () {
 
   return (
 
-    <section className='flex flex-col gap-6 pt-2'>
+    <section className='w-full h-full flex flex-col gap-6 pt-2'>
       <h2 className='text-2xl font-semibold text-center'>Metas Producto {producto.producto || ''}</h2>
 
       <article className='flex items-center gap-4 border p-4 rounded-lg w-80 justify-center'>
