@@ -74,8 +74,8 @@ export function InfoPuntCoord ({ codigo }) {
         <span className='text-xs lg:text-sm'> Hora: {Hora || <Cargando />}</span>
       </div>
       <div className='flex items-center justify-center text-center border py-1 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold gap-4'>
-        <span className='text-xs lg:text-sm'>{data.NOMBRE || <Cargando />}</span>
-        <span className='text-xs lg:text-sm'>{data.SUPERVISOR || <Cargando />}</span>
+        <p className='text-xs lg:text-sm overflow-hidden overflow-ellipsis whitespace-nowrap'>{data.NOMBRE || <Cargando />}</p>
+        <p className='text-xs lg:text-sm overflow-hidden overflow-ellipsis whitespace-nowrap'>{data.SUPERVISOR || <Cargando />}</p>
       </div>
       {
         // eslint-disable-next-line eqeqeq
