@@ -55,7 +55,7 @@ export function AspiracionDelDia ({ user, zone }) {
       </section>
 
       <section className='flex'>
-        <GenerateQR />
+        <GenerateQR usr={user}/>
         <TableDatos />
       </section>
 
