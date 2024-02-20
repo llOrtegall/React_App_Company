@@ -1,12 +1,13 @@
 import { createContext, useState, useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { getInfoPDV } from '../services/getInfoPDV'
 
 const AuthContext = createContext()
 
 export function AuthProvider ({ children }) {
   const [isAutentificate, setIsAutentificate] = useState(false)
   const [user, setUser] = useState({})
-  const [zona, setZona] = useState(null)
+  const [pdv, setPdv] = useState({})
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -27,9 +28,18 @@ export function AuthProvider ({ children }) {
     }
   }, [isAutentificate])
 
-  const defineZona = (cod) => {
-    setZona(cod)
-  }
+  useEffect(() => {
+    if (user) {
+      getInfoPDV(user.codigo)
+        .then(response => {
+          setPdv(response)
+          console.log(response)
+        })
+        .catch(error => {
+          console.error('Error fetching time:', error)
+        })
+    }
+  }, [user])
 
   const login = ({ auth, user }) => {
     if (auth === true) {
@@ -45,7 +55,7 @@ export function AuthProvider ({ children }) {
   }
 
   return (
-    <AuthContext.Provider value={{ isAutentificate, login, user, logout, zona, defineZona }}>
+    <AuthContext.Provider value={{ isAutentificate, login, user, logout, pdv }}>
       {children}
     </AuthContext.Provider>
   )

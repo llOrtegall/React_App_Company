@@ -12,7 +12,6 @@ export function ResumenAsp ({ user }) {
   useEffect(() => {
     axios.post('/metasDelDiaSucursal', { codigo })
       .then(res => {
-        console.log(res.data)
         setData(res.data)
       })
   }, [])

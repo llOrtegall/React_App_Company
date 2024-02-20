@@ -1,29 +1,11 @@
-import { useEffect, useRef, useState } from 'react'
 import { getColombiaTime } from '../services/HoraColombia'
+import { useEffect, useRef, useState } from 'react'
 import { Cargando } from './animation/Loadin'
-import axios from 'axios'
-import { useAuth } from '../auth/AuthContext'
 
-export function InfoPuntCoord ({ codigo }) {
-  const [data, setData] = useState({})
-  const [error, setError] = useState('')
+export function InfoPuntCoord ({ pdv }) {
   const [Fecha, setFecha] = useState('')
   const [Hora, setHora] = useState('')
   const isMounted = useRef(true)
-
-  const { defineZona } = useAuth()
-
-  useEffect(() => {
-    axios.post('/infoPuntoDeVenta', { codigo })
-      .then(res => {
-        setData(res.data)
-        defineZona(res.data.zona)
-      })
-      .catch(error => {
-        console.log(error)
-        setError(error.response.data.error)
-      })
-  }, [])
 
   useEffect(() => {
     getColombiaTime()
@@ -74,29 +56,27 @@ export function InfoPuntCoord ({ codigo }) {
         <span className='text-xs lg:text-sm 2xl:text-xl'> Hora: {Hora || <Cargando />}</span>
       </div>
       <div className='flex items-center justify-center text-center border py-1 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold gap-4'>
-        <p className='text-xs lg:text-sm 2xl:text-xl overflow-hidden overflow-ellipsis whitespace-nowrap'>{data.NOMBRE || <Cargando />}</p>
-        <p className='text-xs lg:text-sm 2xl:text-xl overflow-hidden overflow-ellipsis whitespace-nowrap'>{data.SUPERVISOR || <Cargando />}</p>
+        <p className='text-xs lg:text-sm 2xl:text-xl overflow-hidden overflow-ellipsis whitespace-nowrap'>{pdv.NOMBRE || <Cargando />}</p>
+        <p className='text-xs lg:text-sm 2xl:text-xl overflow-hidden overflow-ellipsis whitespace-nowrap'>{pdv.SUPERVISOR || <Cargando />}</p>
       </div>
       {
         // eslint-disable-next-line eqeqeq
-        data.VERSION != 0
+        pdv.VERSION != 0
           ? (
             <article className='flex justify-center text-center border py-1 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold gap-2'>
-              <span className='text-xs lg:text-sm 2xl:text-xl'>Catergoria: {data.CATEGORIA || ''} </span>
-              <span className='text-xs lg:text-sm 2xl:text-xl'>Clasificación: 💎 {data.VERSION || ''} 💎</span>
+              <span className='text-xs lg:text-sm 2xl:text-xl'>Catergoria: {pdv.CATEGORIA || ''} </span>
+              <span className='text-xs lg:text-sm 2xl:text-xl'>Clasificación: 💎 {pdv.VERSION || ''} 💎</span>
             </article>
             )
           : (
             <article className='flex items-center justify-center text-center border py-1 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold gap-2'>
               <p>
                 <span>Categoria:</span>
-                <span>{data.CATEGORIA} </span>
+                <span>{pdv.CATEGORIA} </span>
               </p>
             </article>
             )
       }
-
-      {error && <p className='text-red-500'>{error}</p>}
 
     </article>
   )
