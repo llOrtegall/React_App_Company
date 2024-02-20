@@ -6,7 +6,7 @@ export function GenerateQR ({ usr }) {
 
   return (
     <>
-      <QRCodeCanvas value={`${ip}&${nombres}&${usuario}&${codigo}`} />
+      <QRCodeCanvas size={180} value={`${ip}&${nombres}&${usuario}&${codigo}`} />
     </>
   )
 }

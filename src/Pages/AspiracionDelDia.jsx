@@ -54,9 +54,13 @@ export function AspiracionDelDia ({ user, zone }) {
         }
       </section>
 
-      <section className='flex'>
-        <GenerateQR usr={user}/>
-        <TableDatos />
+      <section className='flex justify-around py-8'>
+        <section>
+          <GenerateQR usr={user} />
+        </section>
+        <section>
+          <TableDatos />
+        </section>
       </section>
 
     </section>
