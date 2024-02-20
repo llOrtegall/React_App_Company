@@ -7,5 +7,7 @@ export const determineProgressColor = (percentage) => {
   if (percentage <= 49.99) return 'red'
   if (percentage <= 94.99) return 'yellow'
   if (percentage <= 99.99) return 'sky'
-  return 'green'
+  // eslint-disable-next-line eqeqeq
+  if (percentage == 100) return 'green'
+  return 'gray'
 }

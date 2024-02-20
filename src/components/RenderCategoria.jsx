@@ -4,7 +4,7 @@ export function RenderCategoria ({ catergoria, version }) {
     ORO: '/oro.png',
     PLATA: '/plata.png',
     ZAFIRO: '/zafiro.png',
-    BRONCE: '../../public/bronce.png'
+    BRONCE: '/bronce.png'
   }
 
   const RenderImagen = ({ cat }) => {
