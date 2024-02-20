@@ -3,8 +3,9 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { calcularPorcentaje } from '../utils/progress'
 import { Cartera } from '../components/InfoCartera'
+import { RenderCategoria } from '../components/RenderCategoria'
 
-export function ResumenAsp ({ user }) {
+export function ResumenAsp ({ user, pdv }) {
   const { codigo } = user
   const [data, setData] = useState({})
   const informacionCartera = false
@@ -68,8 +69,7 @@ export function ResumenAsp ({ user }) {
       </section>
 
       <figure className='col-span-2 flex flex-col items-center justify-center bg-slate-300 dark:bg-slate-900 rounded-md dark:border dark:border-gray-500'>
-        <img src="/diamante.png" alt="logo_punto" width={200} loading='lazy' className='2xl:w-[300px]' />
-        <img src="/logos.png" alt="logos juegos" width={500} loading='lazy' className='' />
+        { pdv && <RenderCategoria catergoria={pdv.CATEGORIA} version={pdv.VERSION} /> }
       </figure>
 
     </section>

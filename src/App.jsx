@@ -22,15 +22,6 @@ export function App () {
   const { isAutentificate, user, pdv } = useAuth()
   const { darkMode, toggleTheme } = useContext(ThemeContext)
 
-  // const pdvInfoExample = {
-  //   CATEGORIA: "DIAMANTE",
-  //   NOMBRE: "P45 INTERIOR GALERIA ",
-  //   SUPERVISOR: "DANIEL",
-  //   VERSION: "1A",
-  //   codigo: 39816,
-  //   zona: 39627
-  // }
-
   if (!isAutentificate) {
     return (
       <LoginForm />
@@ -43,7 +34,7 @@ export function App () {
     <>
       <Routes>
         <Route path='/' element={<Layout user={user.codigo} darkMode={darkMode} toggleTheme={toggleTheme} pdv={pdv} />}>
-          <Route path='/metas/resumen' element={<ResumenAsp zone={zona} user={user} />} />
+          <Route path='/metas/resumen' element={<ResumenAsp zone={zona} user={user} pdv={pdv}/>} />
           <Route path='/metas/aspiracionDia' element={<AspiracionDelDia zone={zona} user={user} />} />
           <Route path='/metas/producto/:id' element={<MetasxHora />} />
           <Route path='/metas/sugeridos' element={<Sugeridos zone={zona} user={user} />} />
