@@ -3,9 +3,9 @@ import { useNavigate } from 'react-router-dom'
 import { useCallback, useState } from 'react'
 
 import { useAspiracionDiaActual } from '../hooks/useAspDiaActual.js'
-import { CodigoQR } from '../components/CodigoQR.jsx'
 import { TableDatos } from '../components/TableDatos.jsx'
 import { ArrowsIcon } from '../components/icons/Icons.jsx'
+import { GenerateQR } from '../components/GenerateQR.jsx'
 
 export function AspiracionDelDia ({ user, zone }) {
   const { codigo } = user
@@ -55,7 +55,7 @@ export function AspiracionDelDia ({ user, zone }) {
       </section>
 
       <section className='flex'>
-        <CodigoQR />
+        <GenerateQR />
         <TableDatos />
       </section>
 

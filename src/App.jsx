@@ -16,8 +16,7 @@ import { useContext } from 'react'
 import axios from 'axios'
 
 export function App () {
-  // axios.defaults.baseURL = 'http://localhost:3060'
-  axios.defaults.baseURL = 'http://localhost:4001/'
+  axios.defaults.baseURL = 'http://172.20.1.110:4001/'
 
   const { isAutentificate, user, pdv } = useAuth()
   const { darkMode, toggleTheme } = useContext(ThemeContext)
