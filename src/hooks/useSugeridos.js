@@ -10,7 +10,7 @@ const productMetaMap = {
   PATA: 3000,
   CHANCE_MILLONARIO: 5000,
   KASH: 500,
-  GANE5: 1000
+  GANE5: 2000
 }
 
 function DeterminarMeta (product, meta) {
