@@ -1,18 +1,20 @@
+// TODO: importación de paquetes
 import { Routes, Route } from 'react-router-dom'
-
-import { Layout } from './components/Layout'
-
-import { ResumenAsp } from './Pages/ResumenAsp'
-import { AspiracionDelDia } from './Pages/AspiracionDelDia'
-import { LoginForm } from './Pages/LoginForm'
-
-import { useAuth } from './auth/AuthContext'
-import { MetasxHora } from './components/MetasPorHora'
-import { AspiracionMesActual } from './Pages/AspiracionMesActual'
-import { AspiracionMesAnterior } from './Pages/AspiracionMesAnterior'
-import { Sugeridos } from './Pages/Sugeridos'
-import { useTheme } from './hooks/useTheme.js'
 import axios from 'axios'
+
+// TODO: imporación de componentes y hooks
+import { MetasxHora } from './components/MetasPorHora'
+import { useTheme } from './hooks/useTheme.js'
+import { Layout } from './components/Layout'
+import { useAuth } from './auth/AuthContext'
+
+// TODO: Importación de página del APP
+import AspMesAnt from './Pages/AspiracionMesAnterior'
+import AspMesActual from './Pages/AspiracionMesActual'
+import AspDelDia from './Pages/AspiracionDelDia'
+import ResumenAsp from './Pages/ResumenAsp'
+import LoginForm from './Pages/LoginForm'
+import Sugeridos from './Pages/Sugeridos'
 
 export function App () {
   axios.defaults.baseURL = 'http://localhost:4001/'
@@ -32,12 +34,12 @@ export function App () {
     <>
       <Routes>
         <Route path='/metas' element={<Layout user={user.codigo} darkMode={darkMode} toggleTheme={toggleTheme} pdv={pdv} />}>
-          <Route index element={<ResumenAsp zone={zona} user={user} pdv={pdv}/>} />
-          <Route path='aspiracionDia' element={<AspiracionDelDia zone={zona} user={user} />} />
+          <Route index element={<ResumenAsp zone={zona} user={user} pdv={pdv} />} />
+          <Route path='aspiracionDia' element={<AspDelDia zone={zona} user={user} />} />
           <Route path='producto/:id' element={<MetasxHora />} />
           <Route path='sugeridos' element={<Sugeridos zone={zona} user={user} />} />
-          <Route path='aspiracionMesActual' element={<AspiracionMesActual user={user} zone={zona} />} />
-          <Route path='aspiracionMesAnterior' element={<AspiracionMesAnterior user={user} zone={zona} />} />
+          <Route path='aspiracionMesActual' element={<AspMesActual user={user} zone={zona} />} />
+          <Route path='aspiracionMesAnterior' element={<AspMesAnt user={user} zone={zona} />} />
           <Route path='*' element={<h1>Not Found</h1>} />
         </Route>
       </Routes>

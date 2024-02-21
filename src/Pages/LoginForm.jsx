@@ -4,7 +4,7 @@ import { useAuth } from '../auth/AuthContext.jsx'
 import { useState } from 'react'
 import axios from 'axios'
 
-export const LoginForm = () => {
+const LoginForm = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [message, setMessage] = useState('')
@@ -61,3 +61,5 @@ export const LoginForm = () => {
 
   )
 }
+
+export default LoginForm

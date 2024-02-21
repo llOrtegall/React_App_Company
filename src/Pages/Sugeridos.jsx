@@ -4,7 +4,7 @@ import { determineProgressColor } from '../utils/progress.js'
 import { useSugeridos2 } from '../hooks/useSugeridos2.js'
 import { useSugeridos } from '../hooks/useSugeridos.js'
 
-export function Sugeridos ({ zone, user }) {
+function Sugeridos ({ zone, user }) {
   const { data, MetaSugerido, ImpresosActual, percentage } = useSugeridos({ zone, user })
   const { data2, ImpresosActual2, MetaSugerido2, percentage2 } = useSugeridos2({ zone, user })
   const color = determineProgressColor(percentage)
@@ -31,3 +31,5 @@ export function Sugeridos ({ zone, user }) {
     </section>
   )
 }
+
+export default Sugeridos

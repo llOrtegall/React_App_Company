@@ -4,7 +4,7 @@ import { useAspiracionMesActual } from '../hooks/useApsMesActual.js'
 import { ArrowsIcon } from '../components/icons/Icons.jsx'
 import { RenderizarMes } from '../components/ObtenerMes.jsx'
 
-export function AspiracionMesActual ({ user, zone }) {
+function AspiracionMesActual ({ user, zone }) {
   const { codigo } = user
   const [isAscending, setIsAscending] = useState(false)
   const datosMesAct = useAspiracionMesActual(codigo, zone)
@@ -46,3 +46,5 @@ export function AspiracionMesActual ({ user, zone }) {
     </section>
   )
 }
+
+export default AspiracionMesActual

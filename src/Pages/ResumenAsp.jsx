@@ -5,7 +5,7 @@ import { calcularPorcentaje } from '../utils/progress'
 import { Cartera } from '../components/InfoCartera'
 import { RenderCategoria } from '../components/RenderCategoria'
 
-export function ResumenAsp ({ user, pdv }) {
+function ResumenAsp ({ user, pdv }) {
   const { codigo } = user
   const [data, setData] = useState({})
   const informacionCartera = false
@@ -75,3 +75,5 @@ export function ResumenAsp ({ user, pdv }) {
     </section>
   )
 }
+
+export default ResumenAsp

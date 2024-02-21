@@ -7,7 +7,7 @@ import { TableDatos } from '../components/TableDatos.jsx'
 import { ArrowsIcon } from '../components/icons/Icons.jsx'
 import { GenerateQR } from '../components/GenerateQR.jsx'
 
-export function AspiracionDelDia ({ user, zone }) {
+function AspiracionDelDia ({ user, zone }) {
   const { codigo } = user
   const datos = useAspiracionDiaActual(codigo, zone)
   const navigate = useNavigate()
@@ -66,3 +66,5 @@ export function AspiracionDelDia ({ user, zone }) {
     </section>
   )
 }
+
+export default AspiracionDelDia
