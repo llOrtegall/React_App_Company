@@ -25,6 +25,12 @@ const LoginForm = () => {
       })
       .catch(error => {
         console.log(error)
+        if (error.code === 'ERR_NETWORK') {
+          setError('Error de conexión, Servidor No Disponible , Consulte a su Administrador de Sistemas')
+          setTimeout(() => {
+            setError('')
+          }, 4000)
+        }
         setError(error.response.data.error)
         setTimeout(() => {
           setError('')
