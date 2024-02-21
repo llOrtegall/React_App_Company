@@ -7,19 +7,18 @@ import { AspiracionDelDia } from './Pages/AspiracionDelDia'
 import { LoginForm } from './Pages/LoginForm'
 
 import { useAuth } from './auth/AuthContext'
-import { ThemeContext } from './context/ThemeProvider'
 import { MetasxHora } from './components/MetasPorHora'
 import { AspiracionMesActual } from './Pages/AspiracionMesActual'
 import { AspiracionMesAnterior } from './Pages/AspiracionMesAnterior'
 import { Sugeridos } from './Pages/Sugeridos'
-import { useContext } from 'react'
+import { useTheme } from './hooks/useTheme.js'
 import axios from 'axios'
 
 export function App () {
   axios.defaults.baseURL = 'http://localhost:4001/'
 
   const { isAutentificate, user, pdv } = useAuth()
-  const { darkMode, toggleTheme } = useContext(ThemeContext)
+  const { darkMode, toggleTheme } = useTheme()
 
   if (!isAutentificate) {
     return (
@@ -32,13 +31,14 @@ export function App () {
   return (
     <>
       <Routes>
-        <Route path='/' element={<Layout user={user.codigo} darkMode={darkMode} toggleTheme={toggleTheme} pdv={pdv} />}>
-          <Route path='/metas/resumen' element={<ResumenAsp zone={zona} user={user} pdv={pdv}/>} />
-          <Route path='/metas/aspiracionDia' element={<AspiracionDelDia zone={zona} user={user} />} />
-          <Route path='/metas/producto/:id' element={<MetasxHora />} />
-          <Route path='/metas/sugeridos' element={<Sugeridos zone={zona} user={user} />} />
-          <Route path='/metas/aspiracionMesActual' element={<AspiracionMesActual user={user} zone={zona} />} />
-          <Route path='/metas/aspiracionMesAnterior' element={<AspiracionMesAnterior user={user} zone={zona} />} />
+        <Route path='/metas' element={<Layout user={user.codigo} darkMode={darkMode} toggleTheme={toggleTheme} pdv={pdv} />}>
+          <Route index element={<ResumenAsp zone={zona} user={user} pdv={pdv}/>} />
+          <Route path='aspiracionDia' element={<AspiracionDelDia zone={zona} user={user} />} />
+          <Route path='producto/:id' element={<MetasxHora />} />
+          <Route path='sugeridos' element={<Sugeridos zone={zona} user={user} />} />
+          <Route path='aspiracionMesActual' element={<AspiracionMesActual user={user} zone={zona} />} />
+          <Route path='aspiracionMesAnterior' element={<AspiracionMesAnterior user={user} zone={zona} />} />
+          <Route path='*' element={<h1>Not Found</h1>} />
         </Route>
       </Routes>
     </>
