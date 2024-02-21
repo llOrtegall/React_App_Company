@@ -48,11 +48,11 @@ const LoginForm = () => {
           </figure>
           <article className='flex flex-col mb-20'>
             <label className='font-semibold mb-2 text-black'>Usuario:</label>
-            <input type='text' placeholder='CV1118333444'
+            <input type='text' placeholder='CV1118333444' required autoComplete='username'
               className='p-2.5 mb-10 rounded-md  text-black'
               onChange={ev => setUsername(ev.target.value)} />
             <label className='font-semibold mb-2 text-black'>Contraseña:</label>
-            <input type='password' placeholder='**************' autoComplete='current-password'
+            <input type='password' placeholder='**************' required autoComplete='current-password'
               className='p-2.5 rounded-md text-black'
               onChange={ev => setPassword(ev.target.value)} />
           </article>

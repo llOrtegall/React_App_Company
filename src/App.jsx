@@ -17,7 +17,7 @@ import LoginForm from './Pages/LoginForm'
 import Sugeridos from './Pages/Sugeridos'
 
 export function App () {
-  axios.defaults.baseURL = 'http://172.20.1.216:4001/'
+  axios.defaults.baseURL = 'http://172.20.1.216:4002/'
 
   const { isAutentificate, user, pdv } = useAuth()
   const { darkMode, toggleTheme } = useTheme()
