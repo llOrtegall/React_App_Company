@@ -28,7 +28,7 @@ export const NavBar = ({ toggleTheme, darkMode, zona }) => {
         <li>
           <Link className="hover:text-blue-600 hover:underline lg:flex lg:items-center lg:gap-2 lg:py-2 0xl:gap-6" to="/metas/aspiracionDia">
             <SunIcon />
-            <span className='hidden lg:block text-xs lg:text-sm lg:font-semibold 0xl:text-lg 2xl:text-2xl'>Arpiración Del Día</span>
+            <span className='hidden lg:block text-xs lg:text-sm lg:font-semibold 0xl:text-lg 2xl:text-2xl'>Aspiración Del Día</span>
           </Link>
         </li>
         <li>

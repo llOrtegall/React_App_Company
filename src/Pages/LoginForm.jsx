@@ -24,17 +24,18 @@ const LoginForm = () => {
         }, 4000)
       })
       .catch(error => {
-        console.log(error)
-        if (error.code === 'ERR_NETWORK') {
-          setError('Error de conexión, Servidor No Disponible , Consulte a su Administrador de Sistemas')
+        console.log(error.message)
+        if (error.message === 'Network Error') {
+          setError('Error De Conecxión y/o Servidor No Disponible , Consulte a su Administrador de Sistemas')
+          setTimeout(() => {
+            setError('')
+          }, 4000)
+        } else {
+          setError(error.response.data.error)
           setTimeout(() => {
             setError('')
           }, 4000)
         }
-        setError(error.response.data.error)
-        setTimeout(() => {
-          setError('')
-        }, 4000)
       })
   }
   return (
