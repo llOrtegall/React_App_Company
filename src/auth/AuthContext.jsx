@@ -16,7 +16,17 @@ export function AuthProvider ({ children }) {
       setUser(user)
       setIsAutentificate(true)
     }
-  }, [])
+
+    if (isAutentificate) {
+      getInfoPDV(user.codigo)
+        .then(response => {
+          setPdv(response)
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    }
+  }, [isAutentificate])
 
   useEffect(() => {
     if (isAutentificate) {
@@ -27,19 +37,6 @@ export function AuthProvider ({ children }) {
       return () => clearTimeout(timerId)
     }
   }, [isAutentificate])
-
-  useEffect(() => {
-    if (user) {
-      getInfoPDV(user.codigo)
-        .then(response => {
-          setPdv(response)
-          console.log(response)
-        })
-        .catch(error => {
-          console.error('Error fetching time:', error)
-        })
-    }
-  }, [user])
 
   const login = ({ auth, user }) => {
     if (auth === true) {

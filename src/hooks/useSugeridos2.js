@@ -46,10 +46,5 @@ export const useSugeridos2 = ({ zone, user }) => {
 
   const percentage2 = Math.floor(calcularPorcentaje(ImpresosActual2, MetaSugerido2))
 
-  console.log('data2', data2)
-  console.log('ImpresosActual2', ImpresosActual2)
-  console.log('MetaSugerido2', MetaSugerido2)
-  console.log('percentage2', percentage2)
-
   return { data2, MetaSugerido2, ImpresosActual2, error2, percentage2 }
 }
