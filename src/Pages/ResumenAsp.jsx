@@ -1,9 +1,10 @@
-import { ProgressCircle } from '@tremor/react'
-import axios from 'axios'
-import { useEffect, useState } from 'react'
-import { calcularPorcentaje } from '../utils/progress'
-import { Cartera } from '../components/InfoCartera'
+import { calcularPorcentaje, determineProgressColor } from '../utils/progress'
 import { RenderCategoria } from '../components/RenderCategoria'
+import { Cartera } from '../components/InfoCartera'
+import { ProgressCircle } from '@tremor/react'
+import { useEffect, useState } from 'react'
+
+import { getResumenDia } from '../services/getData.js'
 
 function ResumenAsp ({ user, pdv }) {
   const { codigo } = user
@@ -11,25 +12,17 @@ function ResumenAsp ({ user, pdv }) {
   const informacionCartera = false
 
   useEffect(() => {
-    axios.post('/metasDelDiaSucursal', { codigo })
-      .then(res => {
-        setData(res.data)
-      })
-  }, [])
-
-  const porcentaje = calcularPorcentaje((data.totalVentaDia), (data.metaDiaria))
-
-  function ColorPorcentaje (num) {
-    if (num < 30) {
-      return 'red'
-    } else if (num >= 30 && num < 60) {
-      return 'cyan'
-    } else if (num >= 60 && num < 99.999) {
-      return 'yellow'
-    } else {
-      return 'green'
+    const fetchData = async () => {
+      const data = await getResumenDia({ codigo })
+      setData(data)
+      setTimeout(fetchData, 1000) // Solicita nuevamente los datos después de 5 minutos
     }
-  }
+
+    fetchData()
+  }, [codigo])
+
+  const porcentaje = calcularPorcentaje(data.venta_actual, data.asp_dia)
+  const color = determineProgressColor(porcentaje)
 
   return (
     <section className='w-full grid grid-cols-3
@@ -44,7 +37,7 @@ function ResumenAsp ({ user, pdv }) {
         <section className='py-2 rounded-md dark:border dark:border-gray-500
         bg-slate-300 dark:bg-slate-900 flex flex-col justify-around gap-2'>
           <h2 className='text-center text-md py-4 2xl:text-2xl'>Porcentaje De Meta Realizada</h2>
-          <ProgressCircle value={porcentaje || 0} size='xl' strokeWidth={20} color={ColorPorcentaje(porcentaje)} className='2xl:py-4'>
+          <ProgressCircle value={porcentaje || 0} size='xl' strokeWidth={20} color={color} className='2xl:py-4'>
             <span className="text-xs text-gray-700 2xl:text-lg dark:text-white font-medium">{`${porcentaje} %`}</span>
           </ProgressCircle>
         </section>
@@ -53,13 +46,13 @@ function ResumenAsp ({ user, pdv }) {
           <p className='text-xs gap-2 w-full flex justify-between px-4 '>
             <span className='font-bold xl:text-lg'>VENTA ACTUAL:</span>
             <span className='font-semibold xl:text-lg'>
-              {(data.totalVentaDia || 0).toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}
+              {(data.venta_actual || 0).toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}
             </span>
           </p>
           <p className='text-xs gap-2 w-full flex justify-between px-4'>
             <span className='font-bold xl:text-lg'>META DÍA:</span>
             <span className='font-semibold xl:text-lg'>
-              {(data.metaDiaria || 0).toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}
+              {(data.asp_dia || 0).toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}
             </span>
           </p>
         </article>
