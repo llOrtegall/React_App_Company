@@ -1,10 +1,10 @@
 export function RenderCategoria ({ catergoria, version }) {
   const imageMap = {
-    DIAMANTE: `/diamante${version}.png`,
-    ORO: '/oro.png',
-    PLATA: '/plata.png',
-    ZAFIRO: '/zafiro.png',
-    BRONCE: '/bronce.png'
+    DIAMANTE: `../../public/diamante${version}.png`,
+    BRONCE: '../../public/bronce.png',
+    ZAFIRO: '../../public/zafiro.png',
+    PLATA: '../../public/plata.png',
+    ORO: '../../public/oro.png'
   }
 
   const RenderImagen = ({ cat }) => {
@@ -17,7 +17,7 @@ export function RenderCategoria ({ catergoria, version }) {
   return (
     <>
       <RenderImagen cat={catergoria} />
-      <img src="/logos.png" alt="logos juegos" width={500} loading='lazy' className='' />
+      <img src="../../public/logos.png" alt="logos juegos" width={500} loading='lazy' className='' />
     </>
   )
 }
