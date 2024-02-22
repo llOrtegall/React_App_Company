@@ -18,6 +18,7 @@ export const useResumenAsp = (codigo) => {
   const porcentaje = calcularPorcentaje(data.venta_actual, data.asp_dia)
   const color = determineProgressColor(porcentaje)
   const cartera = false
+  const { asp_dia: venta, venta_actual: aspiracion } = data
 
-  return { data, porcentaje, color, cartera }
+  return { porcentaje, color, cartera, venta, aspiracion }
 }

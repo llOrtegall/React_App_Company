@@ -1,4 +1,4 @@
-export function RenderCategoria ({ catergoria, version }) {
+export function RenderCategoria ({ categoria, version }) {
   const imageMap = {
     DIAMANTE: `../../public/diamante${version}.png`,
     BRONCE: '../../public/bronce.png',
@@ -16,7 +16,7 @@ export function RenderCategoria ({ catergoria, version }) {
 
   return (
     <>
-      <RenderImagen cat={catergoria} />
+      <RenderImagen cat={categoria} />
       <img src="../../public/logos.png" alt="logos juegos" width={500} loading='lazy' className='' />
     </>
   )
