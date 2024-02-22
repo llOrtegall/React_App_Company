@@ -6,11 +6,13 @@ import { useAspiracionDiaActual } from '../hooks/useAspDiaActual.js'
 import { TableDatos } from '../components/TableDatos.jsx'
 import { ArrowsIcon } from '../components/icons/Icons.jsx'
 import { GenerateQR } from '../components/GenerateQR.jsx'
+import { MessageDisplay } from '../components/MessageDisplay.jsx'
 
 function AspiracionDelDia ({ user, zone }) {
   const { codigo } = user
-  const datos = useAspiracionDiaActual(codigo, zone)
   const navigate = useNavigate()
+
+  const { datos, error } = useAspiracionDiaActual(codigo, zone)
   const [isAscending, setIsAscending] = useState(false)
 
   const handleClickCard = useCallback((p) => {
@@ -51,6 +53,13 @@ function AspiracionDelDia ({ user, zone }) {
 
               <h2 className='w-full col-span-4 rounded-lg bg-red-300 place-content-center text-center font-semibold py-4'>No Se Encontraron Datos De Venta </h2>
               )
+        }
+        {
+          error && (
+            <section className='col-span-2 py-4'>
+              <MessageDisplay message={null} error={error}/>
+            </section>
+          )
         }
       </section>
 
