@@ -10,7 +10,7 @@ export function RenderCategoria ({ cat: categoria, ver: version }) {
   const RenderImagen = ({ cat }) => {
     const src = imageMap[cat]
     if (src) {
-      return <img src={src} alt={cat.toLowerCase()} />
+      return <img src={src} loading='lazy' alt='logo segun categoria' />
     }
   }
 
