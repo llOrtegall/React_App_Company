@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
-import { CalendarAntIcon, CalendarIcon, Dashboard, DocsIcon, SunIcon } from '../components/icons/Icons'
+import { CalendarAntIcon, CalendarIcon, Dashboard, DocsIcon, SunIcon } from '../components/icons/Icons.jsx'
+import { LogoImage } from './LogoImage.jsx'
 import { Switch } from '@tremor/react'
 import { useAuth } from '../auth/AuthContext'
 
@@ -10,17 +11,12 @@ export const NavBar = ({ toggleTheme, darkMode, zona }) => {
     <nav className="flex flex-col px-4 gap-2 justify-around h-[90vh] items-center pt-10 w-[30vw] 2xl">
 
       <figure className=''>
-        {
-          zona === 39627
-            ? <img src="../../public/ganeyumbo.png" width={120} alt="logo gane yumbo" className='0xl:w-40' />
-            : <img src="../../public/ganejamundi.png" width={120} alt="logo gane jamundi" className='0xl:w-40' />
-        }
-
+        <LogoImage zona={zona} key={zona} />
       </figure>
 
       <ul className='flex flex-col gap-2 2xl:gap-4'>
         <li>
-          <Link className="hover:text-blue-600 hover:underline lg:flex lg:items-center lg:gap-2 lg:py-2 0xl:gap-6" to="/metas">
+          <Link className="hover:text-blue-600 hover:underline lg:flex lg:items-center lg:gap-2 lg:py-2 0xl:gap-6" to="/metas/resumen">
             <Dashboard />
             <span className='hidden lg:block text-xs lg:text-sm lg:font-semibold 0xl:text-lg 2xl:text-2xl'>Resumen De Aspiración</span>
           </Link>

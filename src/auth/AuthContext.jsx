@@ -42,7 +42,7 @@ export function AuthProvider ({ children }) {
     if (auth === true) {
       setUser(user)
       setIsAutentificate(auth)
-      navigate('/metas')
+      navigate('/metas/resumen')
     }
   }
 

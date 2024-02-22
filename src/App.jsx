@@ -34,7 +34,7 @@ export function App () {
     <>
       <Routes>
         <Route path='/metas' element={<Layout user={user.codigo} darkMode={darkMode} toggleTheme={toggleTheme} pdv={pdv} />}>
-          <Route index element={<ResumenAsp zone={zona} user={user} pdv={pdv} />} />
+          <Route path='resumen' element={<ResumenAsp zone={zona} user={user} pdv={pdv} />} />
           <Route path='aspiracionDia' element={<AspDelDia zone={zona} user={user} />} />
           <Route path='producto/:id' element={<MetasxHora />} />
           <Route path='sugeridos' element={<Sugeridos zone={zona} user={user} />} />
