@@ -2,7 +2,7 @@ import { getColombiaTime } from '../services/HoraColombia'
 import { useEffect, useRef, useState } from 'react'
 import { Cargando } from './animation/Loadin'
 
-export function InfoPuntCoord ({ pdv }) {
+export function InfoPuntCoord ({ NOMBRE, SUPERVISOR, CATEGORIA, VERSION }) {
   const [Fecha, setFecha] = useState('')
   const [Hora, setHora] = useState('')
   const isMounted = useRef(true)
@@ -56,22 +56,22 @@ export function InfoPuntCoord ({ pdv }) {
         <div className='text-xs lg:text-sm 2xl:text-xl'> Hora: {Hora || <Cargando />}</div>
       </article>
       <article className='flex items-center justify-center text-center border py-1 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold gap-4'>
-        <div className='text-xs lg:text-sm 2xl:text-xl overflow-hidden overflow-ellipsis whitespace-nowrap'>{pdv.NOMBRE || <Cargando />}</div>
-        <div className='text-xs lg:text-sm 2xl:text-xl overflow-hidden overflow-ellipsis whitespace-nowrap'>{pdv.SUPERVISOR || <Cargando />}</div>
+        <div className='text-xs lg:text-sm 2xl:text-xl overflow-hidden overflow-ellipsis whitespace-nowrap'>{NOMBRE || <Cargando />}</div>
+        <div className='text-xs lg:text-sm 2xl:text-xl overflow-hidden overflow-ellipsis whitespace-nowrap'>{SUPERVISOR || <Cargando />}</div>
       </article>
       {
         // eslint-disable-next-line eqeqeq
-        pdv.VERSION != 0
+        VERSION != 0
           ? (
             <article className='flex justify-center text-center border py-1 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold gap-2'>
-              <p className='text-xs lg:text-sm 2xl:text-xl'>Catergoria: {pdv.CATEGORIA || ''} </p>
-              <p className='text-xs lg:text-sm 2xl:text-xl'>Clasificación: 💎 {pdv.VERSION || ''} 💎</p>
+              <p className='text-xs lg:text-sm 2xl:text-xl'>Catergoria: {CATEGORIA || ''} </p>
+              <p className='text-xs lg:text-sm 2xl:text-xl'>Clasificación: 💎 {VERSION || ''} 💎</p>
             </article>
             )
           : (
             <article className='flex items-center justify-center text-center border py-1 rounded-md bg-slate-300 dark:bg-slate-900 font-semibold gap-2'>
               <p>Categoria:</p>
-              <p>{pdv.CATEGORIA} </p>
+              <p>{CATEGORIA} </p>
             </article>
             )
       }

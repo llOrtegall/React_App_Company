@@ -1,13 +1,11 @@
 import { createContext, useState, useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { getInfoPDV } from '../services/getInfoPDV'
 
 const AuthContext = createContext()
 
 export function AuthProvider ({ children }) {
   const [isAutentificate, setIsAutentificate] = useState(false)
   const [user, setUser] = useState({})
-  const [pdv, setPdv] = useState({})
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -15,16 +13,6 @@ export function AuthProvider ({ children }) {
     if (user) {
       setUser(user)
       setIsAutentificate(true)
-    }
-
-    if (isAutentificate) {
-      getInfoPDV(user.codigo)
-        .then(response => {
-          setPdv(response)
-        })
-        .catch(error => {
-          console.log(error)
-        })
     }
   }, [isAutentificate])
 
@@ -52,7 +40,7 @@ export function AuthProvider ({ children }) {
   }
 
   return (
-    <AuthContext.Provider value={{ isAutentificate, login, user, logout, pdv }}>
+    <AuthContext.Provider value={{ isAutentificate, login, user, logout }}>
       {children}
     </AuthContext.Provider>
   )

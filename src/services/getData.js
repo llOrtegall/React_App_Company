@@ -24,3 +24,12 @@ export const getDataAspDia = async (codigo, zone) => {
     throw new Error('Error fetching data')
   }
 }
+
+export const getInfoPDV = async (codigo) => {
+  try {
+    const response = await axios.get('/infoPuntoDeVenta', { params: { codigo } })
+    return response.data
+  } catch (error) {
+    throw new Error('Error Al Obtener Data PDV')
+  }
+}

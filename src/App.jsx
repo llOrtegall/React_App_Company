@@ -15,12 +15,15 @@ import AspDelDia from './Pages/AspiracionDelDia'
 import ResumenAsp from './Pages/ResumenAsp'
 import LoginForm from './Pages/LoginForm'
 import Sugeridos from './Pages/Sugeridos'
+import { useInfoPDV } from './hooks/useInfoPDV.js'
 
 export function App () {
   axios.defaults.baseURL = 'http://172.20.1.110:4002/'
 
-  const { isAutentificate, user, pdv } = useAuth()
+  const { isAutentificate, user } = useAuth()
   const { darkMode, toggleTheme } = useTheme()
+
+  const { categoria, nombre, supervisor, version, zona } = useInfoPDV({ codigo: user.codigo })
 
   if (!isAutentificate) {
     return (
@@ -28,13 +31,12 @@ export function App () {
     )
   }
 
-  const zona = pdv.zona
-
   return (
     <>
       <Routes>
-        <Route path='/metas' element={<Layout user={user.codigo} darkMode={darkMode} toggleTheme={toggleTheme} pdv={pdv} />}>
-          <Route path='resumen' element={<ResumenAsp zone={zona} user={user} pdv={pdv} />} />
+        <Route path='/metas' element={<Layout user={user.codigo} darkMode={darkMode} toggleTheme={toggleTheme}
+          categoria={categoria} codigo={user.codigo} nombre={nombre} supervisor={supervisor} version={version}/>}>
+          <Route path='resumen' element={<ResumenAsp zone={zona} user={user} catergoria={categoria} version={version}/>} />
           <Route path='aspiracionDia' element={<AspDelDia zone={zona} user={user} />} />
           <Route path='producto/:id' element={<MetasxHora />} />
           <Route path='sugeridos' element={<Sugeridos zone={zona} user={user} />} />
