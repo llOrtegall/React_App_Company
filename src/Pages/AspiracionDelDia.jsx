@@ -63,11 +63,11 @@ function AspiracionDelDia ({ user, zone }) {
         }
       </section>
 
-      <section className='flex justify-around py-8'>
-        <section>
+      <section className='flex justify-around py-4'>
+        <section className='p-4 1/2 dark:bg-gray-400 rounded-xl'>
           <GenerateQR usr={user} />
         </section>
-        <section>
+        <section className='p-4 1/2 '>
           <TableDatos cedula={user.username} />
         </section>
       </section>
