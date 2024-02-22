@@ -34,6 +34,8 @@ export function App () {
   return (
     <>
       <Routes>
+
+        <Route path='/loginMetas' element={<LoginForm />} />
         <Route path='/metas' element={<Layout user={user.codigo} darkMode={darkMode} toggleTheme={toggleTheme}
           categoria={categoria} codigo={user.codigo} nombre={nombre} supervisor={supervisor} version={version}/>}>
           <Route path='resumen' element={<ResumenAsp zone={zona} user={user} catergoria={categoria} version={version}/>} />
@@ -48,3 +50,17 @@ export function App () {
     </>
   )
 }
+
+
+{/* <Route path='/loginMetas' element={<LoginForm />} />
+<Route path='/metas' element={<Layout user={user.codigo} darkMode={darkMode} toggleTheme={toggleTheme}
+  categoria={categoria} codigo={user.codigo} nombre={nombre} supervisor={supervisor} version={version}/>}>
+  <Route path='resumen' element={<ResumenAsp zone={zona} user={user} catergoria={categoria} version={version}/>} />
+  <Route path='aspiracionDia' element={<AspDelDia zone={zona} user={user} />} />
+  <Route path='producto/:id' element={<MetasxHora />} />
+  <Route path='sugeridos' element={<Sugeridos zone={zona} user={user} />} />
+  <Route path='aspiracionMesActual' element={<AspMesActual user={user} zone={zona} />} />
+  <Route path='aspiracionMesAnterior' element={<AspMesAnt user={user} zone={zona} />} />
+  <Route path='*' element={<h1>Not Found</h1>} />
+</Route>
+</Routes> */}
