@@ -25,7 +25,7 @@ function Sugeridos ({ zone, user }) {
       </article>
 
       <footer className='py-2'>
-        <ConsultarBoletasGanadas codigo={user.codigo} user={user} />
+        <ConsultarBoletasGanadas codigo={user.codigo} user={user.username} names={user.nombres}/>
       </footer>
 
     </section>

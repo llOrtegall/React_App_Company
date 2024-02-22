@@ -22,13 +22,13 @@ function DeterminarMeta (product, meta) {
 }
 
 export const useSugeridos = ({ zone, user }) => {
-  const { usuario, codigo } = user
+  const { username, codigo } = user
   const [data, setData] = useState(null)
   const [error, setError] = useState(null)
 
   useEffect(() => {
     const fetchData = () => {
-      axios.post('/SugeridosPrimeraConsulta', { codigo, user: usuario, zona: zone })
+      axios.post('/SugeridosPrimeraConsulta', { codigo, user: username, zona: zone })
         .then((response) => {
           setData(response.data)
         })
