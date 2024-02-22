@@ -68,7 +68,7 @@ function AspiracionDelDia ({ user, zone }) {
           <GenerateQR usr={user} />
         </section>
         <section>
-          <TableDatos />
+          <TableDatos cedula={user.username} />
         </section>
       </section>
 

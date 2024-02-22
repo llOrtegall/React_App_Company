@@ -33,3 +33,12 @@ export const getInfoPDV = async (codigo) => {
     throw new Error('Error Al Obtener Data PDV')
   }
 }
+
+export const getUtilidades = async (cedula) => {
+  try {
+    const response = await axios.get('/ultilidadesGet', { params: { cedula } })
+    return response.data
+  } catch (error) {
+    throw new Error('Error Al Obtener Data Utilidades')
+  }
+}
