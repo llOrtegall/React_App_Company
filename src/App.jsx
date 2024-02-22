@@ -15,52 +15,32 @@ import AspDelDia from './Pages/AspiracionDelDia'
 import ResumenAsp from './Pages/ResumenAsp'
 import LoginForm from './Pages/LoginForm'
 import Sugeridos from './Pages/Sugeridos'
-import { useInfoPDV } from './hooks/useInfoPDV.js'
+import { ProtectdeRoutes } from './components/ProtectedRoutes.jsx'
 
 export function App () {
   axios.defaults.baseURL = 'http://172.20.1.110:4002/'
 
-  const { isAutentificate, user } = useAuth()
-  const { darkMode, toggleTheme } = useTheme()
+  const { isAutentificate, user, pdv } = useAuth()
 
-  const { categoria, nombre, supervisor, version, zona } = useInfoPDV({ codigo: user.codigo })
-
-  if (!isAutentificate) {
-    return (
-      <LoginForm />
-    )
-  }
+  console.log(user)
+  console.log(pdv)
 
   return (
     <>
       <Routes>
-
         <Route path='/loginMetas' element={<LoginForm />} />
-        <Route path='/metas' element={<Layout user={user.codigo} darkMode={darkMode} toggleTheme={toggleTheme}
-          categoria={categoria} codigo={user.codigo} nombre={nombre} supervisor={supervisor} version={version}/>}>
-          <Route path='resumen' element={<ResumenAsp zone={zona} user={user} catergoria={categoria} version={version}/>} />
-          <Route path='aspiracionDia' element={<AspDelDia zone={zona} user={user} />} />
-          <Route path='producto/:id' element={<MetasxHora />} />
-          <Route path='sugeridos' element={<Sugeridos zone={zona} user={user} />} />
-          <Route path='aspiracionMesActual' element={<AspMesActual user={user} zone={zona} />} />
-          <Route path='aspiracionMesAnterior' element={<AspMesAnt user={user} zone={zona} />} />
-          <Route path='*' element={<h1>Not Found</h1>} />
+        <Route element={<ProtectdeRoutes isAllowed={isAutentificate} />} >
+          <Route path='/metas' element={<Layout key={user.username} zona={pdv.zona} punto={pdv}/>} >
+            <Route path='resumen' element={<ResumenAsp key={user.username} catergoria={pdv.CATEGORIA} codigo={user.codigo} nombres={user.nombres} version={pdv.VERSION}/>} />
+            {/*  <Route path='aspiracionDia' element={<AspDelDia zone={zona} user={user} />} />
+            <Route path='producto/:id' element={<MetasxHora />} />
+            <Route path='sugeridos' element={<Sugeridos zone={zona} user={user} />} />
+            <Route path='aspiracionMesActual' element={<AspMesActual user={user} zone={zona} />} />
+            <Route path='aspiracionMesAnterior' element={<AspMesAnt user={user} zone={zona} />} /> */}
+            <Route path='*' element={<h1>Not Found</h1>} />
+          </Route>
         </Route>
       </Routes>
     </>
   )
 }
-
-
-{/* <Route path='/loginMetas' element={<LoginForm />} />
-<Route path='/metas' element={<Layout user={user.codigo} darkMode={darkMode} toggleTheme={toggleTheme}
-  categoria={categoria} codigo={user.codigo} nombre={nombre} supervisor={supervisor} version={version}/>}>
-  <Route path='resumen' element={<ResumenAsp zone={zona} user={user} catergoria={categoria} version={version}/>} />
-  <Route path='aspiracionDia' element={<AspDelDia zone={zona} user={user} />} />
-  <Route path='producto/:id' element={<MetasxHora />} />
-  <Route path='sugeridos' element={<Sugeridos zone={zona} user={user} />} />
-  <Route path='aspiracionMesActual' element={<AspMesActual user={user} zone={zona} />} />
-  <Route path='aspiracionMesAnterior' element={<AspMesAnt user={user} zone={zona} />} />
-  <Route path='*' element={<h1>Not Found</h1>} />
-</Route>
-</Routes> */}

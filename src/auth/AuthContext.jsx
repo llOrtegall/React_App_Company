@@ -6,30 +6,28 @@ const AuthContext = createContext()
 export function AuthProvider ({ children }) {
   const [isAutentificate, setIsAutentificate] = useState(false)
   const [user, setUser] = useState({})
+  const [pdv, setPdv] = useState({})
   const navigate = useNavigate()
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('user'))
-    if (user) {
-      setUser(user)
+    const user = localStorage.getItem('user')
+    const pdv = localStorage.getItem('pdv')
+    if (user && pdv) {
+      setUser(JSON.parse(user))
+      setPdv(JSON.parse(pdv))
       setIsAutentificate(true)
+      navigate('/metas/resumen')
     }
-  }, [isAutentificate])
+  }, [])
 
-  useEffect(() => {
-    if (isAutentificate) {
-      const timerId = setTimeout(() => {
-        logout()
-      }, 60 * 60 * 1000) // 1 hora
-
-      return () => clearTimeout(timerId)
-    }
-  }, [isAutentificate])
-
-  const login = ({ auth, user }) => {
-    if (auth === true) {
-      setUser(user)
-      setIsAutentificate(auth)
+  const login = (datos) => {
+    const { usuarioencontrado, datosPVD } = datos
+    if (usuarioencontrado) {
+      setUser(usuarioencontrado)
+      setPdv(datosPVD)
+      localStorage.setItem('user', JSON.stringify(usuarioencontrado))
+      localStorage.setItem('pdv', JSON.stringify(datosPVD))
+      setIsAutentificate(true)
       navigate('/metas/resumen')
     }
   }
@@ -37,10 +35,11 @@ export function AuthProvider ({ children }) {
   const logout = () => {
     setIsAutentificate(false)
     localStorage.removeItem('user')
+    localStorage.removeItem('pdv')
   }
 
   return (
-    <AuthContext.Provider value={{ isAutentificate, login, user, logout }}>
+    <AuthContext.Provider value={{ isAutentificate, login, logout, user, pdv }}>
       {children}
     </AuthContext.Provider>
   )

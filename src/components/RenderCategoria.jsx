@@ -1,4 +1,4 @@
-export function RenderCategoria ({ categoria, version }) {
+export function RenderCategoria ({ cat: categoria, ver: version }) {
   const imageMap = {
     DIAMANTE: `../../public/diamante${version}.png`,
     BRONCE: '../../public/bronce.png',

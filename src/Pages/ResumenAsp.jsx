@@ -3,9 +3,7 @@ import { Cartera } from '../components/InfoCartera'
 import { useResumenAsp } from '../hooks/useResumenAsp'
 import { VentasDiaResumen } from '../components/VentasDiaResumen'
 import { ProgressCircleComponen } from '../components/ProgressCircleComp.jsx'
-function ResumenAsp ({ user, catergoria, version }) {
-  const { codigo, nombres } = user
-
+function ResumenAsp ({ codigo, nombres, catergoria, version }) {
   const { cartera, color, porcentaje, venta, aspiracion } = useResumenAsp(codigo)
 
   return (
@@ -27,7 +25,7 @@ function ResumenAsp ({ user, catergoria, version }) {
       </section>
 
       <figure className='col-span-2 flex flex-col items-center justify-center bg-slate-300 dark:bg-slate-900 rounded-md dark:border dark:border-gray-500'>
-        { catergoria && (<RenderCategoria catergoria={catergoria} version={version} />) }
+        { catergoria && (<RenderCategoria cat={catergoria} ver={version} />) }
       </figure>
 
     </section>

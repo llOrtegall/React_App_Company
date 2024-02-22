@@ -2,7 +2,8 @@ import { getColombiaTime } from '../services/HoraColombia'
 import { useEffect, useRef, useState } from 'react'
 import { Cargando } from './animation/Loadin'
 
-export function InfoPuntCoord ({ NOMBRE, SUPERVISOR, CATEGORIA, VERSION }) {
+export function InfoPuntCoord ({ pdv }) {
+  const { NOMBRE, SUPERVISOR, CATEGORIA, VERSION } = pdv
   const [Fecha, setFecha] = useState('')
   const [Hora, setHora] = useState('')
   const isMounted = useRef(true)

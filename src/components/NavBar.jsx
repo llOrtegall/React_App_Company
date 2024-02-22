@@ -1,17 +1,19 @@
-import { Link } from 'react-router-dom'
 import { CalendarAntIcon, CalendarIcon, Dashboard, DocsIcon, SunIcon } from '../components/icons/Icons.jsx'
+import { useTheme } from '../hooks/useTheme.js'
 import { LogoImage } from './LogoImage.jsx'
+import { Link } from 'react-router-dom'
 import { Switch } from '@tremor/react'
-import { useAuth } from '../auth/AuthContext'
+import { useAuth } from '../auth/AuthContext.jsx'
 
-export const NavBar = ({ toggleTheme, darkMode, zona }) => {
-  const { logout } = useAuth()
+export const NavBar = () => {
+  const { darkMode, toggleTheme } = useTheme()
+  const { pdv, logout } = useAuth()
 
   return (
     <nav className="flex flex-col px-4 gap-2 justify-around h-[90vh] items-center pt-10 w-[30vw] 2xl">
 
       <figure className=''>
-        <LogoImage zona={zona} key={zona} />
+        { pdv && (<LogoImage zona={pdv.zona} key={pdv.zona} />)}
       </figure>
 
       <ul className='flex flex-col gap-2 2xl:gap-4'>
