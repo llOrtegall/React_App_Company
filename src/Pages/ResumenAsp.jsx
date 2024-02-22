@@ -2,7 +2,7 @@ import { calcularPorcentaje, determineProgressColor } from '../utils/progress'
 import { RenderCategoria } from '../components/RenderCategoria'
 import { Cartera } from '../components/InfoCartera'
 import { ProgressCircle } from '@tremor/react'
-import { useEffect, useState } from 'react'
+import { memo, useEffect, useState } from 'react'
 
 import { getResumenDia } from '../services/getData.js'
 
@@ -11,11 +11,14 @@ function ResumenAsp ({ user, pdv }) {
   const [data, setData] = useState({})
   const informacionCartera = false
 
+  const RenderCategoriaMemo = memo(RenderCategoria)
+  const CarteraMemo = memo(Cartera)
+
   useEffect(() => {
     const fetchData = async () => {
       const data = await getResumenDia({ codigo })
       setData(data)
-      setTimeout(fetchData, 1000) // Solicita nuevamente los datos después de 5 minutos
+      setTimeout(fetchData, 5 * 60 * 1000) // Solicita nuevamente los datos después de 5 minutos
     }
 
     fetchData()
@@ -57,12 +60,12 @@ function ResumenAsp ({ user, pdv }) {
           </p>
         </article>
 
-        <Cartera resports={informacionCartera} />
+        <CarteraMemo resports={informacionCartera} />
 
       </section>
 
       <figure className='col-span-2 flex flex-col items-center justify-center bg-slate-300 dark:bg-slate-900 rounded-md dark:border dark:border-gray-500'>
-        { pdv && <RenderCategoria catergoria={pdv.CATEGORIA} version={pdv.VERSION} /> }
+        { pdv && <RenderCategoriaMemo catergoria={pdv.CATEGORIA} version={pdv.VERSION} /> }
       </figure>
 
     </section>
