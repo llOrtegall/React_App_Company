@@ -36,6 +36,7 @@ export function AuthProvider ({ children }) {
     setIsAutentificate(false)
     localStorage.removeItem('user')
     localStorage.removeItem('pdv')
+    navigate('/')
   }
 
   return (
