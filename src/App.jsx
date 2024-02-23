@@ -15,6 +15,7 @@ import ResumenAsp from './Pages/ResumenAsp'
 import LoginForm from './Pages/LoginForm'
 import Sugeridos from './Pages/Sugeridos'
 import { ProtectdeRoutes } from './components/ProtectedRoutes.jsx'
+import { HistorialCategorias } from './Pages/HistoriaCategorias.jsx'
 
 export function App () {
   axios.defaults.baseURL = 'http://172.20.1.110:4002/'
@@ -32,6 +33,7 @@ export function App () {
             <Route path='sugeridos' element={<Sugeridos key={pdv.zona} zone={pdv.zona} user={user} />} />
             <Route path='aspiracionMesActual' element={<AspMesActual key={user.codigo} user={user} zone={pdv.zona} />} />
             <Route path='aspiracionMesAnterior' element={<AspMesAnt key={user.codigo} user={user} zone={pdv.zona} />} />
+            <Route path='historial' element={<HistorialCategorias key={user.codigo} codigo={user.codigo} />} />
             <Route path='*' element={<h1>Not Found</h1>} />
           </Route>
         </Route>

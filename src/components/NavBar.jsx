@@ -47,6 +47,12 @@ export const NavBar = () => {
             <span className='hidden lg:block text-xs lg:text-sm lg:font-semibold 0xl:text-lg 2xl:text-2xl'>Sugeridos</span>
           </Link>
         </li>
+        <li>
+          <Link className="hover:text-blue-600 hover:underline lg:flex lg:items-center lg:gap-2 lg:py-2 0xl:gap-6" to="/metas/historial">
+            <DocsIcon />
+            <span className='hidden lg:block text-xs lg:text-sm lg:font-semibold 0xl:text-lg 2xl:text-2xl'>Historial Categorias</span>
+          </Link>
+        </li>
       </ul>
 
       <section className='w-full flex flex-col gap-2 2xl:gap-4 items-center justify-center'>
