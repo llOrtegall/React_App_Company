@@ -66,11 +66,11 @@ export function HistorialCategorias ({ codigo }) {
   return (
     <section className='flex w-full p-2'>
       <div className='w-1/2 p-2'>
-        <h2 className='text-center font-semibold text-2xl pb-2'>Año Pasado {annoAnt}</h2>
-        <ul className='grid grid-cols-2 gap-6'>
+        <h2 className='text-center font-semibold text-xl 2xl:text-2xl xl:grid-cols-2 pb-2'>Año Pasado {annoAnt}</h2>
+        <ul className='grid grid-cols-1 xl:grid-cols-2'>
         {ObjectxMes.map((item, index) => (
-            <li key={index} className='flex justify-between items-center w-64'>
-              <span className='pb-8 font-semibold text-2xl'>{item.mes}:</span>
+            <li key={index} className='flex justify-between items-center w-56'>
+              <span className='pb-8 font-semibold text-xl'>{item.mes}:</span>
               <RenderCategoria key={index} cat={item.categoria} ver={item.version} size={100} />
             </li>
         ))}
@@ -78,11 +78,11 @@ export function HistorialCategorias ({ codigo }) {
       </div>
 
       <div className='w-1/2 p-2'>
-        <h2 className='text-center font-semibold text-2xl pb-2'>Año Actual {anno}</h2>
-        <ul className='grid grid-cols-2 gap-6'>
+        <h2 className='text-center font-semibold text-xl 2xl:text-2xl xl:grid-cols-2 pb-2'>Año Actual {anno}</h2>
+        <ul className='grid grid-cols-1 xl:grid-cols-2 '>
         {ObjectxMes2.map((item, index) => (
-            <li key={index} className='flex justify-between items-center w-64'>
-              <span className='pb-8 font-semibold text-2xl'>{item.mes}:</span>
+            <li key={index} className='flex justify-between items-center w-56'>
+              <span className='pb-8 font-semibold text-xl'>{item.mes}:</span>
               <RenderCategoria key={index} cat={item.categoria} ver={item.version} size={100} />
             </li>
         ))}
