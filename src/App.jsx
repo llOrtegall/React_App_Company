@@ -16,11 +16,26 @@ import LoginForm from './Pages/LoginForm'
 import Sugeridos from './Pages/Sugeridos'
 import { ProtectdeRoutes } from './components/ProtectedRoutes.jsx'
 import { HistorialCategorias } from './Pages/HistoriaCategorias.jsx'
+import { useEffect } from 'react'
+import { getUserByToken } from './services/getData.js'
 
 export function App () {
   axios.defaults.baseURL = 'http://172.20.1.110:4002/'
 
-  const { isAutentificate, user, pdv } = useAuth()
+  const { isAutentificate, user, pdv, login } = useAuth()
+
+  useEffect(() => {
+    const token = localStorage.getItem('TokenMetas')
+    if (token) {
+      getUserByToken(token)
+        .then(res => {
+          login(true, res)
+        })
+    } else {
+      console.log('No hay token')
+    }
+  }, [])
+
   return (
     <>
       <Routes>

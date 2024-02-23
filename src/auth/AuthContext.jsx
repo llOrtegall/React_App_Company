@@ -20,22 +20,19 @@ export function AuthProvider ({ children }) {
     }
   }, [])
 
-  const login = (datos) => {
-    const { usuarioencontrado, datosPVD } = datos
-    if (usuarioencontrado) {
-      setUser(usuarioencontrado)
-      setPdv(datosPVD)
-      localStorage.setItem('user', JSON.stringify(usuarioencontrado))
-      localStorage.setItem('pdv', JSON.stringify(datosPVD))
-      setIsAutentificate(true)
+  const login = (auth, DataUser) => {
+    const { user, pdv } = DataUser
+    if (auth === true) {
+      setUser(user)
+      setPdv(pdv)
+      setIsAutentificate(auth)
       navigate('/metas/resumen')
     }
   }
 
   const logout = () => {
     setIsAutentificate(false)
-    localStorage.removeItem('user')
-    localStorage.removeItem('pdv')
+    localStorage.removeItem('TokenMetas')
     navigate('/')
   }
 

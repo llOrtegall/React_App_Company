@@ -17,7 +17,7 @@ const LoginForm = () => {
     e.preventDefault()
     try {
       const { data: { auth, token } } = await axios.post('/metasLogin', { username, password })
-      localStorage.setItem('Token', token)
+      localStorage.setItem('TokenMetas', token)
       const DataUser = await getUserByToken(token)
       login(auth, DataUser)
       setMessage('Iniciando Sesión...')
