@@ -18,7 +18,7 @@ table th {
 table td {
   text-align: center;
   padding: 0.5rem;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid #555656;
 }
 
 table tr:hover {
