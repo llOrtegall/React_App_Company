@@ -20,7 +20,7 @@ import { useEffect } from 'react'
 import { getUserByToken } from './services/getData.js'
 
 export function App () {
-  axios.defaults.baseURL = 'http://172.20.1.110:4002/'
+  axios.defaults.baseURL = 'http://172.20.1.216:4002/'
 
   const { isAutentificate, user, pdv, login } = useAuth()
 

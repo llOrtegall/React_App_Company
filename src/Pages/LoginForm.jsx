@@ -26,7 +26,7 @@ const LoginForm = () => {
       if (error.message === 'Network Error') {
         return setError('Servidor No Disponible y/o Error De Conexión, Consulte Con El Administrador')
       }
-      setError(error.response?.data?.message)
+      setError(error.response?.data?.error || 'Error Inesperado Por Favor Consulte Con El Administrador')
       setTimeout(() => {
         setError(null)
       }, 5000)
