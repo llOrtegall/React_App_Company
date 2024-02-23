@@ -3,6 +3,7 @@ import { useAuth } from '../auth/AuthContext.jsx'
 
 import { useState } from 'react'
 import axios from 'axios'
+import { getUserByToken } from '../services/getData.js'
 
 const LoginForm = () => {
   const [username, setUsername] = useState('')
@@ -14,28 +15,22 @@ const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    axios.post('/metasLogin', { username, password })
-      .then(response => {
-        login(response.data)
-        setMessage('Iniciando sesión...')
-        setTimeout(() => {
-          setMessage('')
-        }, 4000)
-      })
-      .catch(error => {
-        console.log(error.message)
-        if (error.message === 'Network Error') {
-          setError('Error De Conecxión y/o Servidor No Disponible , Consulte a su Administrador de Sistemas')
-          setTimeout(() => {
-            setError('')
-          }, 4000)
-        } else {
-          setError(error.response.data.error)
-          setTimeout(() => {
-            setError('')
-          }, 4000)
-        }
-      })
+    try {
+      const { data: { auth, token } } = await axios.post('/metasLogin', { username, password })
+      localStorage.setItem('Token', token)
+      const DataUser = await getUserByToken(token)
+      login(auth, DataUser)
+      setMessage('Iniciando Sesión...')
+    } catch (error) {
+      console.log(error)
+      if (error.message === 'Network Error') {
+        return setError('Servidor No Disponible y/o Error De Conexión, Consulte Con El Administrador')
+      }
+      setError(error.response?.data?.message)
+      setTimeout(() => {
+        setError(null)
+      }, 5000)
+    }
   }
   return (
     <>

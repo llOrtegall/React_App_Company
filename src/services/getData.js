@@ -42,3 +42,13 @@ export const getUtilidades = async (cedula) => {
     throw new Error('Error Al Obtener Data Utilidades')
   }
 }
+
+export async function getUserByToken (token) {
+  try {
+    const userResponse = await axios.get('/profile', { headers: { Authorization: `Bearer ${token}` } })
+    return userResponse.data
+  } catch (error) {
+    console.log(error)
+    throw error
+  }
+}
