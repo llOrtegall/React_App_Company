@@ -2,26 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-table {
-  width: 100%;
-  border-collapse: collapse;
+th {
+  @apply p-2 bg-blue-400 border border-slate-800 text-center dark:bg-slate-600;
 }
 
-table th {
-  text-align: center;
-  color:white;
-  padding: 0.5rem;
-  background: #1768ec;
-  border-bottom: 1px solid #e2e8f0;
-}
-
-table td {
-  text-align: center;
-  padding: 0.5rem;
-  border-bottom: 1px solid #555656;
-}
-
-table tr:hover {
-  background-color: #f7fafc;
+td {
+  @apply p-2  bg-gray-500 border border-slate-800 text-center text-white font-semibold;
 }
 
