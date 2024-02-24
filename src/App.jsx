@@ -22,18 +22,30 @@ import { getUserByToken } from './services/getData.js'
 export function App () {
   axios.defaults.baseURL = 'http://172.20.1.216:4002/'
 
-  const { isAutentificate, user, pdv, login } = useAuth()
+  const { isAutentificate, user, pdv, login, logout } = useAuth()
 
   useEffect(() => {
-    const token = localStorage.getItem('TokenMetas')
-    if (token) {
-      getUserByToken(token)
-        .then(res => {
-          login(true, res)
-        })
-    } else {
-      console.log('No hay token')
+    const checkToken = () => {
+      const token = localStorage.getItem('TokenMetas')
+      if (token) {
+        getUserByToken(token)
+          .then(res => {
+            login(true, res)
+          })
+      } else {
+        console.log('No hay token')
+        logout() // Cierra sesión y devuelve al login
+      }
     }
+
+    // Comprueba el token inmediatamente
+    checkToken()
+
+    // Configura un intervalo para comprobar el token cada hora
+    const tokenCheckInterval = setInterval(checkToken, 1000 * 60 * 60)
+
+    // Limpia el intervalo cuando el componente se desmonta
+    return () => clearInterval(tokenCheckInterval)
   }, [])
 
   return (

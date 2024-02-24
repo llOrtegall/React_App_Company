@@ -64,6 +64,8 @@ export const NavBar = () => {
         bg-blue-700 p-2 rounded-md hover:bg-blue-500">
           Cerrar Sesión
         </button>
+
+        <p className='text-center text-base text-balance'>La sesión se cerrará automáticamente cada 2 horas por seguridad</p>
       </section>
 
     </nav>
