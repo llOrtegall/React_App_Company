@@ -1,14 +1,19 @@
 import { getColombiaTime } from '../services/HoraColombia'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { Cargando } from './animation/Loadin'
 
 export function InfoPuntCoord ({ pdv }) {
   const { NOMBRE, SUPERVISOR, CATEGORIA, VERSION } = pdv
   const [Fecha, setFecha] = useState('')
   const [Hora, setHora] = useState('')
+  const intervalIdRef = useRef(null)
 
   useEffect(() => {
     const fetchTime = () => {
+      if (intervalIdRef.current) {
+        clearInterval(intervalIdRef.current)
+      }
+
       getColombiaTime()
         .then(response => {
           setFecha(response.fecha)
@@ -19,17 +24,13 @@ export function InfoPuntCoord ({ pdv }) {
           date.setMinutes(minutes)
           date.setSeconds(seconds)
 
-          const intervalId = setInterval(() => {
+          intervalIdRef.current = setInterval(() => {
             date = new Date(date.getTime() + 1000)
             const newHours = date.getHours()
             const newPeriod = newHours >= 12 ? 'pm' : 'am'
             const newTimePart = `${newHours % 12 || 12}:${date.getMinutes().toString().padStart(2, '0')}:${date.getSeconds().toString().padStart(2, '0')}`
             setHora(`${newTimePart} ${newPeriod}`)
           }, 1000)
-
-          return () => {
-            clearInterval(intervalId)
-          }
         })
         .catch(error => {
           console.error('Error fetching time:', error)
@@ -41,6 +42,9 @@ export function InfoPuntCoord ({ pdv }) {
 
     return () => {
       clearInterval(fetchIntervalId)
+      if (intervalIdRef.current) {
+        clearInterval(intervalIdRef.current)
+      }
     }
   }, [])
 
