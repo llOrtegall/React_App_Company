@@ -27,15 +27,13 @@ export function App () {
   useEffect(() => {
     const checkToken = () => {
       const token = localStorage.getItem('TokenMetas')
-      if (token) {
-        getUserByToken(token)
-          .then(res => {
-            login(true, res)
-          })
-      } else {
-        console.log('No hay token')
-        logout()
-      }
+      getUserByToken(token)
+        .then(res => {
+          login(true, res)
+        }).catch(() => {
+          console.log('Token no valido')
+          logout()
+        })
     }
     checkToken()
     const tokenCheckInterval = setInterval(checkToken, 1000 * 60 * 60)
