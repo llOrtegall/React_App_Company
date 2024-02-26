@@ -1,6 +1,6 @@
 export const calcularPorcentaje = (actual, metaDia) => {
   const percentage = (actual * 100) / metaDia
-  return Math.min(100, percentage).toFixed(2) // Limita el porcentaje a 100 y a un decimal
+  return Math.min(100, percentage).toFixed(2) // Limita el porcentaje a 100 y dos decimal
 }
 
 export const calcularPorcentajeSinLimite = (actual, metaDia) => {
