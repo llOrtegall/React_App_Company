@@ -35,6 +35,7 @@ function AspiracionMesActual ({ user, zone }) {
                 aspiracionDia={p.aspiracionDia}
                 ventaActual={p.ventaActual}
                 percentage={p.porcentaje}
+                percentage2={p.porcentaje2}
               />
             ))
             : (

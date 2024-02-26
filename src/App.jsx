@@ -54,7 +54,7 @@ export function App () {
         <Route path='/' element={<LoginForm />} />
         <Route element={<ProtectdeRoutes isAllowed={isAutentificate} />} >
           <Route path='/metas' element={<Layout key={user.username} zona={pdv.zona} punto={pdv}/>} >
-            <Route path='resumen' element={<ResumenAsp key={user.username} catergoria={pdv.CATEGORIA} codigo={user.codigo} nombres={user.nombres} version={pdv.VERSION}/>} />
+            <Route path='resumen' element={<ResumenAsp key={user.username} user={user} catergoria={pdv.CATEGORIA} codigo={user.codigo} nombres={user.nombres} version={pdv.VERSION}/>} />
             <Route path='aspiracionDia' element={<AspDelDia key={user.username} user={user} zone={pdv.zona} />} />
             <Route path='producto/:id' element={<MetasxHora />} />
             <Route path='sugeridos' element={<Sugeridos key={pdv.zona} zone={pdv.zona} user={user} />} />
