@@ -1,4 +1,4 @@
-import { UnificarDatosJamundi, UnificarDatosYumbo } from '../utils/Datos'
+import { UnificarDatosJamundi, UnificarDatosMesAntJamundi, UnificarDatosMesAntYumbo, UnificarDatosYumbo } from '../utils/Datos'
 import axios from 'axios'
 
 export const getResumenDia = async ({ codigo }) => {
@@ -22,6 +22,25 @@ export const getDataAspDia = async (codigo, zone) => {
   } catch (error) {
     console.error(error)
     throw new Error('Error fetching data')
+  }
+}
+
+export const getDataMesActual = async (codigo, zone) => {
+  try {
+    const response = await axios.post('/CumplimientoMesActualProducto', { codigo, zona: zone })
+
+    let data
+    if (zone === 39627) {
+      data = await UnificarDatosMesAntYumbo(response.data)
+    } else if (zone === 39628) {
+      data = await UnificarDatosMesAntJamundi(response.data)
+    } else {
+      throw new Error('Zona no encontrada')
+    }
+    return data
+  } catch (error) {
+    console.error('Error fetching data: ', error)
+    return new Error('Error fetching data')
   }
 }
 
