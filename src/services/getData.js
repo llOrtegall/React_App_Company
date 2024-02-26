@@ -74,7 +74,7 @@ export const getInfoPDV = async (codigo) => {
 
 export const getSugeridos1 = async (codigo, username, zona) => {
   const response = await axios.post('/SugeridosPrimeraConsulta', { codigo, user: username, zona })
-  return response
+  return response.data
 }
 
 export const getUtilidades = async (cedula) => {
