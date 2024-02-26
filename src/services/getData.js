@@ -77,6 +77,11 @@ export const getSugeridos1 = async (codigo, username, zona) => {
   return response.data
 }
 
+export const getSugeridos2 = async (codigo, username, zona) => {
+  const response = await axios.post('/SugeridosSegundaConsulta', { codigo, user: username, zona })
+  return response.data
+}
+
 export const getUtilidades = async (cedula) => {
   try {
     const response = await axios.get('/ultilidadesGet', { params: { cedula } })

@@ -15,12 +15,18 @@ function Sugeridos ({ zone, user }) {
         <ProgressSugerido data={data} />
       </article>
 
-      <article>
-        <ProgressSugerido data={data2} />
-      </article>
+      {
+        data2
+          ? (
+          <article className='grid grid-cols-1 2xl:grid-cols-2 gap-2 2xl:gap-6'>
+            <ProgressSugerido data={data2} />
+          </article>
+            )
+          : null
+      }
 
       <footer className='py-2'>
-        <ConsultarBoletasGanadas codigo={user.codigo} user={user.username} names={user.nombres}/> 
+        <ConsultarBoletasGanadas codigo={user.codigo} user={user.username} names={user.nombres}/>
       </footer>
 
     </section>

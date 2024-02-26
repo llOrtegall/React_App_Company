@@ -28,13 +28,13 @@ export function ProgressSugerido ({ data }) {
   return (
     <Card className={`mx-auto mt-2 w-full flex flex-col gap-4 bg-${color}-200`}>
       <article className='flex gap-4 items-center justify-center'>
-        <h2 className='font-semibold text-lg'>PRODUCTO SUGERIDO {data.SUGERIDO1 || 'Aun No Se Ha Definido'}</h2>
+        <h2 className='font-semibold text-lg'>PRODUCTO SUGERIDO {data.SUGERIDO1 || data.SUGERIDO2 || 'Aun No Se Ha Definido'}</h2>
         <span>-</span>
-        <h2 className='font-semibold text-lg'>N° Sugeridos Del Día {DeterminarMeta(data.SUGERIDO1, data.META_SUGERIDO1) || '0'}</h2>
+        <h2 className='font-semibold text-lg'>N° Sugeridos Del Día {DeterminarMeta(data.SUGERIDO1 || data.SUGERIDO2, data.META_SUGERIDO1) || '0'}</h2>
       </article>
 
       <article className='flex'>
-        <p> Formularios Impresos: {DeterminarMeta(data.SUGERIDO1, data.VTA_SUGERIDO)}</p>
+        <p> Formularios Impresos: {DeterminarMeta(data.SUGERIDO1 || data.SUGERIDO2, data.VTA_SUGERIDO)}</p>
         <span className='pl-4 font-semibold'>{''}</span>
       </article>
 
