@@ -34,17 +34,11 @@ export function App () {
           })
       } else {
         console.log('No hay token')
-        logout() // Cierra sesión y devuelve al login
+        logout()
       }
     }
-
-    // Comprueba el token inmediatamente
     checkToken()
-
-    // Configura un intervalo para comprobar el token cada hora
     const tokenCheckInterval = setInterval(checkToken, 1000 * 60 * 60)
-
-    // Limpia el intervalo cuando el componente se desmonta
     return () => clearInterval(tokenCheckInterval)
   }, [])
 

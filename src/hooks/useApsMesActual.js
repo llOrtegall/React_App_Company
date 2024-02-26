@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
-import { getDataMesActualAnt } from '../services/getData.js'
+import { getDataMesActual } from '../services/getData.js'
 
 export function useAspiracionMesActual (codigo, zone) {
   const [datosMesAnt, setDatosMesAnt] = useState({})
 
   useEffect(() => {
-    getDataMesActualAnt(codigo, zone)
+    getDataMesActual(codigo, zone)
       .then(data => {
         setDatosMesAnt(data)
       })

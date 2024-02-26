@@ -1,6 +1,6 @@
 import { calcularPorcentaje } from '../utils/progress'
 import { useEffect, useState } from 'react'
-import axios from 'axios'
+import { getSugeridos1 } from '../services/getData.js'
 
 const productMetaMap = {
   CHANCE: 1000,
@@ -28,17 +28,14 @@ export const useSugeridos = ({ zone, user }) => {
   const [error, setError] = useState(null)
 
   useEffect(() => {
-    const fetchData = () => {
-      axios.post('/SugeridosPrimeraConsulta', { codigo, user: username, zona: zone })
-        .then((response) => {
-          setData(response.data)
-        })
-        .catch((error) => {
-          setError(error.response.data.message)
-        })
-    }
-    fetchData()
-    const intervalId = setInterval(fetchData, 5 * 60 * 1000) // Fetch data every 5 minutes
+    getSugeridos1(codigo, username, zone)
+      .then(data => {
+        setData(data)
+      }).catch(error => {
+        setError(error)
+      })
+
+    const intervalId = setInterval(getSugeridos1, 5 * 60 * 1000) // Fetch data every 5 minutes
     return () => clearInterval(intervalId) // Clear interval on component unmount
   }, [])
 
