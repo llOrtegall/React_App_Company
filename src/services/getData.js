@@ -44,6 +44,25 @@ export const getDataMesActual = async (codigo, zone) => {
   }
 }
 
+export const getDataMesAnt = async (codigo, zone) => {
+  try {
+    const response = await axios.post('/cumplimientoMesAnteriorProducto', { codigo, zona: zone })
+
+    let data
+    if (zone === 39627) {
+      data = await UnificarDatosMesAntYumbo(response.data)
+    } else if (zone === 39628) {
+      data = await UnificarDatosMesAntJamundi(response.data)
+    } else {
+      throw new Error('Zona no encontrada')
+    }
+    return data
+  } catch (error) {
+    console.error('Error fetching data: ', error)
+    return new Error('Error fetching data')
+  }
+}
+
 export const getInfoPDV = async (codigo) => {
   try {
     const response = await axios.get('/infoPuntoDeVenta', { params: { codigo } })
