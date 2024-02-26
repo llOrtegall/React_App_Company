@@ -1,7 +1,6 @@
 import { QRCodeCanvas } from 'qrcode.react'
 
 export function GenerateQR ({ usr }) {
-  console.log(usr)
   const ip = '172.20.1.216'
   const { codigo, nombres, username } = usr
 

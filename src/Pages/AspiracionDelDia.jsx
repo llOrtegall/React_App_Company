@@ -25,7 +25,6 @@ function AspiracionDelDia ({ user, zone }) {
         .sort((a, b) => isAscending ? parseFloat(a.porcentaje) - parseFloat(b.porcentaje) : parseFloat(b.porcentaje) - parseFloat(a.porcentaje))
     : []
 
-  console.log(datos)
   return (
     <section className='w-full flex flex-col gap-2 relative'>
 

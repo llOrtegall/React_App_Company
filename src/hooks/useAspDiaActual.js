@@ -1,4 +1,4 @@
-import { getDataAspDia } from '../services/getData'
+import { getDataAspDia } from '../services/getData.js'
 import { useEffect, useState, useCallback } from 'react'
 
 export function useAspiracionDiaActual (codigo, zone) {
