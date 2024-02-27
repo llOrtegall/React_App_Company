@@ -16,7 +16,7 @@ export function AuthProvider ({ children }) {
       setUser(JSON.parse(user))
       setPdv(JSON.parse(pdv))
       setIsAutentificate(true)
-      navigate('/metas/resumen')
+      navigate('/metas')
     }
   }, [])
 
@@ -26,7 +26,7 @@ export function AuthProvider ({ children }) {
       setUser(user)
       setPdv(pdv)
       setIsAutentificate(auth)
-      navigate('/metas/resumen')
+      navigate('/resumen')
     }
   }
 
