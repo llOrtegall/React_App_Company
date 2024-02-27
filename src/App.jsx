@@ -43,7 +43,7 @@ export function App () {
   return (
     <>
       <Routes>
-        <Route path='/' element={<LoginForm />} />
+        <Route index path='/login' element={<LoginForm />} />
         <Route element={<ProtectdeRoutes isAllowed={isAutentificate} />} >
           <Route path='/metas' element={<Layout key={user.username} zona={pdv.zona} punto={pdv}/>} >
             <Route path='resumen' element={<ResumenAsp key={user.username} user={user} catergoria={pdv.CATEGORIA} codigo={user.codigo} nombres={user.nombres} version={pdv.VERSION}/>} />

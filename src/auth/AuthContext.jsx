@@ -33,7 +33,7 @@ export function AuthProvider ({ children }) {
   const logout = () => {
     setIsAutentificate(false)
     localStorage.removeItem('TokenMetas')
-    navigate('/')
+    navigate('/login')
   }
 
   return (
