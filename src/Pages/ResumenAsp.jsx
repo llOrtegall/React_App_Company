@@ -1,11 +1,10 @@
 import { RenderCategoria } from '../components/RenderCategoria'
-import { Cartera } from '../components/InfoCartera'
 import { useResumenAsp } from '../hooks/useResumenAsp'
 import { VentasDiaResumen } from '../components/VentasDiaResumen'
 import { ProgressCircleComponen } from '../components/ProgressCircleComp.jsx'
 import { GenerateQR } from '../components/GenerateQR.jsx'
 function ResumenAsp ({ codigo, nombres, catergoria, version, user }) {
-  const { cartera, color, porcentaje, venta, aspiracion } = useResumenAsp(codigo)
+  const { color, porcentaje, venta, aspiracion } = useResumenAsp(codigo)
 
   return (
     <section className='w-full grid grid-cols-3
@@ -20,8 +19,6 @@ function ResumenAsp ({ codigo, nombres, catergoria, version, user }) {
         <ProgressCircleComponen color={color} porcentaje={porcentaje} />
 
         <VentasDiaResumen venta={venta} aspiracion={aspiracion} />
-
-        <Cartera resports={cartera} />
 
         <div className='w-full flex items-center rounded-lg justify-center py-2 dark:bg-slate-200'>
           <GenerateQR usr={user} />

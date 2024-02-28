@@ -42,7 +42,6 @@ export function App () {
   }, [])
 
   return (
-    <>
       <Routes>
         <Route index path='/login' element={<LoginForm />} />
         <Route element={<ProtectdeRoutes isAllowed={isAutentificate} />} >
@@ -58,6 +57,5 @@ export function App () {
           </Route>
         </Route>
       </Routes>
-    </>
   )
 }
