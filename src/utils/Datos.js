@@ -166,7 +166,7 @@ export async function UnificarDatosYumbo (data) {
 
   const JUEGOS_AZAR = {
     id: 17,
-    producto: 'Juegos De Azar',
+    producto: 'Venta Total Chance',
     ventaActual: ventaActualAzarCal,
     aspiracionDia: aspiracionDiaAzarCal,
     porcentaje: calcularPorcentaje(ventaActualAzarCal, aspiracionDiaAzarCal),

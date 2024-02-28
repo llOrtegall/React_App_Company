@@ -18,37 +18,37 @@ export const NavBar = () => {
 
       <ul className='flex flex-col gap-2 2xl:gap-4'>
         <li>
-          <Link className="hover:text-blue-600 hover:underline lg:flex lg:items-center lg:gap-2 lg:py-2 0xl:gap-6" to="/resumen">
+          <Link className="hover:text-blue-600 hover:underline lg:flex lg:items-center lg:gap-2 lg:py-2 0xl:gap-6" to="/metas/resumen">
             <Dashboard />
             <span className='hidden lg:block text-xs lg:text-sm lg:font-semibold 0xl:text-lg 2xl:text-2xl'>Resumen De Aspiración</span>
           </Link>
         </li>
         <li>
-          <Link className="hover:text-blue-600 hover:underline lg:flex lg:items-center lg:gap-2 lg:py-2 0xl:gap-6" to="/aspiracionDia">
+          <Link className="hover:text-blue-600 hover:underline lg:flex lg:items-center lg:gap-2 lg:py-2 0xl:gap-6" to="/metas/aspiracionDia">
             <SunIcon />
             <span className='hidden lg:block text-xs lg:text-sm lg:font-semibold 0xl:text-lg 2xl:text-2xl'>Aspiración Del Día</span>
           </Link>
         </li>
         <li>
-          <Link className="hover:text-blue-600 hover:underline lg:flex lg:items-center lg:gap-2 lg:py-2 0xl:gap-6" to="/aspiracionMesActual">
+          <Link className="hover:text-blue-600 hover:underline lg:flex lg:items-center lg:gap-2 lg:py-2 0xl:gap-6" to="/metas/aspiracionMesActual">
             <CalendarIcon />
             <span className='hidden lg:block text-xs lg:text-sm lg:font-semibold 0xl:text-lg 2xl:text-2xl'>Aspiración Mes Actual</span>
           </Link>
         </li>
         <li>
-          <Link className="hover:text-blue-600 hover:underline lg:flex lg:items-center lg:gap-2 lg:py-2 0xl:gap-6" to="/aspiracionMesAnterior">
+          <Link className="hover:text-blue-600 hover:underline lg:flex lg:items-center lg:gap-2 lg:py-2 0xl:gap-6" to="/metas/aspiracionMesAnterior">
             <CalendarAntIcon />
             <span className='hidden lg:block text-xs lg:text-sm lg:font-semibold 0xl:text-lg 2xl:text-2xl'>Aspiración Mes Anterior</span>
           </Link>
         </li>
         <li>
-          <Link className="hover:text-blue-600 hover:underline lg:flex lg:items-center lg:gap-2 lg:py-2 0xl:gap-6" to="/sugeridos">
+          <Link className="hover:text-blue-600 hover:underline lg:flex lg:items-center lg:gap-2 lg:py-2 0xl:gap-6" to="/metas/sugeridos">
             <DocsIcon />
             <span className='hidden lg:block text-xs lg:text-sm lg:font-semibold 0xl:text-lg 2xl:text-2xl'>Sugeridos</span>
           </Link>
         </li>
         <li>
-          <Link className="hover:text-blue-600 hover:underline lg:flex lg:items-center lg:gap-2 lg:py-2 0xl:gap-6" to="/historial">
+          <Link className="hover:text-blue-600 hover:underline lg:flex lg:items-center lg:gap-2 lg:py-2 0xl:gap-6" to="/metas/historial">
             <DocsIcon />
             <span className='hidden lg:block text-xs lg:text-sm lg:font-semibold 0xl:text-lg 2xl:text-2xl'>Historial Categorias</span>
           </Link>

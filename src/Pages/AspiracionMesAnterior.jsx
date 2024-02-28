@@ -9,9 +9,17 @@ function AspiracionMesAnterior ({ user, zone }) {
   const [isAscending, setIsAscending] = useState(false)
   const datosMesAnt = useAspiracionDiaActual(codigo, zone)
 
+  // Verifica que los datos existen antes de intentar ordenarlos
   const sortedData = Array.isArray(datosMesAnt)
     ? [...datosMesAnt]
-        .sort((a, b) => isAscending ? parseFloat(a.porcentaje) - parseFloat(b.porcentaje) : parseFloat(b.porcentaje) - parseFloat(a.porcentaje))
+        .sort((a, b) => {
+        // Siempre coloca el elemento con id 'especial' en primer lugar
+          if (a.id === 17) return -1
+          if (b.id === 17) return 1
+
+          // Para todos los demás elementos, ordena por porcentaje
+          return isAscending ? parseFloat(a.porcentaje) - parseFloat(b.porcentaje) : parseFloat(b.porcentaje) - parseFloat(a.porcentaje)
+        })
     : []
 
   return (

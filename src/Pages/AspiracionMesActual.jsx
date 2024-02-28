@@ -11,7 +11,14 @@ function AspiracionMesActual ({ user, zone }) {
 
   const sortedData = Array.isArray(datosMesAct)
     ? [...datosMesAct]
-        .sort((a, b) => isAscending ? parseFloat(a.porcentaje) - parseFloat(b.porcentaje) : parseFloat(b.porcentaje) - parseFloat(a.porcentaje))
+        .sort((a, b) => {
+        // Siempre coloca el elemento con id 'especial' en primer lugar
+          if (a.id === 17) return -1
+          if (b.id === 17) return 1
+
+          // Para todos los demás elementos, ordena por porcentaje
+          return isAscending ? parseFloat(a.porcentaje) - parseFloat(b.porcentaje) : parseFloat(b.porcentaje) - parseFloat(a.porcentaje)
+        })
     : []
 
   return (
