@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { getColombiaTime } from '../services/HoraColombia'
+import { getColombiaTime } from '../services/getData.js'
 
 const ObtenerMes = async (type) => {
   const res = await getColombiaTime()

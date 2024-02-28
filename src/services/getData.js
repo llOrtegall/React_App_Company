@@ -65,7 +65,7 @@ export const getDataMesAnt = async (codigo, zone) => {
 
 export const getInfoPDV = async (codigo) => {
   try {
-    const response = await axios.get('/infoPuntoDeVenta', { params: { codigo } })
+    const response = await axios.get('/infoPuntoDeVenta', { codigo })
     return response.data
   } catch (error) {
     throw new Error('Error Al Obtener Data PDV')
@@ -99,4 +99,12 @@ export async function getUserByToken (token) {
     console.log(error)
     throw error
   }
+}
+
+export const getColombiaTime = async () => {
+  const response = await axios.get('/dataTime')
+
+  const { fecha, hora } = response.data
+
+  return { fecha, hora }
 }

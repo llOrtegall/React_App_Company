@@ -1,4 +1,4 @@
-import { getColombiaTime } from '../services/HoraColombia'
+import { getColombiaTime } from '../services/getData.js'
 import { useEffect, useState, useRef } from 'react'
 import { Cargando } from './animation/Loadin'
 

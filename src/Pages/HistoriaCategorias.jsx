@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { RenderCategoria } from '../components/RenderCategoria'
-import { getColombiaTime } from '../services/HoraColombia'
+import { getColombiaTime } from '../services/getData.js'
 
 export function HistorialCategorias ({ codigo }) {
   const [historial, setHistorial] = useState([])

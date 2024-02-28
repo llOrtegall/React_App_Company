@@ -2,7 +2,6 @@ import { CalendarAntIcon, CalendarIcon, Dashboard, DocsIcon, SunIcon } from '../
 import { useTheme } from '../hooks/useTheme.js'
 import { LogoImage } from './LogoImage.jsx'
 import { Link } from 'react-router-dom'
-import { Switch } from '@tremor/react'
 import { useAuth } from '../auth/AuthContext.jsx'
 
 export const NavBar = () => {
@@ -57,7 +56,8 @@ export const NavBar = () => {
 
       <section className='w-full flex flex-col gap-2 2xl:gap-4 items-center justify-center'>
         <section className='pt-4 min-w-56 py-2 flex justify-center bg-blue-700 rounded-md'>
-          <Switch id="switch" name="switch" checked={darkMode} onChange={toggleTheme} className='w-full' />
+          {/* <Switch id="switch" name="switch" checked={darkMode} onChange={toggleTheme} className='w-full' /> */}
+          <input type="checkbox" checked={darkMode} onChange={toggleTheme}/>
         </section>
 
         <button onClick={logout} className="min-w-56 2xl:py-4 text-white font-semibold
