@@ -362,7 +362,7 @@ export async function UnificarDatosJamundi (data) {
 
   const JUEGOS_AZAR = {
     id: 17,
-    producto: 'Juegos de Azar',
+    producto: 'Venta Total Chance',
     ventaActual: ventaActualAzarCal,
     aspiracionDia: aspiracionDiaAzarCal,
     porcentaje: calcularPorcentaje(ventaActualAzarCal, aspiracionDiaAzarCal),
@@ -558,7 +558,7 @@ export async function UnificarDatosMesAntYumbo (data) {
 
   const JUEGOS_AZAR = {
     id: 17,
-    producto: 'Juegos De Azar',
+    producto: 'Venta Total Chance',
     ventaActual: ventaActualAzarCal,
     aspiracionDia: aspiracionDiaAzarCal,
     porcentaje: calcularPorcentaje(ventaActualAzarCal, aspiracionDiaAzarCal),
@@ -755,7 +755,7 @@ export async function UnificarDatosMesAntJamundi (data) {
 
   const JUEGOS_AZAR = {
     id: 17,
-    producto: 'Juegos de Azar',
+    producto: 'Venta Total Chance',
     ventaActual: ventaActualAzarCal,
     aspiracionDia: aspiracionDiaAzarCal,
     porcentaje: calcularPorcentaje(ventaActualAzarCal, aspiracionDiaAzarCal),
