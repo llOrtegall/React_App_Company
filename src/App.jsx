@@ -20,8 +20,8 @@ import { useEffect } from 'react'
 import { getUserByToken } from './services/getData.js'
 
 export function App () {
-  axios.defaults.baseURL = '/api'
-  // axios.defaults.baseURL = 'http://172.20.1.216:4002'
+  // axios.defaults.baseURL = '/api'
+  axios.defaults.baseURL = 'http://172.20.1.216:4002'
 
   const { isAutentificate, user, pdv, login, logout } = useAuth()
 
@@ -44,9 +44,9 @@ export function App () {
   return (
     <>
       <Routes>
-        <Route index path='/metas/login' element={<LoginForm />} />
+        <Route index path='/login' element={<LoginForm />} />
         <Route element={<ProtectdeRoutes isAllowed={isAutentificate} />} >
-          <Route path='/metas' element={<Layout key={user.username} zona={pdv.zona} punto={pdv}/>} >
+          <Route path='/' element={<Layout key={user.username} zona={pdv.zona} punto={pdv}/>} >
             <Route index path='resumen' element={<ResumenAsp key={user.username} user={user} catergoria={pdv.CATEGORIA} codigo={user.codigo} nombres={user.nombres} version={pdv.VERSION}/>} />
             <Route path='aspiracionDia' element={<AspDelDia key={user.username} user={user} zone={pdv.zona} />} />
             <Route path='producto/:id' element={<MetasxHora />} />

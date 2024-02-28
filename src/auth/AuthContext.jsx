@@ -16,7 +16,7 @@ export function AuthProvider ({ children }) {
       setUser(JSON.parse(user))
       setPdv(JSON.parse(pdv))
       setIsAutentificate(true)
-      navigate('/metas/resumen')
+      navigate('/resumen')
     }
   }, [])
 
@@ -26,14 +26,14 @@ export function AuthProvider ({ children }) {
       setUser(user)
       setPdv(pdv)
       setIsAutentificate(auth)
-      navigate('/metas/resumen')
+      navigate('/resumen')
     }
   }
 
   const logout = () => {
     setIsAutentificate(false)
     localStorage.removeItem('TokenMetas')
-    navigate('/metas/login')
+    navigate('/login')
   }
 
   return (
