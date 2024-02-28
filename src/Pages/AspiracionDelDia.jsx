@@ -1,6 +1,5 @@
 import { BarraProgresoPro } from '../components/progresoVenta'
-import { useNavigate } from 'react-router-dom'
-import { useCallback, useState } from 'react'
+import { useState } from 'react'
 
 import { useAspiracionDiaActual } from '../hooks/useAspDiaActual.js'
 import { TableDatos } from '../components/TableDatos.jsx'
@@ -10,14 +9,9 @@ import { MessageDisplay } from '../components/MessageDisplay.jsx'
 
 function AspiracionDelDia ({ user, zone }) {
   const { codigo } = user
-  const navigate = useNavigate()
 
   const { datos, error } = useAspiracionDiaActual(codigo, zone)
   const [isAscending, setIsAscending] = useState(false)
-
-  const handleClickCard = useCallback((p) => {
-    navigate(`/metas/producto/${p.id}`, { state: { p } })
-  }, [navigate])
 
   // Verifica que los datos existen antes de intentar ordenarlos
   const sortedData = Array.isArray(datos)
@@ -47,7 +41,7 @@ function AspiracionDelDia ({ user, zone }) {
         {
           sortedData !== null && sortedData !== undefined
             ? Object.values(sortedData).map(p => (
-              <button key={p.id} onClick={handleClickCard.bind(null, p)}
+              <button key={p.id}
                 className='hover:border border-black dark:hover:border-white'>
                 <BarraProgresoPro key={p.id}
                   pruducto={p.producto}

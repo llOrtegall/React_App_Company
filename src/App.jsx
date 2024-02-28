@@ -3,7 +3,6 @@ import { Routes, Route } from 'react-router-dom'
 import axios from 'axios'
 
 // TODO: imporación de componentes y hooks
-import { MetasxHora } from './components/MetasPorHora'
 import { Layout } from './components/Layout'
 import { useAuth } from './auth/AuthContext'
 
@@ -48,7 +47,6 @@ export function App () {
           <Route path='/' element={<Layout key={user.username} zona={pdv.zona} punto={pdv}/>} >
             <Route index path='resumen' element={<ResumenAsp key={user.username} user={user} catergoria={pdv.CATEGORIA} codigo={user.codigo} nombres={user.nombres} version={pdv.VERSION}/>} />
             <Route path='aspiracionDia' element={<AspDelDia key={user.username} user={user} zone={pdv.zona} />} />
-            <Route path='producto/:id' element={<MetasxHora />} />
             <Route path='sugeridos' element={<Sugeridos key={pdv.zona} zone={pdv.zona} user={user} />} />
             <Route path='aspiracionMesActual' element={<AspMesActual key={user.codigo} user={user} zone={pdv.zona} />} />
             <Route path='aspiracionMesAnterior' element={<AspMesAnt key={user.codigo} user={user} zone={pdv.zona} />} />
