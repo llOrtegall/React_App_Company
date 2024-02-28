@@ -35,7 +35,7 @@ export function BarraProgresoPro ({ pruducto, ventaActual, aspiracionDia, percen
       </section>
 
       <section className='flex justify-between'>
-        <h4 className='font-semibold'>Porcentaje De Crecimiento:</h4>
+        <h4 className='font-semibold'>Porcentaje De Ejecución:</h4>
         <span>{percentage2 > 100 ? percentage2 : percentage} %</span>
       </section>
 
