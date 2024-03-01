@@ -17,6 +17,7 @@ import { ProtectdeRoutes } from './components/ProtectedRoutes.jsx'
 import { HistorialCategorias } from './Pages/HistoriaCategorias.jsx'
 import { useEffect } from 'react'
 import { getUserByToken } from './services/getData.js'
+import { MetasxHora } from './components/Metasxhora.jsx'
 
 export function App () {
   // axios.defaults.baseURL = '/api'
@@ -51,6 +52,7 @@ export function App () {
             <Route path='aspiracionMesActual' element={<AspMesActual key={user.codigo} user={user} zone={pdv.zona} />} />
             <Route path='aspiracionMesAnterior' element={<AspMesAnt key={user.codigo} user={user} zone={pdv.zona} />} />
             <Route path='historial' element={<HistorialCategorias key={user.codigo} codigo={user.codigo} />} />
+            <Route path='metasporhora' element={<MetasxHora />} />
             <Route path='*' element={<h1>Not Found</h1>} />
           </Route>
         </Route>
