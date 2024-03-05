@@ -20,8 +20,8 @@ import { getUserByToken } from './services/getData.js'
 import { MetasxHora } from './components/Metasxhora.jsx'
 
 export function App () {
-  // axios.defaults.baseURL = '/api'
-  axios.defaults.baseURL = 'http://172.20.1.216:4002'
+  axios.defaults.baseURL = '/api'
+  // axios.defaults.baseURL = 'http://172.20.1.216:4002'
 
   const { isAutentificate, user, pdv, login, logout } = useAuth()
 
