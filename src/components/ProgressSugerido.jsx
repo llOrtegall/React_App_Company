@@ -2,13 +2,13 @@ import { Card, ProgressBar } from '@tremor/react'
 import { calcularPorcentaje, determineProgressColor } from '../utils/progress'
 
 const productMetaMap = {
-  CHANCE: 1000,
+  CHANCE: 2000,
   PAGAMAS: 1500,
   CHOLADITO: 1300,
   PAGATODO: 1500,
   DOBLECHANCE: 4000,
   PATA_MILLONARIA: 6000,
-  CHANCE_MILLONARIO: 5000,
+  CHANCE_MILLONARIO: 10000,
   KASH: 500,
   GANE5: 2000
 }
