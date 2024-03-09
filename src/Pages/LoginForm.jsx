@@ -8,26 +8,29 @@ import { getUserByToken } from '../services/getData.js'
 const LoginForm = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [message, setMessage] = useState('')
-  const [error, setError] = useState('')
+  const [error, setError] = useState(null)
+  const [message, setMessage] = useState(null)
 
   const { login } = useAuth()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setMessage('Iniciando Sesión...')
     try {
       const { data: { auth, token } } = await axios.post('/metasLogin', { username, password })
       localStorage.setItem('TokenMetas', token)
       const DataUser = await getUserByToken(token)
       login(auth, DataUser)
-      setMessage('Iniciando Sesión...')
     } catch (error) {
+      setMessage(null)
       console.log(error)
       if (error.message === 'Network Error') {
         return setError('Servidor No Disponible y/o Error De Conexión, Consulte Con El Administrador')
       }
       setError(error.response?.data?.error || 'Error Inesperado Por Favor Consulte Con El Administrador')
+    } finally {
       setTimeout(() => {
+        setMessage(null)
         setError(null)
       }, 5000)
     }
@@ -55,7 +58,7 @@ const LoginForm = () => {
 
         </form>
 
-        <MessageDisplay message={message} error={error} />
+        <MessageDisplay message={message} error={error}/>
 
       </section>
     </>
