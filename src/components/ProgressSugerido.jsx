@@ -2,23 +2,23 @@ import { Card, ProgressBar } from '@tremor/react'
 import { calcularPorcentaje, determineProgressColor } from '../utils/progress'
 
 const productMetaMap = {
-  CHANCE: 2000,
-  PAGAMAS: 1500,
-  CHOLADITO: 1300,
-  PAGATODO: 1500,
-  DOBLECHANCE: 4000,
-  PATA_MILLONARIA: 6000,
-  CHANCE_MILLONARIO: 10000,
+  CHANCE: 500,
+  PAGAMAS: 750,
+  CHOLADITO: 650,
+  PAGATODO: 1600,
+  DOBLECHANCE: 2000,
+  PATA_MILLONARIA: 3000,
+  CHANCE_MILLONARIO: 5000,
   KASH: 500,
-  GANE5: 2000
+  GANE5: 1000
 }
 
 function DeterminarMeta (product, meta) {
   const divisor = productMetaMap[product]
   if (divisor) {
-    return Math.floor(meta / divisor * 2)
+    return Math.ceil(meta / divisor)
   }
-  return Math.floor(meta)
+  return Math.ceil(meta)
 }
 
 export function ProgressSugerido ({ data }) {
