@@ -1,10 +1,10 @@
 export function RenderCategoria ({ cat: categoria, ver: version, size }) {
   const imageMap = {
-    DIAMANTE: `../public/diamante${version}.png`,
-    ZAFIRO: '../public/zafiro.png',
-    ORO: '../public/oro.png',
-    PLATA: '../public/plata.png',
-    BRONCE: '../public/bronce.png'
+    DIAMANTE: `/diamante${version}.png`,
+    ZAFIRO: '/zafiro.png',
+    ORO: '/oro.png',
+    PLATA: '/plata.png',
+    BRONCE: '/bronce.png'
   }
 
   const RenderImagen = ({ cat }) => {
