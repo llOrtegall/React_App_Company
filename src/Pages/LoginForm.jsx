@@ -5,6 +5,8 @@ import { useAuth } from '../auth/AuthContext.jsx'
 import { useState } from 'react'
 import axios from 'axios'
 import { getUserByToken } from '../services/getData.js'
+import { UserIcon } from '../components/icons/UserIcon.jsx'
+import { LockIcon } from '../components/icons/LockIcon.jsx'
 
 const LoginForm = () => {
   const [username, setUsername] = useState('')
@@ -41,7 +43,7 @@ const LoginForm = () => {
     }
   }
   return (
-    <section className="w-full h-[100vh] flex flex-col items-center justify-center bg-gradient-to-b from-blue-400 to-blue-200">
+    <section className="w-full h-[100vh] flex flex-col items-center justify-center bg-gradient-to-b from-gray-400 to-gray-200">
 
       <form className='w-96 mb-2 border p-12 rounded-lg bg-white/30 flex flex-col gap-4 shadow-xl'>
         <figure className='flex justify-center'>
@@ -49,24 +51,25 @@ const LoginForm = () => {
         </figure>
 
         <article className='w-full flex flex-col gap-2'>
-          <label>Usuario</label>
-          <div className='w-full flex items-center gap-2 justify-around'>
-            {/* <UserIcon size='w-6 xl:w-7 2xl:w-8 3xl:w-10'/> */}
-            <input name='username' type='text' placeholder='CP1118342523' autoComplete='username'
+          <label className='font-semibold'>Usuario</label>
+          <div className='flex items-center w-full justify-around gap-4'>
+            <UserIcon size={10}/>
+            <input name='username' type='text' placeholder='CV1118*****' autoComplete='username' className='w-full p-2 rounded-md border-none outline-none'
               onChange={ev => { setUsername(ev.target.value) }} />
           </div>
         </article>
 
-        <article className='w-full flex flex-col gap-2'>
-          <label>Contraseña</label>
-          <div className='w-full flex items-center gap-2 justify-around'>
-            {/* <LockIcon size='w-6 xl:w-7 2xl:w-8 3xl:w-10' /> */}
-            <input name='password' type='password' placeholder='**********' autoComplete='username'
+        <article className='w-full flex flex-col gap-2 mb-4'>
+          <label className='font-semibold'>Contraseña</label>
+          <div className='flex items-center w-full justify-around gap-4'>
+            <LockIcon size={10}/>
+            <input name='password' type='password' placeholder='**********' autoComplete='username' className='w-full p-2 rounded-md border-none outline-none'
               onChange={ev => { setPassword(ev.target.value) }} />
           </div>
         </article>
 
-         <button onClick={handleSubmit}>Iniciar Sesión</button>
+         <button className='p-2 bg-blue-700 rounded-lg text-white font-semibold shadow-xl hover:bg-blue-900 transition duration-300 ease-in-out cursor-pointer'
+          onClick={handleSubmit}>Iniciar Sesión</button>
       </form>
 
       <section className='h-10'>
