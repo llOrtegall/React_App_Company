@@ -19,8 +19,6 @@ import { useEffect } from 'react'
 import { getUserByToken } from './services/getData.js'
 import { MetasxHora } from './components/Metasxhora.jsx'
 
-// CV31485849
-
 export function App () {
   // axios.defaults.baseURL = '/api'
   axios.defaults.baseURL = 'http://172.20.1.216:4002/api'
