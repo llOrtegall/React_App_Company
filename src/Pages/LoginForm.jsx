@@ -1,4 +1,5 @@
 import { MessageDisplay } from '../components/MessageDisplay.jsx'
+import { Cargando } from '../components/animation/Loadin.jsx'
 import { useAuth } from '../auth/AuthContext.jsx'
 
 import { useState } from 'react'
@@ -10,14 +11,17 @@ const LoginForm = () => {
   const [password, setPassword] = useState('')
   const [error, setError] = useState(null)
   const [message, setMessage] = useState(null)
+  const [loading, setLoading] = useState(false)
 
   const { login } = useAuth()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setLoading(true)
     setMessage('Iniciando Sesión...')
     try {
       const { data: { auth, token } } = await axios.post('/metasLogin', { username, password })
+      setLoading(false)
       localStorage.setItem('TokenMetas', token)
       const DataUser = await getUserByToken(token)
       login(auth, DataUser)
@@ -29,6 +33,7 @@ const LoginForm = () => {
       }
       setError(error.response?.data?.error || 'Error Inesperado Por Favor Consulte Con El Administrador')
     } finally {
+      setLoading(false)
       setTimeout(() => {
         setMessage(null)
         setError(null)
@@ -40,33 +45,33 @@ const LoginForm = () => {
 
       <form className='w-96 mb-2 border p-12 rounded-lg bg-white/30 flex flex-col gap-4 shadow-xl'>
         <figure className='flex justify-center'>
-          {/* <Image src="/gane.webp" className='w-20 xl:w-24 1xl:w-28 3xl:w-32' /> */}
+          <img src="/gane.png" width={180} />
         </figure>
 
         <article className='w-full flex flex-col gap-2'>
-          {/* <Label>Usuario</Label> */}
+          <label>Usuario</label>
           <div className='w-full flex items-center gap-2 justify-around'>
             {/* <UserIcon size='w-6 xl:w-7 2xl:w-8 3xl:w-10'/> */}
-            {/* <Input name='username' type='text' placeholder='CP1118342523' autoComplete='username'
-        onChange={ev => { setUsername(ev.target.value) }} /> */}
+            <input name='username' type='text' placeholder='CP1118342523' autoComplete='username'
+              onChange={ev => { setUsername(ev.target.value) }} />
           </div>
         </article>
 
         <article className='w-full flex flex-col gap-2'>
-          {/* <Label>Contraseña</Label> */}
+          <label>Contraseña</label>
           <div className='w-full flex items-center gap-2 justify-around'>
-            {/* <LockIcon size='w-6 xl:w-7 2xl:w-8 3xl:w-10' />
-      <Input name='password' type='password' placeholder='**********' autoComplete='username'
-        onChange={ev => { setPassword(ev.target.value) }} /> */}
+            {/* <LockIcon size='w-6 xl:w-7 2xl:w-8 3xl:w-10' /> */}
+            <input name='password' type='password' placeholder='**********' autoComplete='username'
+              onChange={ev => { setPassword(ev.target.value) }} />
           </div>
         </article>
 
-        {/* <Button onClick={handleSubmit}>Iniciar Sesión</Button> */}
+         <button onClick={handleSubmit}>Iniciar Sesión</button>
       </form>
 
       <section className='h-10'>
         <MessageDisplay message={message} error={error} />
-        {/* {loading && <Loading />} */}
+        {loading && <Cargando />}
       </section>
     </section>
 
