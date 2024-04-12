@@ -20,8 +20,8 @@ import { getUserByToken } from './services/getData.js'
 import { MetasxHora } from './components/Metasxhora.jsx'
 
 export function App () {
-  // axios.defaults.baseURL = '/api'
-  axios.defaults.baseURL = 'http://172.20.1.216:4002/api'
+  axios.defaults.baseURL = '/api'
+  // axios.defaults.baseURL = 'http://172.20.1.216:4002/api'
 
   const { isAutentificate, user, pdv, login, logout } = useAuth()
 
@@ -42,20 +42,20 @@ export function App () {
   }, [])
 
   return (
-      <Routes>
-        <Route index path='/login' element={<LoginForm />} />
-        <Route element={<ProtectdeRoutes isAllowed={isAutentificate} />} >
-          <Route path='/' element={<Layout key={user.username} zona={pdv.zona} punto={pdv}/>} >
-            <Route index path='resumen' element={<ResumenAsp key={user.username} user={user} catergoria={pdv.CATEGORIA} codigo={user.codigo} nombres={user.nombres} version={pdv.VERSION}/>} />
-            <Route path='aspiracionDia' element={<AspDelDia key={user.username} user={user} zone={pdv.zona} />} />
-            <Route path='sugeridos' element={<Sugeridos key={pdv.zona} zone={pdv.zona} user={user} />} />
-            <Route path='aspiracionMesActual' element={<AspMesActual key={user.codigo} user={user} zone={pdv.zona} />} />
-            <Route path='aspiracionMesAnterior' element={<AspMesAnt key={user.codigo} user={user} zone={pdv.zona} />} />
-            <Route path='historial' element={<HistorialCategorias key={user.codigo} codigo={user.codigo} />} />
-            <Route path='metasporhora' element={<MetasxHora />} />
-            <Route path='*' element={<h1>Not Found</h1>} />
-          </Route>
+    <Routes>
+      <Route index path='/login' element={<LoginForm />} />
+      <Route element={<ProtectdeRoutes isAllowed={isAutentificate} />} >
+        <Route path='/' element={<Layout key={user.username} zona={pdv.zona} punto={pdv} />} >
+          <Route index path='resumen' element={<ResumenAsp key={user.username} user={user} catergoria={pdv.CATEGORIA} codigo={user.codigo} nombres={user.nombres} version={pdv.VERSION} />} />
+          <Route path='aspiracionDia' element={<AspDelDia key={user.username} user={user} zone={pdv.zona} />} />
+          <Route path='sugeridos' element={<Sugeridos key={pdv.zona} zone={pdv.zona} user={user} />} />
+          <Route path='aspiracionMesActual' element={<AspMesActual key={user.codigo} user={user} zone={pdv.zona} />} />
+          <Route path='aspiracionMesAnterior' element={<AspMesAnt key={user.codigo} user={user} zone={pdv.zona} />} />
+          <Route path='historial' element={<HistorialCategorias key={user.codigo} codigo={user.codigo} />} />
+          <Route path='metasporhora' element={<MetasxHora />} />
+          <Route path='*' element={<h1>Not Found</h1>} />
         </Route>
-      </Routes>
+      </Route>
+    </Routes>
   )
 }
