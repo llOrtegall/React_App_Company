@@ -1,3 +1,4 @@
+// import { UserConn } from './connections/userConn';
 import express from 'express';
 import morgan from 'morgan'
 import cors from 'cors'
@@ -17,3 +18,14 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
+
+
+// async function testConnection() {
+//   try {
+//     await UserConn.authenticate()
+//   } catch (error) {
+//     console.error('Error al conectar a la base de datos:', error)
+//   }
+// }
+
+// testConnection()
