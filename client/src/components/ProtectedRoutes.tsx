@@ -8,6 +8,8 @@ interface ProtectedRouteProps {
 }
 
 export const ProtectedRoute: FC<ProtectedRouteProps> = ({ isAllowed, redirectTo = '/login' }) => {
+  console.log(isAllowed)
+
   if (!isAllowed) {
     return <Navigate to={redirectTo} />
   }

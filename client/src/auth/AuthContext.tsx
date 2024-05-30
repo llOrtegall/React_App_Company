@@ -40,7 +40,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         .catch(err => {
           console.error(err)
           localStorage.removeItem('tokenMetas')
-          navigate('/')
+          navigate('/login')
         })
     }
   }
@@ -48,7 +48,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const logout = (): void => {
     setUser(InitialUser)
     localStorage.removeItem('tokenMetas')
-    navigate('/')
+    navigate('/login')
   }
 
   return (
