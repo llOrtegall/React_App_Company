@@ -4,6 +4,7 @@ import { useAuth } from './auth/AuthContext'
 import LoginPage from './pages/LoginForm'
 import { useEffect } from 'react'
 import axios from 'axios'
+import HomePage from './pages/Home'
 
 axios.defaults.baseURL = 'http://localhost:3000/api/v1'
 
@@ -25,7 +26,7 @@ function App () {
       <Routes>
         <Route path='/login' element={<LoginPage />} />
         <Route element={<ProtectedRoute isAllowed={!!user} />}>
-          <Route path='/home' element={<p>Hello</p>} />
+          <Route path='/home' element={<HomePage />} />
         </Route>
       </Routes>
     </>
