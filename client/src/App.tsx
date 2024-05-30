@@ -1,8 +1,8 @@
-import { useEffect } from 'react'
-import { useAuth } from './auth/AuthContext'
 import { ProtectedRoute } from './components/ProtectedRoutes'
 import { Routes, Route } from 'react-router-dom'
+import { useAuth } from './auth/AuthContext'
 import LoginPage from './pages/LoginForm'
+import { useEffect } from 'react'
 import axios from 'axios'
 
 axios.defaults.baseURL = 'http://localhost:3000/api/v1'
