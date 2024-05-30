@@ -1,7 +1,7 @@
 import { UserIcon, LockIcon } from '../components/icons'
+import { getLogin } from '../services/LoginServices'
 import { useAuth } from '../auth/AuthContext'
 import { useState, FormEvent } from 'react'
-import axios from 'axios'
 
 function LoginPage () {
   const [username, setUsername] = useState('')
@@ -11,16 +11,15 @@ function LoginPage () {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
-    console.log(username, password)
 
-    axios.post('/login', { username, password })
+    getLogin({ username, password })
       .then(res => {
-        if (res.data.auth === true) {
-          login(res.data.token)
+        if (res.auth === true) {
+          login(res.token)
         }
       })
       .catch(err => {
-        console.log(err.response.data)
+        console.error(err)
       })
   }
 
