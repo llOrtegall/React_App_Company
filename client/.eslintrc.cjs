@@ -15,7 +15,6 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
-    '@typescript-eslint/explicit-function-return-type': 'warn', // Agrega esta regla para requerir el tipo de retorno en las funciones
     'react/react-in-jsx-scope': 'off', // Agrega esta regla para no requerir la importación de React en archivos JSX o TSX
   },
 }
