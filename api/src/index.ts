@@ -1,12 +1,19 @@
 import express from 'express';
+import morgan from 'morgan'
+import cors from 'cors'
+import 'dotenv/config'
 
+const PORT = process.env.PORT || 3030
 const app = express();
-const port = 3000;
+
+app.use(express.json())
+app.use(morgan('dev'))
+app.use(cors())
 
 app.get('/', (req, res) => {
   res.send('Hola mundo!');
 });
 
-app.listen(port, () => {
-  console.log(`Servidor corriendo en http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
